@@ -402,3 +402,30 @@ Auto-tick: ticking a support (non-.main chip) inside a .gcard also ticks that ca
 chips are .main inside .galt, so they don't trigger it and aren't triggered. (sync_test totals shift by 1 because of this — expected.)
 Warrior Hulking trade-off measured (Warrior Life +20%, Spirit unchanged 145): instead of Muster −16%, FF −8%, Bleed IV −8%,
 Bloodlust −8%, Brutality −2.4% → card note offers "Hulking instead of Brutality" (Int: costs 1 attribute node).
+
+## v2.24 (2026-11-12) — socket compatibility verified; Cleric fix; Discipline removed; PoB code v2.6
+Compatibility test = calcLib.canGrantedEffectSupportActiveSkill against each group's active (summon) skill — the same test PoB's
+gem picker uses. ALL supports on every card pass EXCEPT Prolonged Duration on the Cleric (and Loyalty, never recommended there).
+Cleric's 28 compatible non-Lineage supports include Rapid Casting I–III, Magnified Area, Last Gasp, Sacrificial Lamb, Deathmarch,
+Meat Shield, Elemental Army, Hulking, Minion Mastery. Rapid Casting II = +11% Heal casts (1.79 → 1.99/s); Rapid Casting III = 0
+(counts the PLAYER's spells). → Cleric: Meat Shield II, Rapid Casting II, Elemental Army, Hulking Minions, Minion Mastery.
+LESSON: never add a support by reasoning alone — always run the compatibility test.
+Discipline: Gems.lua Tier = 0 (not cuttable). Only source: unique Stoic Sceptre "Sylvan's Effigy" (req 62, Runes of Aldur):
+"Grants Skill: Level (1-20) Discipline". Removed the Cleric-card alternative (key gem10:Discipline gone); explanatory gem note added;
+"Discipline needs 30 Str" and "Discipline if it fits" removed. PoB group relabelled "not used".
+Gem tiers (Gems.lua Tier; = Uncut Skill Gem level needed): Sniper 1, Unearth 1, Frost Mage 5, Pain Offering 5, Detonate Dead 7,
+Vulnerability 7, Reaver 9, Despair 9, Brute 13, Cleric 13. Warrior: sceptre implicit. Hound: ascendancy. Shown in skill-gem tooltips.
+PoB code v2.6: DD slot 5 = Rapid Casting III; Cleric supports as above; config multiplierNonInstantSpellCastRecently = 3 (+ enemy
+bleeding ON). Verified twice: DD 27,162; others unchanged (Spectre 29,634 …); Spirit 145/165; EHP 1,352. 100 checkboxes.
+
+## v2.25 (2026-11-12) — button diet + Discipline correction
+Discipline: user found (Fextralife wiki) it IS cut from a level-19 Uncut Spirit Gem (char level 84). PoB's Gems.lua Tier = 0 is NOT
+reliable for spirit-gem availability — don't infer "not cuttable" from Tier 0 again. Effect (PoB): "you and Allies in your Presence
+gain additional Total ES" (309 at gem 19, 328 at 20). Unknowns: Spirit cost (none in PoB data) and attribute requirement
+(PoB calcLib.getGemStatRequirement: 13 Str / 29 Int at gem 19; wiki header 58/149, wiki table 45/114). Note tells the user to check the gem.
+Button values (PoB code v2.6, total = minions 55,897 + DD 27,162 = 83,059): Pain Offering off → 0.737× (+36%); DD = 32.7% of total;
+Intimidate (Shattering Roar, config conditionEnemyIntimidated) +10.0%; Vulnerability off → 0.946× (+5.7%); Unearth 5,828 = 7.0% raw
+(competes for corpses with DD); Gas Arrow (Sniper skill 2) 1,062 DPS ≈ 1%; Bonebreaker (Brute skill 2) 4,880; Ice Armour/Shattering Roar 0 DPS.
+→ Rotation: mapping Pain Offering + Detonate Dead; bossing + Shattering Roar; optional Vulnerability. 3 buttons ≈ 87%, 4 ≈ 92%.
+Automation options (Spirit at gem 20): Cast on Dodge 100, Blasphemy 60 per curse, Cast on Minion Death 30 (can't socket minion spells) —
+none fit the 20 spare Spirit. Unearth card kept (optional, keys unchanged).

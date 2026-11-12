@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.23</title>
+<title>MinionGuide — Minion Army Infernalist v2.25</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -156,7 +156,7 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
     <p>Patch 0.5.5 guide and checklist (still current for 0.5.5f). Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.23 · 2026-11-12 · PoB code v2.5</span>
+    <span class="ver">v2.25 · 2026-11-12 · PoB code v2.6</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
@@ -221,8 +221,8 @@ section('gems','--c1','Gem loadout','w-full',(()=>{
     const r=g.key.match(/^gem(\d+):/)[1];
     const DS=D.desc||{};
     const sup=g.sup.map(s=>(s[3]==='or'?'<span class="or" data-tip="Use one of these two.">or</span>':'')+chip(`gem${r}:${s[0]}`,s[4]||s[0],s[1],s[2],false,{d:DS[s[0]]||'',w:s[5]||'',x:s[2]||''})).join('');
-    const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true,{d:DS[g.alt.name]||'',w:g.alt.text})}<span>${esc(g.alt.text)}</span></div>`:'';
-    return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true,{d:DS[g.name]||'',w:(g.sub?g.sub+'. ':'')+(g.spirit&&g.spirit!=='0'?'Reserves '+g.spirit+' Spirit (after your tree\'s 22% reservation efficiency).':'Reserves no Spirit.')+' Ticking any of its supports ticks this too.'})}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit" data-tip="Spirit this gem reserves, after your tree's 22% minion reservation efficiency.">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
+    const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true,{d:DS[g.alt.name]||'',w:g.alt.text+(g.alt.tier?' '+g.alt.tier:'')})}<span>${esc(g.alt.text)}</span></div>`:'';
+    return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true,{d:DS[g.name]||'',w:(g.sub?g.sub+'. ':'')+(g.spirit&&g.spirit!=='0'?'Reserves '+g.spirit+' Spirit (after your tree\'s 22% reservation efficiency).':'Reserves no Spirit.')+' Ticking any of its supports ticks this too.'+(g.tier?' '+g.tier:'')})}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit" data-tip="Spirit this gem reserves, after your tree's 22% minion reservation efficiency.">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
   }).join('');
   return leg+`<div class="ggrid">${cards}</div>`+notes(D.gemNotes);
 })(),{check:true,nav:'Gems',sub:'Every skill gem and support is a checkbox. Diamond colour = gem type. Multipliers in a chip are measured gains.'});

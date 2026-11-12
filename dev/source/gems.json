@@ -96,7 +96,8 @@
     "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
-  "note": "1.12× Brute damage from Bleed IV + Bloodlust (they replace Bleed III and Heavy Swing). Both need enemies already bleeding — the Spectre, Sniper and Detonate Dead keep Bleed III for that."
+  "note": "1.12× Brute damage from Bleed IV + Bloodlust (they replace Bleed III and Heavy Swing). Both need enemies already bleeding — the Spectre, Sniper and Detonate Dead keep Bleed III for that. Press its Shattering Roar command on bosses: Intimidate = +10% army damage.",
+  "tier": "Gem tier 13 — cut it from an Uncut Skill Gem of level 13+."
  },
  {
   "key": "gem2:skill:Skeletal Frost Mage",
@@ -145,13 +146,15 @@
     "Replaced Rapid Casting II: 1.27× Frost Mage damage. More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
-  "note": "Rakiata's Flow is worth about 2.5× Frost Mage damage; nothing replaces it. Muster replaces Rapid Casting II (1.27×).",
+  "note": "Rakiata's Flow is worth about 2.5× Frost Mage damage; nothing replaces it. Muster replaces Rapid Casting II (1.27×). Skip its Ice Armour command (defence only) unless your minions keep dying.",
   "alt": {
    "key": "gem2:Skeletal Reaver",
    "name": "Skeletal Reaver",
    "kind": "spirit",
-   "text": "use instead until you have Rakiata's Flow — 3,642 DPS for 25 Spirit (Frost Mage without it: 1,976 for 32). Supports: Feeding Frenzy, Muster, Brutality III, Heavy Swing, Bloodlust."
-  }
+   "text": "use instead until you have Rakiata's Flow — 3,642 DPS for 25 Spirit (Frost Mage without it: 1,976 for 32). Supports: Feeding Frenzy, Muster, Brutality III, Heavy Swing, Bloodlust.",
+   "tier": "Gem tier 9 — cut it from an Uncut Skill Gem of level 9+."
+  },
+  "tier": "Gem tier 5 — cut it from an Uncut Skill Gem of level 5+."
  },
  {
   "key": "gem3:skill:Skeletal Sniper",
@@ -200,7 +203,8 @@
     "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
-  "note": "⚠ Not Bleed IV here: it can't cause bleeding and only boosts melee hits — 18% less on this ranged minion, and your melee minions rely on this Bleed to keep enemies bleeding."
+  "note": "⚠ Not Bleed IV here: it can't cause bleeding and only boosts melee hits — 18% less on this ranged minion, and your melee minions rely on this Bleed to keep enemies bleeding. Skip its Gas Arrow command — about 1% of your damage.",
+  "tier": "Gem tier 1 — cut it from any Uncut Skill Gem."
  },
  {
   "key": "gem4:skill:Skeletal Warrior",
@@ -250,7 +254,8 @@
     "Melee: more damage against bleeding enemies. Stacks with Bleed IV. Needs enemies already bleeding."
    ]
   ],
-  "note": "1.42× Warrior damage over the old set: Muster replaces Hulking Minions; Bleed IV + Bloodlust replace Heavy Swing + Bleed III. Want tougher Warriors? Hulking Minions instead of Brutality: +20% Life for only −2.4% damage (Int — needs 1 attribute node)."
+  "note": "1.42× Warrior damage over the old set: Muster replaces Hulking Minions; Bleed IV + Bloodlust replace Heavy Swing + Bleed III. Want tougher Warriors? Hulking Minions instead of Brutality: +20% Life for only −2.4% damage (Int — needs 1 attribute node).",
+  "tier": "Not cut from uncut gems — granted by Rattling, Lupine and Ochre sceptre bases."
  },
  {
   "key": "gem5:skill:Summon Infernal Hound",
@@ -299,7 +304,8 @@
     "Melee: more damage against bleeding enemies. Stacks with Bleed IV. Needs enemies already bleeding."
    ]
   ],
-  "note": "1.24× Hound damage (Bleed IV + Bloodlust replace Heft + Bleed III). Keep Loyalty — it takes 10% of the hits aimed at you. PoB can't store supports on the Hound — socket them in game."
+  "note": "1.24× Hound damage (Bleed IV + Bloodlust replace Heft + Bleed III). Keep Loyalty — it takes 10% of the hits aimed at you. PoB can't store supports on the Hound — socket them in game.",
+  "tier": "Granted by the Loyal Hellhound Ascendancy node."
  },
  {
   "key": "gem6:skill:Detonate Dead",
@@ -355,7 +361,8 @@
     "Fallback for slot 5 if you rarely cast 3+ different spells: 1.20×. Int."
    ]
   ],
-  "note": "+37% on top of the army. First three: 1.80×. Slots 4–5 are Int (no Str support helps): Concentrated Area 1.30×, then Rapid Casting III — it speeds up per different spell you've cast recently: 1.27× with 3, 1.36× with 4 (Unearth, Pain Offering, Detonate Dead, Vulnerability). If you rarely cast 3+ different spells, use Unleash (1.20×). Rapid Casting II is weaker than both (1.18×). ⚠ Not Bleed IV here: Detonate Dead isn't melee, so Bleed IV loses 15% and stops it causing bleeding."
+  "note": "+37% on top of the army. First three: 1.80×. Slots 4–5 are Int (no Str support helps): Concentrated Area 1.30×, then Rapid Casting III — it speeds up per different spell you've cast recently: 1.27× with 3, 1.36× with 4 (Unearth, Pain Offering, Detonate Dead, Vulnerability). If you rarely cast 3+ different spells, use Unleash (1.20×). Rapid Casting II is weaker than both (1.18×). ⚠ Not Bleed IV here: Detonate Dead isn't melee, so Bleed IV loses 15% and stops it causing bleeding.",
+  "tier": "Gem tier 7 — cut it from an Uncut Skill Gem of level 7+."
  },
  {
   "key": "gem7:skill:Pain Offering",
@@ -387,7 +394,8 @@
     "+1 level to Pain Offering: 1.01×."
    ]
   ],
-  "note": "Use both Offering supports — they stack: 1.13× army damage together, 1.14× with Minion Mastery. Sacrificial Offering costs some of your Life per cast; Danse Macabre also targets one extra skeleton. Nothing else measurably helps, so slots 4–5 are free."
+  "note": "Use both Offering supports — they stack: 1.13× army damage together, 1.14× with Minion Mastery. Sacrificial Offering costs some of your Life per cast; Danse Macabre also targets one extra skeleton. Nothing else measurably helps, so slots 4–5 are free.",
+  "tier": "Gem tier 5 — cut it from an Uncut Skill Gem of level 5+."
  },
  {
   "key": "gem8:skill:Vulnerability",
@@ -431,9 +439,11 @@
    "key": "gem8:Despair",
    "name": "Despair",
    "kind": "skill",
-   "text": "use instead if enemies resist physical damage"
+   "text": "use instead if enemies resist physical damage",
+   "tier": "Gem tier 9 — cut it from an Uncut Skill Gem of level 9+."
   },
-  "note": "+7% army damage. Curse supports change strength, area or duration — PoB can't score them."
+  "note": "+7% army damage. Curse supports change strength, area or duration — PoB can't score them. Optional 4th button.",
+  "tier": "Gem tier 7 — cut it from an Uncut Skill Gem of level 7+."
  },
  {
   "key": "gem9:skill:Unearth",
@@ -482,7 +492,8 @@
     "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Int."
    ]
   ],
-  "note": "Consumes corpses → Bone Constructs. Bleed IV and Bloodlust stack here too. Its damage is small next to the army, so these are low priority."
+  "note": "Optional — dropped from the rotation: only 7% of your damage, and it eats the corpses Detonate Dead needs. Consumes corpses → Bone Constructs. Bleed IV and Bloodlust stack here too. Its damage is small next to the army, so these are low priority.",
+  "tier": "Gem tier 1 — cut it from any Uncut Skill Gem."
  },
  {
   "key": "gem10:Skeletal Cleric",
@@ -500,12 +511,12 @@
     "The Cleric deals no damage, so Meat Shield's damage penalty costs nothing — and it takes much less damage: 1.67× survival."
    ],
    [
-    "Prolonged Duration II",
-    "str",
+    "Rapid Casting II",
+    "int",
+    "1.11× casts",
     null,
-    null,
-    "Prolonged Duration I/II",
-    "Longer Heal buff. PoB can't score it."
+    "Rapid Casting I–II",
+    "The Cleric casts Heal and Resurrect 11% more often (1.79 → 1.99 casts/s). Rapid Casting III does nothing here — it counts your recent spells, not the Cleric's. Int."
    ],
    [
     "Elemental Army",
@@ -532,12 +543,7 @@
     "+1 level for the Cleric: 1.09× survival. Int."
    ]
   ],
-  "alt": {
-   "key": "gem10:Discipline",
-   "name": "Discipline",
-   "kind": "aura",
-   "text": "+328 ES, +18% EHP — if its Spirit cost fits (unknown)"
-  },
-  "note": "Meat Shield is right here: it cuts the Cleric's damage (which it doesn't need) and the damage it takes. Infernal Legion is out — it sets the Cleric itself on fire. Prolonged Duration II lengthens its Heal buff (PoB can't score it). Hulking Minions doesn't raise its Spirit cost. Multipliers = Cleric survival."
+  "note": "Meat Shield is right here: it cuts the Cleric's damage (which it doesn't need) and the damage it takes. Infernal Legion is out — it sets the Cleric itself on fire. Rapid Casting makes it heal and resurrect more often. Hulking Minions doesn't raise its Spirit cost. Survival multipliers are the Cleric's own (PoB can't value healing). All five supports verified to fit its socket.",
+  "tier": "Gem tier 13 — cut it from an Uncut Skill Gem of level 13+."
  }
 ]
