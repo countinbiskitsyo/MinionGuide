@@ -429,3 +429,25 @@ Intimidate (Shattering Roar, config conditionEnemyIntimidated) +10.0%; Vulnerabi
 → Rotation: mapping Pain Offering + Detonate Dead; bossing + Shattering Roar; optional Vulnerability. 3 buttons ≈ 87%, 4 ≈ 92%.
 Automation options (Spirit at gem 20): Cast on Dodge 100, Blasphemy 60 per curse, Cast on Minion Death 30 (can't socket minion spells) —
 none fit the 20 spare Spirit. Unearth card kept (optional, keys unchanged).
+
+## v2.26 (2026-11-12) — Unearth kept (user's spam button)
+User: Unearth is their spam skill and its temporary Bone Constructs matter to them. Agreed: PoB counts only their 7% damage, not
+their value as extra bodies; corpse competition with Detonate Dead is real only on bosses (mapping has plenty of enemy corpses).
+Rotation now: mapping Unearth (spam) + Pain Offering + Detonate Dead; bossing Pain Offering + Shattering Roar + Detonate Dead,
+Unearth once corpses pile up; Vulnerability optional; skip Gas Arrow and Ice Armour. Unearth card sub = "your spam button".
+LESSON: the user's play preferences outrank a pure damage ranking — present cuts as options, not verdicts.
+
+## v2.27 (2026-11-12) — "How to play" from the user's in-game stats (section ⑥ renamed)
+User's character (screenshots, Forbidden Rites league): level 82 Infernalist "Tevelsa". Str 152, Dex 57, Int 136. Life 2,585
+(1,938 unreserved, 647 reserved — Beidat's Will only, Hand not yet). ES 5,099, recharge 637/s, delay 4 s. Mana 776, regen 129.1/s.
+Spirit 458/464 used (multiple copies of minions — buff bar counts 3,3,2,3,3,2). All res 75% incl. chaos (overcap: fire 80, cold 101,
+light 103, chaos 76). Armour 11%, evasion 13%, block 25%, movement +26%. Recoup: 9% damage, 20% elemental.
+→ Holding E (Unearth ≈ 100 mana/s at gem 20) IS sustainable with 129/s regen — the earlier gearless warning (27/s) no longer applies;
+mana-regen gear rows NOT needed. Section ⑥ is now "How to play": mapping (hold E, tap Pain Offering + Detonate Dead), bossing
+(open PO + Shattering Roar, save first corpses for DD), staying alive (ES 4 s delay → roll away), keys (E Unearth, W/R PO/DD, Q Roar).
+Key letters are a suggestion — the user's actual bindings weren't identified from the screenshots.
+
+## v2.28 (2026-11-12) — user's key layout + mapping/bossing plans with keys
+User bound: E Unearth (hold), W Pain Offering, R Detonate Dead, Q Shattering Roar (Brute command), Right-click Vulnerability.
+Mapping = 3 buttons (E, W, R); Q + right-click only on rares and map bosses. Bossing = all 5, with an explicit order and a
+"drop Vulnerability first, then Roar" rule. Brute and Vulnerability card notes updated to match.

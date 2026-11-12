@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.25</title>
+<title>MinionGuide — Minion Army Infernalist v2.28</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -156,7 +156,7 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
     <p>Patch 0.5.5 guide and checklist (still current for 0.5.5f). Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.25 · 2026-11-12 · PoB code v2.6</span>
+    <span class="ver">v2.28 · 2026-11-12 · PoB code v2.6</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
@@ -239,7 +239,7 @@ section('tree','--c5','Passive tree — 25 phases','w-full',`<div class="tgrid">
 // ⑥ Gear targets (merged)
 section('gear','--c6','Gear targets — every slot','w-full',`<div class="ref gt">${D.gearNotes}${D.gearTargets}</div>`,{nav:'Gear'});
 // ⑦ ⑧
-section('rotation','--c7','Rotation & troubleshooting','w-half',`<div class="ref">${D.rot}</div>`,{nav:'Rotation'});
+section('rotation','--c7','How to play','w-half',`<div class="ref">${D.rot}</div>`,{nav:'How to play'});
 section('stat','--c8','Stat priority & checkpoints','w-half',`<div class="ref">${D.stat}</div>`,{nav:'Stats'});
 document.querySelectorAll('.ref table').forEach(t=>{const w=document.createElement('div'); w.className='tw'; t.parentNode.insertBefore(w,t); w.appendChild(t);});
 nav.innerHTML=SECS.map(s=>`<a href="#${s.id}" style="--c:var(${s.cvar})">${s.num} ${esc(s.nav)}</a>`).join('');

@@ -96,7 +96,7 @@
     "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
-  "note": "1.12× Brute damage from Bleed IV + Bloodlust (they replace Bleed III and Heavy Swing). Both need enemies already bleeding — the Spectre, Sniper and Detonate Dead keep Bleed III for that. Press its Shattering Roar command on bosses: Intimidate = +10% army damage.",
+  "note": "1.12× Brute damage from Bleed IV + Bloodlust (they replace Bleed III and Heavy Swing). Both need enemies already bleeding — the Spectre, Sniper and Detonate Dead keep Bleed III for that. Its Shattering Roar command (Q) is a boss and rare button: Intimidate = +10% army damage.",
   "tier": "Gem tier 13 — cut it from an Uncut Skill Gem of level 13+."
  },
  {
@@ -442,14 +442,14 @@
    "text": "use instead if enemies resist physical damage",
    "tier": "Gem tier 9 — cut it from an Uncut Skill Gem of level 9+."
   },
-  "note": "+7% army damage. Curse supports change strength, area or duration — PoB can't score them. Optional 4th button.",
+  "note": "+7% army damage. Curse supports change strength, area or duration — PoB can't score them. Your right-click button — rares and bosses only.",
   "tier": "Gem tier 7 — cut it from an Uncut Skill Gem of level 7+."
  },
  {
   "key": "gem9:skill:Unearth",
   "name": "Unearth",
   "kind": "skill",
-  "sub": "spam this",
+  "sub": "your spam button",
   "sup": [
    [
     "Bleed IV",
@@ -492,7 +492,7 @@
     "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Int."
    ]
   ],
-  "note": "Optional — dropped from the rotation: only 7% of your damage, and it eats the corpses Detonate Dead needs. Consumes corpses → Bone Constructs. Bleed IV and Bloodlust stack here too. Its damage is small next to the army, so these are low priority.",
+  "note": "Your spam button. Consumes corpses → temporary Bone Constructs: 7% of your damage, plus extra bodies that soak hits and pull enemies off you (PoB can't value that). On bosses corpses are scarce — save them for Detonate Dead, then spam Unearth once they pile up. Bleed IV and Bloodlust stack here too.",
   "tier": "Gem tier 1 — cut it from any Uncut Skill Gem."
  },
  {
