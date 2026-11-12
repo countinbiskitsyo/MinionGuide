@@ -20,6 +20,8 @@ The page has seven numbered sections. Each one can be collapsed, and the page re
 6. **Rotation & troubleshooting** — what to press when mapping and bossing.
 7. **Stat priority & checkpoints** — measured stat values and the expected Life / ES / Spirit at each tree checkpoint.
 
+**Hover over any gem or support** to see what it does in game and why it's in that slot (with the measured gain). Ticking a support also ticks its skill gem.
+
 The top bar also has:
 
 - **PoB code** — opens the Path of Building code with a one-click Copy button (final tree, 4 levelling checkpoints, full gem loadout).
@@ -39,7 +41,7 @@ Printable PDFs (a 2-page cheatsheet and a 2-page gear sheet, made for double-sid
 
 ## About the numbers
 
-Every recommendation is measured in Path of Building (PoE2) 0.23.1 for patch 0.5.5, on a gearless level-100 character. A full rebuild is planned for Path of Exile 2 1.0 (December 11, 2026).
+Every recommendation is measured in Path of Building (PoE2) 0.23.1 for patch 0.5.5 (still current for 0.5.5f — its patches since then changed nothing for this build), on a gearless level-100 character. A full rebuild is planned for Path of Exile 2 1.0 (December 11, 2026).
 
 ## Repository layout
 

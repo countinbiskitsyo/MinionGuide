@@ -8,29 +8,43 @@
   "sup": [
    [
     "Concentrated Area",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "The Orb Explosion is an area hit: a smaller area that deals more damage. Part of the best measured set — no swap beat it."
    ],
    [
     "Feeding Frenzy I",
     "int",
     null,
     null,
-    "Feeding Frenzy I/II"
+    "Feeding Frenzy I/II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
    ],
    [
     "Bleed III",
     "str",
     "not IV",
     null,
-    "Bleed I–III"
+    "Bleed I–III",
+    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−11%): it can't cause bleeding and only boosts melee hits."
    ],
    [
     "Muster",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ],
    [
     "Heft",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Raises the maximum damage of each physical hit."
    ]
   ],
   "note": "2.6× the Vaal Guard on the same setup. For mapping: Nymph Wasp (Ashen Forest, Interlude · skill 3) does 65% of the damage at 2.3× the speed, 48 Spirit. ⚠ Not Bleed IV here: it can't cause bleeding and only boosts melee hits — 11% less on this spectre, and your melee minions rely on this Bleed to keep enemies bleeding."
@@ -46,26 +60,40 @@
     "int",
     null,
     null,
-    "Feeding Frenzy I/II"
+    "Feeding Frenzy I/II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
    ],
    [
     "Bleed IV",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. With Bloodlust: 1.12× Brute damage."
    ],
    [
     "Brutality III",
     "str",
     null,
     null,
-    "Brutality I–III"
+    "Brutality I–III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have."
    ],
    [
     "Bloodlust",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee: more damage against bleeding enemies. Stacks with Bleed IV. Needs enemies already bleeding."
    ],
    [
     "Muster",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
   "note": "1.12× Brute damage from Bleed IV + Bloodlust (they replace Bleed III and Heavy Swing). Both need enemies already bleeding — the Spectre, Sniper and Detonate Dead keep Bleed III for that."
@@ -78,27 +106,43 @@
   "sup": [
    [
     "Rakiata's Flow",
-    "lin"
+    "lin",
+    null,
+    null,
+    null,
+    "Lineage gem — about 2.5× Frost Mage damage; nothing replaces it. Only one Lineage gem per build. Until you find one, run a Skeletal Reaver instead."
    ],
    [
     "Feeding Frenzy I",
     "int",
     null,
     null,
-    "Feeding Frenzy I/II"
+    "Feeding Frenzy I/II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
    ],
    [
     "Cold Attunement",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "The Frost Mage deals cold damage; this adds more of it."
    ],
    [
     "Elemental Focus",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "More elemental damage, but no elemental ailments."
    ],
    [
     "Muster",
     "int",
-    "1.27×"
+    "1.27×",
+    null,
+    null,
+    "Replaced Rapid Casting II: 1.27× Frost Mage damage. More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
   "note": "Rakiata's Flow is worth about 2.5× Frost Mage damage; nothing replaces it. Muster replaces Rapid Casting II (1.27×).",
@@ -120,29 +164,40 @@
     "int",
     null,
     null,
-    "Feeding Frenzy I/II"
+    "Feeding Frenzy I/II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
    ],
    [
     "Brutality III",
     "str",
     null,
     null,
-    "Brutality I–III"
+    "Brutality I–III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have."
    ],
    [
     "Bleed III",
     "str",
     "not IV",
     null,
-    "Bleed I–III"
+    "Bleed I–III",
+    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−18%): it can't cause bleeding and only boosts melee hits."
    ],
    [
     "Heft",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Raises the maximum damage of each physical hit."
    ],
    [
     "Muster",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
    ]
   ],
   "note": "⚠ Not Bleed IV here: it can't cause bleeding and only boosts melee hits — 18% less on this ranged minion, and your melee minions rely on this Bleed to keep enemies bleeding."
@@ -159,29 +214,43 @@
     "int",
     null,
     null,
-    "Feeding Frenzy I/II"
+    "Feeding Frenzy I/II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
    ],
    [
     "Muster",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "Replaced Hulking Minions: 1.19× Warrior damage. Muster scales with your 5 minion kinds; Hulking is a flat 20%. The cost: Hulking's +20% Life — see the card note for a way to keep it."
    ],
    [
     "Brutality III",
     "str",
     null,
     null,
-    "Brutality I–III"
+    "Brutality I–III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. The cheapest slot to give up for Hulking Minions (−2.4% damage)."
    ],
    [
     "Bleed IV",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust."
    ],
    [
     "Bloodlust",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee: more damage against bleeding enemies. Stacks with Bleed IV. Needs enemies already bleeding."
    ]
   ],
-  "note": "1.42× Warrior damage over the old set: Muster replaces Hulking Minions; Bleed IV + Bloodlust replace Heavy Swing + Bleed III."
+  "note": "1.42× Warrior damage over the old set: Muster replaces Hulking Minions; Bleed IV + Bloodlust replace Heavy Swing + Bleed III. Want tougher Warriors? Hulking Minions instead of Brutality: +20% Life for only −2.4% damage (Int — needs 1 attribute node)."
  },
  {
   "key": "gem5:skill:Summon Infernal Hound",
@@ -191,26 +260,43 @@
   "sup": [
    [
     "Loyalty",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "Defensive: the Hound takes 10% of the hits aimed at you. Kept even though Muster would add more Hound damage."
    ],
    [
     "Heavy Swing",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee: more physical damage, slower attacks."
    ],
    [
     "Brutality II",
     "str",
     null,
     null,
-    "Brutality I–III"
+    "Brutality I–III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have."
    ],
    [
     "Bleed IV",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. With Bloodlust: 1.24× Hound damage."
    ],
    [
     "Bloodlust",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Melee: more damage against bleeding enemies. Stacks with Bleed IV. Needs enemies already bleeding."
    ]
   ],
   "note": "1.24× Hound damage (Bleed IV + Bloodlust replace Heft + Bleed III). Keep Loyalty — it takes 10% of the hits aimed at you. PoB can't store supports on the Hound — socket them in game."
@@ -225,34 +311,48 @@
     "str",
     null,
     null,
-    "Brutality I–III"
+    "Brutality I–III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have."
    ],
    [
     "Bleed III",
     "str",
     "not IV",
     null,
-    "Bleed I–III"
+    "Bleed I–III",
+    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−15%): it can't cause bleeding and only boosts melee hits."
    ],
    [
     "Heft",
-    "str"
+    "str",
+    null,
+    null,
+    null,
+    "Raises the maximum damage of each physical hit."
    ],
    [
     "Concentrated Area",
     "int",
-    "1.30×"
+    "1.30×",
+    null,
+    null,
+    "Detonate Dead explodes in an area: smaller area, more damage — 1.30×. Int: needs 1 attribute node switched from Str."
    ],
    [
     "Rapid Casting III",
     "int",
-    "1.27–1.36×"
+    "1.27–1.36×",
+    null,
+    null,
+    "Casts faster for each different spell you've cast recently: 1.27× with 3, 1.36× with 4. Beats Rapid Casting II (1.18×). Int."
    ],
    [
     "Unleash",
     "int",
     "1.20×",
-    "or"
+    "or",
+    null,
+    "Fallback for slot 5 if you rarely cast 3+ different spells: 1.20×. Int."
    ]
   ],
   "note": "+37% on top of the army. First three: 1.80×. Slots 4–5 are Int (no Str support helps): Concentrated Area 1.30×, then Rapid Casting III — it speeds up per different spell you've cast recently: 1.27× with 3, 1.36× with 4 (Unearth, Pain Offering, Detonate Dead, Vulnerability). If you rarely cast 3+ different spells, use Unleash (1.20×). Rapid Casting II is weaker than both (1.18×). ⚠ Not Bleed IV here: Detonate Dead isn't melee, so Bleed IV loses 15% and stops it causing bleeding."
@@ -265,17 +365,26 @@
    [
     "Sacrificial Offering",
     "int",
-    "1.06×"
+    "1.06×",
+    null,
+    null,
+    "Pain Offering sacrifices some of your Life per cast for a stronger buff: 1.06× army damage. Stacks with Danse Macabre (1.13× together)."
    ],
    [
     "Danse Macabre",
     "int",
-    "1.06×"
+    "1.06×",
+    null,
+    null,
+    "Stronger buff, and it also targets one extra skeleton: 1.06×. Stacks with Sacrificial Offering."
    ],
    [
     "Minion Mastery",
     "int",
-    "1.01×"
+    "1.01×",
+    null,
+    null,
+    "+1 level to Pain Offering: 1.01×."
    ]
   ],
   "note": "Use both Offering supports — they stack: 1.13× army damage together, 1.14× with Minion Mastery. Sacrificial Offering costs some of your Life per cast; Danse Macabre also targets one extra skeleton. Nothing else measurably helps, so slots 4–5 are free."
@@ -290,19 +399,32 @@
     "str",
     null,
     null,
-    "Prolonged Duration I/II"
+    "Prolonged Duration I/II",
+    "Longer curse duration. Str — no attribute node needed. PoB can't score curse supports."
    ],
    [
     "Heightened Curse",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "A stronger curse. Int. PoB can't score curse supports."
    ],
    [
     "Ritualistic Curse",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "A bigger curse area, but slower to apply. Int."
    ],
    [
     "Focused Curse",
-    "int"
+    "int",
+    null,
+    null,
+    null,
+    "Curses enemies faster after casting. Int."
    ]
   ],
   "alt": {
@@ -322,29 +444,42 @@
    [
     "Bleed IV",
     "str",
-    "1.22×"
+    "1.22×",
+    null,
+    null,
+    "Bone Constructs are melee: Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust."
    ],
    [
     "Bloodlust",
     "str",
-    "1.22×"
+    "1.22×",
+    null,
+    null,
+    "Melee: more damage against bleeding enemies. Stacks with Bleed IV. Needs enemies already bleeding."
    ],
    [
     "Brutality III",
     "str",
     "1.21×",
     null,
-    "Brutality I–III"
+    "Brutality I–III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have."
    ],
    [
     "Heft",
     "str",
-    "1.18×"
+    "1.18×",
+    null,
+    null,
+    "Raises the maximum damage of each physical hit."
    ],
    [
     "Muster",
     "int",
-    "1.33×"
+    "1.33×",
+    null,
+    null,
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Int."
    ]
   ],
   "note": "Consumes corpses → Bone Constructs. Bleed IV and Bloodlust stack here too. Its damage is small next to the army, so these are low priority."
@@ -361,29 +496,40 @@
     "str",
     "1.67×",
     null,
-    "Meat Shield I/II"
+    "Meat Shield I/II",
+    "The Cleric deals no damage, so Meat Shield's damage penalty costs nothing — and it takes much less damage: 1.67× survival."
    ],
    [
     "Prolonged Duration II",
     "str",
     null,
     null,
-    "Prolonged Duration I/II"
+    "Prolonged Duration I/II",
+    "Longer Heal buff. PoB can't score it."
    ],
    [
     "Elemental Army",
     "int",
-    "1.36×"
+    "1.36×",
+    null,
+    null,
+    "More elemental resistance for the Cleric: 1.36× survival. Int."
    ],
    [
     "Hulking Minions",
     "int",
-    "1.19×"
+    "1.19×",
+    null,
+    null,
+    "More Life and size; doesn't raise the Cleric's Spirit cost: 1.19× survival. Int."
    ],
    [
     "Minion Mastery",
     "int",
-    "1.09×"
+    "1.09×",
+    null,
+    null,
+    "+1 level for the Cleric: 1.09× survival. Int."
    ]
   ],
   "alt": {

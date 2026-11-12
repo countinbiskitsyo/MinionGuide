@@ -391,3 +391,14 @@ Rapid Casting III (per different spell cast recently; config multiplierNonInstan
 = 1.00× (0 spells), 1.18× (2), 1.27× (3), 1.36× (4) vs Unleash 1.20×, Rapid Casting II 1.18×, Considered Casting 1.17×, Controlled Destruction 1.12×.
 → DD slot 5: Rapid Casting III (new key gem6:Rapid Casting III), or Unleash if you rarely cast 3+ different spells. PoB code v2.5 still has Unleash.
 TRAP: the first calculation right after loading a build can be stale — always measure twice / discard the first reading.
+
+## v2.23 (2026-11-12) — tooltips + auto-tick parent skill gem
+Tooltips: custom #tip element (hover after 180 ms, keyboard focus, Esc/scroll hides). Gem chips show name + tier label, kind
+(Str/Int/Lineage support, skill gem, reserves Spirit, Spirit gem), the in-game description (dev/source/gem_descriptions.json,
+extracted from PoB grantedEffect.description; "Bind Spectre" written by hand) and "Why here" = gems.json sup[5] (53 support reasons;
+skill chips explain Spirit; alternatives use their alt text). Anything else can carry data-tip="…" (top-bar buttons, tick buttons,
+Spirit badges, "or"). All 67 gem chips verified to show description + why.
+Auto-tick: ticking a support (non-.main chip) inside a .gcard also ticks that card's .ghead .chip.main. One way only; Alternative
+chips are .main inside .galt, so they don't trigger it and aren't triggered. (sync_test totals shift by 1 because of this — expected.)
+Warrior Hulking trade-off measured (Warrior Life +20%, Spirit unchanged 145): instead of Muster −16%, FF −8%, Bleed IV −8%,
+Bloodlust −8%, Brutality −2.4% → card note offers "Hulking instead of Brutality" (Int: costs 1 attribute node).

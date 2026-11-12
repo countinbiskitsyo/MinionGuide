@@ -13,6 +13,7 @@ d['gearTargets']=frag[:i]+'<div class="slots">'+frag[i:]+'</div>'
 gn=[n for n in re.findall(r'<div class="note[^"]*">.*?</div>',d['gear'],re.S) if 'While levelling' not in n]
 d['gearNotes']='<div class="notes" style="margin-top:0;margin-bottom:12px">'+''.join(gn)+'</div>'
 d['pob']=rd('..','PoB_code.txt').strip()
+d['desc']=json.loads(rd('gem_descriptions.json'))             # in-game gem descriptions (tooltips)
 out=t.replace('__DATA__',json.dumps(d,ensure_ascii=False).replace('</','<\\/'))
 open(os.path.join(H,'..','..','index.html'),'w',encoding='utf-8').write(out)
 print('index.html written',len(out))

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.22</title>
+<title>MinionGuide — Minion Army Infernalist v2.23</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -89,6 +89,11 @@ section.sec.closed .sbody{display:none}
 .chip.main .dot{width:12px;height:12px}
 .chip.main[aria-checked="true"]{background:color-mix(in srgb,var(--k) 42%,transparent);border-color:var(--k)}
 .or{font-size:14px;color:var(--muted);font-style:italic;margin:0 2px}
+#tip{position:fixed;z-index:30;max-width:400px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--gold) 70%,var(--line));border-radius:8px;padding:10px 13px;box-shadow:0 8px 28px #0007;font-size:14.5px;line-height:1.45;pointer-events:none}
+#tip .tt{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:15px}
+#tip .ta{font-size:12.5px;color:var(--muted);margin:1px 0 6px}
+#tip .td{margin:0 0 6px}
+#tip .tw b{color:var(--goldtext)}
 button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .spirit{font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:0 8px;white-space:nowrap}
 .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:12px}
@@ -151,16 +156,16 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
     <p>Patch 0.5.5 guide and checklist (still current for 0.5.5f). Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.22 · 2026-11-12 · PoB code v2.5</span>
+    <span class="ver">v2.23 · 2026-11-12 · PoB code v2.5</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
     <div class="navscroll" id="nav"></div>
-    <button class="tog" id="pobBtn" type="button" aria-expanded="false" aria-controls="pobPanel">PoB code</button>
-    <button class="tog" id="openAll" type="button">Expand all</button>
-    <button class="tog" id="closeAll" type="button">Collapse all</button>
-    <button class="tog" id="hideBtn" type="button" aria-pressed="false">Hide collected</button>
-    <button class="tog" id="syncBtn" type="button" title="Back up your ticks to your GitHub account">Sync</button>
+    <button class="tog" id="pobBtn" type="button" aria-expanded="false" aria-controls="pobPanel" data-tip="Show the Path of Building code with a Copy button.">PoB code</button>
+    <button class="tog" id="openAll" type="button" data-tip="Open every section.">Expand all</button>
+    <button class="tog" id="closeAll" type="button" data-tip="Close every section. The page remembers what you leave open.">Collapse all</button>
+    <button class="tog" id="hideBtn" type="button" aria-pressed="false" data-tip="Hide everything you have already ticked, leaving only what you still need.">Hide collected</button>
+    <button class="tog" id="syncBtn" type="button" data-tip="Optional: back up your ticks to your GitHub account.">Sync</button>
   </nav>
   <div class="status" id="status" role="status">Saved on this device only.</div>
   <div class="pobpanel" id="pobPanel" hidden>
@@ -182,6 +187,7 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
   <div class="drow"><button class="danger" id="tokForget">Remove token from this device</button><button class="tog" id="dlgClose">Close</button></div>
   <p class="dnote">The token is stored only in this browser. Your ticks are kept in a secret Gist on your GitHub account.</p>
 </dialog>
+<div id="tip" role="tooltip" hidden></div>
 <script id="guide-data" type="application/json">__DATA__</script>
 <script>
 (function(){
@@ -197,7 +203,9 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const strip=h=>h.replace(/<[^>]+>/g,'').trim();
 const NUM=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
 const SECS=[]; const DEFAULT_CLOSED={gear:true,rotation:true,stat:true};
-function chip(key,name,kind,extra,main){return `<button type="button" class="chip ${kind}${main?' main':''}" role="checkbox" aria-checked="false" data-key="${esc(key)}"><span class="dot"></span>${esc(name)}${extra?`<span class="x">${esc(extra)}</span>`:''}</button>`;}
+const TIPS={};
+const KIND={str:'Str support',int:'Int support',dex:'Dex support',lin:'Lineage support — only 1 per build',skill:'Skill gem',spirit:'Skill gem · reserves Spirit',aura:'Spirit gem'};
+function chip(key,name,kind,extra,main,tip){ if(tip) TIPS[key]=Object.assign({t:name,a:KIND[kind]||''},tip); return `<button type="button" class="chip ${kind}${main?' main':''}" role="checkbox" aria-checked="false" data-key="${esc(key)}"><span class="dot"></span>${esc(name)}${extra?`<span class="x">${esc(extra)}</span>`:''}</button>`;}
 function section(id,cvar,title,width,html,opts){
   opts=opts||{}; const num=NUM[SECS.length]; SECS.push({id,num,cvar,nav:opts.nav||title});
   const el=document.createElement('section'); el.className='sec '+width; el.id=id; el.style.setProperty('--c','var('+cvar+')');
@@ -211,22 +219,23 @@ section('gems','--c1','Gem loadout','w-full',(()=>{
   const leg=`<div class="legend glegend"><span><b style="background:var(--skill)"></b>Skill gem</span><span><b style="background:var(--spirit)"></b>Reserves Spirit</span><span><b style="background:var(--aura)"></b>Spirit gem</span><span><b style="background:var(--str)"></b>Str support</span><span><b style="background:var(--int)"></b>Int support</span><span><b style="background:var(--lin)"></b>Lineage (1 per build)</span></div>`;
   const cards=D.gems.map(g=>{
     const r=g.key.match(/^gem(\d+):/)[1];
-    const sup=g.sup.map(s=>(s[3]==='or'?'<span class="or">or</span>':'')+chip(`gem${r}:${s[0]}`,s[4]||s[0],s[1],s[2])).join('');
-    const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true)}<span>${esc(g.alt.text)}</span></div>`:'';
-    return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true)}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
+    const DS=D.desc||{};
+    const sup=g.sup.map(s=>(s[3]==='or'?'<span class="or" data-tip="Use one of these two.">or</span>':'')+chip(`gem${r}:${s[0]}`,s[4]||s[0],s[1],s[2],false,{d:DS[s[0]]||'',w:s[5]||'',x:s[2]||''})).join('');
+    const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true,{d:DS[g.alt.name]||'',w:g.alt.text})}<span>${esc(g.alt.text)}</span></div>`:'';
+    return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true,{d:DS[g.name]||'',w:(g.sub?g.sub+'. ':'')+(g.spirit&&g.spirit!=='0'?'Reserves '+g.spirit+' Spirit (after your tree\'s 22% reservation efficiency).':'Reserves no Spirit.')+' Ticking any of its supports ticks this too.'})}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit" data-tip="Spirit this gem reserves, after your tree's 22% minion reservation efficiency.">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
   }).join('');
   return leg+`<div class="ggrid">${cards}</div>`+notes(D.gemNotes);
 })(),{check:true,nav:'Gems',sub:'Every skill gem and support is a checkbox. Diamond colour = gem type. Multipliers in a chip are measured gains.'});
 // ② Ascendancy
 section('asc','--c2','Ascendancy','w-half',D.asc.map(r=>{
   const name=strip(r[1].split('<br')[0]); const via=(r[1].match(/<i>(.*?)<\/i>/)||[,''])[1];
-  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(name)}" data-key="asc:${esc(name)}">${TICK}</button><div class="head"><b>${esc(name)}</b><span class="meta">${r[0]} pts total ${via?'· '+via:''}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.ascNotes),{check:true,sub:'Order is set by the path. Each node costs 1 point.'});
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(name)}" data-key="asc:${esc(name)}" data-tip="Tick once you have allocated this Ascendancy node.">${TICK}</button><div class="head"><b>${esc(name)}</b><span class="meta">${r[0]} pts total ${via?'· '+via:''}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.ascNotes),{check:true,sub:'Order is set by the path. Each node costs 1 point.'});
 // ③ Spectres
 section('spectres','--c3','Spectres by act','w-half',D.lev.map(r=>{
   const k='lev:'+strip(r[0]);
-  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(strip(r[0])+' spectre')}" data-key="${esc(k)}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">${r[2]}</span></div><div class="detail">${r[1]}</div></div>`;}).join('')+notes(D.levNotes.filter(n=>!/PoB code/.test(n))),{check:true,nav:'Spectres',sub:'Tick each spectre once you have bound it.'});
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(strip(r[0])+' spectre')}" data-key="${esc(k)}" data-tip="Tick once you have bound this spectre.">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">${r[2]}</span></div><div class="detail">${r[1]}</div></div>`;}).join('')+notes(D.levNotes.filter(n=>!/PoB code/.test(n))),{check:true,nav:'Spectres',sub:'Tick each spectre once you have bound it.'});
 // ⑤ Tree
-section('tree','--c5','Passive tree — 25 phases','w-full',`<div class="tgrid">${D.tree.map((r,i)=>`<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="Phase ${i+1}, points ${esc(strip(r[1]))}" data-key="tree:${i+1}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">points ${r[1]}</span></div><div class="detail">${r[2]}</div></div>`).join('')}</div>`+notes(D.treeNotes),{check:true,nav:'Tree',sub:'Allocate top to bottom. Tick a phase once all its points are in.'});
+section('tree','--c5','Passive tree — 25 phases','w-full',`<div class="tgrid">${D.tree.map((r,i)=>`<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="Phase ${i+1}, points ${esc(strip(r[1]))}" data-key="tree:${i+1}" data-tip="Tick once every point in this phase is allocated.">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">points ${r[1]}</span></div><div class="detail">${r[2]}</div></div>`).join('')}</div>`+notes(D.treeNotes),{check:true,nav:'Tree',sub:'Allocate top to bottom. Tick a phase once all its points are in.'});
 // ⑥ Gear targets (merged)
 section('gear','--c6','Gear targets — every slot','w-full',`<div class="ref gt">${D.gearNotes}${D.gearTargets}</div>`,{nav:'Gear'});
 // ⑦ ⑧
@@ -266,12 +275,32 @@ function saveLocal(){try{localStorage.setItem(LS,JSON.stringify({checks,updatedA
 function setStatus(s){statusEl.textContent=s;}
 function changed(){ updatedAt=Date.now(); saveLocal(); paint(); scheduleSave(); }
 document.addEventListener('click',async e=>{ if(e.target.id==='copyPob'){ const ta=document.getElementById('pobText'), m=document.getElementById('pobMsg'); try{ await navigator.clipboard.writeText(ta.value); m.textContent='Copied — paste it into Path of Building.'; }catch(err){ ta.focus(); ta.select(); m.textContent='Selected — press Ctrl+C.'; } } });
-main.addEventListener('click',e=>{const b=e.target.closest('[role=checkbox][data-key]'); if(!b) return; const k=b.dataset.key; if(checks[k]) delete checks[k]; else checks[k]=true; changed();});
+main.addEventListener('click',e=>{const b=e.target.closest('[role=checkbox][data-key]'); if(!b) return; const k=b.dataset.key; if(checks[k]) delete checks[k]; else { checks[k]=true;
+  // ticking a support also ticks its parent skill gem (one way only; Alternative chips stay independent)
+  if(b.classList.contains('chip')&&!b.classList.contains('main')){ const card=b.closest('.gcard'); const parent=card&&card.querySelector('.ghead .chip.main'); if(parent) checks[parent.dataset.key]=true; } }
+  changed();});
 const hideBtn=document.getElementById('hideBtn');
 hideBtn.addEventListener('click',()=>{const on=hideBtn.getAttribute('aria-pressed')!=='true'; hideBtn.setAttribute('aria-pressed',on); document.body.classList.toggle('hide-done',on); hideBtn.textContent=on?'Show all':'Hide collected';});
 const resetBtn=document.getElementById('resetBtn'); let armed=null;
 resetBtn.addEventListener('click',()=>{ if(!armed){resetBtn.classList.add('arm'); resetBtn.textContent='Click again to clear every tick'; armed=setTimeout(()=>{armed=null;resetBtn.classList.remove('arm');resetBtn.textContent='Clear all ticks';},4000); return;}
   clearTimeout(armed); armed=null; resetBtn.classList.remove('arm'); resetBtn.textContent='Clear all ticks'; checks={}; changed(); });
+// tooltips: gem chips (description + why) and anything with data-tip
+const tipEl=document.getElementById('tip'); let tipTimer=null, tipFor=null;
+function tipHTML(el){ const k=el.dataset&&el.dataset.key; const T=k&&TIPS[k];
+  if(T) return `<div class="tt">${esc(T.t)}${T.x?` <span style="font-weight:400;font-size:13px">${esc(T.x)}</span>`:''}</div><div class="ta">${esc(T.a)}</div>${T.d?`<p class="td">${esc(T.d)}</p>`:''}${T.w?`<div class="tw"><b>Why here:</b> ${esc(T.w)}</div>`:''}`;
+  if(el.dataset&&el.dataset.tip) return esc(el.dataset.tip); return ''; }
+function place(el){ const r=el.getBoundingClientRect(); tipEl.hidden=false; const w=tipEl.offsetWidth,h=tipEl.offsetHeight;
+  let x=Math.min(Math.max(8,r.left),window.innerWidth-w-8); let y=r.bottom+8; if(y+h>window.innerHeight-8) y=Math.max(8,r.top-h-8);
+  tipEl.style.left=x+'px'; tipEl.style.top=y+'px'; }
+function showTip(el){ const h=tipHTML(el); if(!h) return; tipFor=el; tipEl.innerHTML=h; place(el); }
+function hideTip(){ clearTimeout(tipTimer); tipFor=null; tipEl.hidden=true; }
+function tipTarget(n){ return n&&n.closest&&n.closest('[data-tip],.chip[data-key]'); }
+document.addEventListener('mouseover',e=>{ const el=tipTarget(e.target); if(el===tipFor) return; clearTimeout(tipTimer); if(!el){ hideTip(); return; } tipTimer=setTimeout(()=>showTip(el),180); });
+document.addEventListener('focusin',e=>{ const el=tipTarget(e.target); if(el) showTip(el); else hideTip(); });
+document.addEventListener('focusout',hideTip);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') hideTip(); });
+window.addEventListener('scroll',hideTip,{passive:true});
+
 paint();
 // ---------- GitHub Gist sync ----------
 const API='https://api.github.com', FILE='poe2-minion-checklist.json', TK='poe2-gh-token', GK='poe2-gh-gist';
