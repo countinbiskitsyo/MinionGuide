@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.17</title>
+<title>MinionGuide — Minion Army Infernalist v2.22</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -81,13 +81,13 @@ section.sec.closed .sbody{display:none}
 .chip .dot{width:10px;height:10px;border-radius:2px;transform:rotate(45deg);background:var(--k);flex:none}
 .chip .x{font-weight:400;font-size:13px;color:var(--muted);margin-left:2px}
 .chip:hover{border-color:color-mix(in srgb,var(--k) 55%,var(--line))}
-.chip[aria-checked="true"]{background:color-mix(in srgb,var(--k) 18%,transparent);border-color:color-mix(in srgb,var(--k) 50%,transparent)}
-.chip[aria-checked="true"]::after{content:"✓";font-size:13px;color:var(--k)}
+.chip[aria-checked="true"]{background:color-mix(in srgb,var(--k) 30%,transparent);border-color:var(--k);box-shadow:inset 0 0 0 0.5px var(--k)}
+.chip[aria-checked="true"]::after{content:"✓";font-size:14px;font-weight:700;color:var(--k);margin-left:1px}
 .chip.str{--k:var(--str)} .chip.int{--k:var(--int)} .chip.dex{--k:var(--dex)} .chip.lin{--k:var(--lin)}
 .chip.skill{--k:var(--skill)} .chip.spirit{--k:var(--spirit)} .chip.aura{--k:var(--aura)}
 .chip.main{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:15.5px;padding:6px 14px 6px 10px;border:2px solid var(--k);background:color-mix(in srgb,var(--k) 12%,transparent)}
 .chip.main .dot{width:12px;height:12px}
-.chip.main[aria-checked="true"]{background:color-mix(in srgb,var(--k) 32%,transparent);border-color:var(--k)}
+.chip.main[aria-checked="true"]{background:color-mix(in srgb,var(--k) 42%,transparent);border-color:var(--k)}
 .or{font-size:14px;color:var(--muted);font-style:italic;margin:0 2px}
 button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .spirit{font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:0 8px;white-space:nowrap}
@@ -98,17 +98,14 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .gsup{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px}
 .galt{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14.5px;color:var(--muted)}
 .galt .lbl{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
-.keycard{border:1px solid color-mix(in srgb,var(--gold) 60%,var(--line));border-top:3px solid var(--gold);background:color-mix(in srgb,var(--gold) 7%,var(--surface2))}
-.keycard .ktitle{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:16px;color:var(--goldtext)}
-.keycard .kbody{font-size:15px;line-height:1.5}
+
 .gnote{margin-top:auto;font-size:14px;color:var(--muted);font-style:italic;border-top:1px dashed var(--line);padding-top:6px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin:0 0 12px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.legend b{width:10px;height:10px;display:inline-block;transform:rotate(45deg);border-radius:2px}
+.glegend b{width:10px;height:10px;display:inline-block;transform:rotate(45deg);border-radius:2px}
 .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:10px;margin-top:12px}
-.note{font-size:14.5px;background:var(--surface2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0;padding:8px 11px;margin:0}
-.note.alert{border-left-color:var(--alert)}
-.note.lvl{border-left-color:var(--good)}
+.note{font-size:14.5px;background:var(--surface2);border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--gold) 70%,var(--line));border-radius:0;padding:8px 11px;margin:0}
+.note.alert,.note.lvl,.gt .note,.gt .lvlnote{border-left-color:color-mix(in srgb,var(--gold) 70%,var(--line))}
 .gS,.gP,.gA,.gU,.gL{font-weight:600}
 .gS{color:var(--skill)} .gP{color:var(--spirit)} .gA{color:var(--aura)} .gU{color:var(--int)} .gL{color:var(--lin)}
 .pill{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--gold);color:var(--goldtext);border-radius:10px;padding:0 8px;margin-left:4px;white-space:nowrap}
@@ -153,8 +150,8 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
 <div class="wrap">
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
-    <p>Patch 0.5.5 guide and checklist. Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.17 · 2026-11-12 · PoB code v2.4</span>
+    <p>Patch 0.5.5 guide and checklist (still current for 0.5.5f). Tick each gem, support, ascendancy point and tree phase as you get it.</p>
+    <span class="ver">v2.22 · 2026-11-12 · PoB code v2.5</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
@@ -211,16 +208,14 @@ function section(id,cvar,title,width,html,opts){
 const notes=a=>a&&a.length?`<div class="notes">${a.join('')}</div>`:'';
 // ① Gem loadout
 section('gems','--c1','Gem loadout','w-full',(()=>{
-  const leg=`<div class="legend"><span><b style="background:var(--skill)"></b>Skill gem</span><span><b style="background:var(--spirit)"></b>Reserves Spirit</span><span><b style="background:var(--aura)"></b>Spirit gem</span><span><b style="background:var(--str)"></b>Str support</span><span><b style="background:var(--int)"></b>Int support</span><span><b style="background:var(--lin)"></b>Lineage (1 per build)</span></div>`;
+  const leg=`<div class="legend glegend"><span><b style="background:var(--skill)"></b>Skill gem</span><span><b style="background:var(--spirit)"></b>Reserves Spirit</span><span><b style="background:var(--aura)"></b>Spirit gem</span><span><b style="background:var(--str)"></b>Str support</span><span><b style="background:var(--int)"></b>Int support</span><span><b style="background:var(--lin)"></b>Lineage (1 per build)</span></div>`;
   const cards=D.gems.map(g=>{
     const r=g.key.match(/^gem(\d+):/)[1];
-    const sup=g.sup.map(s=>(s[3]==='or'?'<span class="or">or</span>':'')+chip(`gem${r}:${s[0]}`,s[0],s[1],s[2])).join('');
+    const sup=g.sup.map(s=>(s[3]==='or'?'<span class="or">or</span>':'')+chip(`gem${r}:${s[0]}`,s[4]||s[0],s[1],s[2])).join('');
     const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true)}<span>${esc(g.alt.text)}</span></div>`:'';
     return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true)}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
   }).join('');
-  const spiritNote=(D.gemNotes||[]).find(n=>/Reserve order/.test(n))||'';
-  const keyCard=`<div class="gcard keycard"><div class="ghead"><span class="ktitle">Spirit budget</span><span class="spirit">145 of 165</span></div><div class="kbody">${spiritNote.replace(/^<div class="note[^"]*">/,'').replace(/<\/div>$/,'')}</div><div class="gnote">More Spirit: a Rabbit Idol in your sceptre adds about +25. Extra copies of your best minion cost Spirit per copy.</div></div>`;
-  return leg+`<div class="ggrid">${cards}${keyCard}</div>`+notes((D.gemNotes||[]).filter(n=>!/Reserve order/.test(n)));
+  return leg+`<div class="ggrid">${cards}</div>`+notes(D.gemNotes);
 })(),{check:true,nav:'Gems',sub:'Every skill gem and support is a checkbox. Diamond colour = gem type. Multipliers in a chip are measured gains.'});
 // ② Ascendancy
 section('asc','--c2','Ascendancy','w-half',D.asc.map(r=>{

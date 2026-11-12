@@ -340,3 +340,54 @@ The "Reserve order" gem note now renders as a gold-accented card (.keycard) insi
 divisible by 2/3/4/6 columns, so no empty slot at any width). Remaining gem notes (support costs, Fiery Death) sit below as halves.
 Card footer: Rabbit Idol ≈ +25 Spirit; extra copies of the best minion cost Spirit per copy. If the gem count changes in 1.0,
 keep the total grid items a multiple of 12 (or add/remove info cards) so rows stay full.
+
+## v2.18 (2026-11-12) — review pass + layout fixes
+- Spirit budget card reverted: it is a note again (3 gem notes below the 11 gem cards). 12th grid slot left empty for growth (user's choice).
+- All note boxes use one border colour (muted gold). The gem legend's rotated-diamond style is scoped to .glegend
+  (it had been rotating the <b> labels in the gear legend: "Priority:", P, S, ◆).
+- Accuracy review: game is on 0.5.5f (notes Nov 6) + hotfixes Nov 10. 0.5.5d (Sep 28), 0.5.5e (Oct 5) and 0.5.5f were bug fixes /
+  supporter packs only — nothing affects this build. 0.5.5c (Sep 17) predates the v2.0 measurements. PoB-PoE2 v0.23.1 is still the
+  newest v0.x release (checked with git ls-remote). Hero + README now say "still current for 0.5.5f".
+- Text fixes: "Measured on the full v2.4 build" → "PoB code v2.4 build" (gear fragment); tree note "this order is new" removed
+  (checklist_data.json treeNotes). Full-text scan found no other stale numbers (1.15× hit = Heavy Swing on Unearth, correct).
+
+## v2.19 (2026-11-12) — full support re-check (PoB code v2.5)
+Method: /tmp-style optimiser per gem — tier swaps, add-as-6th screening of every compatible non-Lineage support, greedy fill to 5,
+improving swaps (new support must be Str, or the same attribute as the one it replaces). Config "Is the enemy Bleeding?" = ON
+(Spectre, Sniper, Detonate Dead keep Bleed III, so enemies bleed). Findings:
+- All tiers of a support cost the same attributes. PoB measures Feeding Frenzy II = I and Brutality III = II (no data for the extra effect)
+  → guide says "use the highest tier you have"; chips show "Feeding Frenzy I/II" and "Brutality III" while KEEPING the old keys.
+- Bleed IV = different gem: more melee phys vs bleeding enemies, can't cause bleeding. Brute 1.04×, Warrior 1.12×, Hound 1.14×,
+  Sniper 0.82×, Spectre 0.89×, Detonate Dead 0.85×. Bloodlust (Str) gives the same gain and STACKS with Bleed IV.
+- New sets: Brute FF, Bleed IV, Brutality III, Bloodlust, Muster (1.12×). Warrior FF, Muster, Brutality III, Bleed IV, Bloodlust (1.42×).
+  Hound Loyalty, Heavy Swing, Brutality III, Bleed IV, Bloodlust (1.24×; optimiser wanted Muster over Loyalty — rejected: Loyalty is defensive).
+  Detonate Dead +Concentrated Area 1.30×, +Unleash 1.20× (Int; Minion Pact scores higher but is on the drop list). No Str support helps DD.
+  Pain Offering: Sacrificial Offering + Danse Macabre STACK (1.13×; 1.14× with Minion Mastery). Nothing else helps.
+  Unearth: Bleed IV, Bloodlust, Brutality III, Heft, Muster. Spectre and Sniper sets already optimal.
+  Cleric: Meat Shield II, Prolonged Duration II, Elemental Army, Hulking Minions, Minion Mastery. Infernal Legion removed (self-ignite).
+  Hulking Minions does not raise the Cleric's reservation (161 with or without). Cleric skills = Heal (buff, 4 s) + Resurrect; PoB scores neither.
+- Rakiata's Flow ≈ 2.5× Frost Mage (4,940 vs 1,976 with the best stand-in, Hulking). Until found: Skeletal Reaver (3,642 DPS, 25 Spirit) with
+  FF, Muster, Brutality III, Heavy Swing, Bloodlust — shown as an "Alternative" chip on the Frost Mage card (key gem2:Skeletal Reaver).
+- Key changes: removed 10 (gem1 Bleed III/Heavy Swing, gem4 Hulking/Heavy Swing/Bleed III, gem5 Heft/Bleed III, gem9 Bleed III/Heavy Swing,
+  gem10 Infernal Legion III); added 14. Total checkboxes 100. Template supports an optional display label (sup[4]) separate from the key.
+- PoB code v2.5 (dev/PoB_code.txt): new sets, Reaver group (disabled), enemy-bleeding config ON, rewritten Notes. Spirit 145/165 and EHP 1,352
+  unchanged; DPS figures rise (Pain Offering supports + bleeding config): Spectre 29,634, Brute 9,334, Warrior 5,691, Sniper 5,280,
+  Frost Mage 5,958, DD 25,833. Older absolute numbers on the page are "same-setup" comparisons; the Spectre card no longer quotes 24.8k.
+
+## v2.20 (2026-11-12) — ticked chips slightly bolder
+Ticked chips: 30% tint (was 18%), solid border in the gem colour (+0.5 px inset so no layout shift), bolder 14 px ✓.
+Ticked skill-gem chips: 42% tint (was 32%). Unticked chips unchanged. User asked for "only slightly" — don't push further without asking.
+
+## v2.21 (2026-11-12) — tier ranges on chip labels (display only; keys unchanged)
+Labels via sup[4]: Bleed III → "Bleed I–III", Brutality III/II → "Brutality I–III", Feeding Frenzy I → "Feeding Frenzy I/II",
+Meat Shield II → "Meat Shield I/II", Prolonged Duration II → "Prolonged Duration I/II". Bleed IV stays alone (different job).
+PoB 0.23.1 tiers in data: Bleed I–IV (no V), Brutality I–III, Feeding Frenzy I–II, Meat Shield I–II, Prolonged Duration I–II,
+Rapid Casting I–III, Culling Strike I–II, Infernal Legion I–III. Tiers note rewritten to explain ranges.
+
+## v2.22 (2026-11-12) — higher tiers NOT to use, made explicit
+Only Bleed IV is a higher tier to avoid: Spectre (−11%), Sniper (−18%), Detonate Dead (−15%) — it can't cause bleeding and only boosts melee;
+those three also keep enemies bleeding for the melee minions. Their Bleed chips show "not IV"; each card note has a "⚠ Not Bleed IV" line.
+Rapid Casting III (per different spell cast recently; config multiplierNonInstantSpellCastRecently): DD 5th slot over the 4-support set
+= 1.00× (0 spells), 1.18× (2), 1.27× (3), 1.36× (4) vs Unleash 1.20×, Rapid Casting II 1.18×, Considered Casting 1.17×, Controlled Destruction 1.12×.
+→ DD slot 5: Rapid Casting III (new key gem6:Rapid Casting III), or Unleash if you rarely cast 3+ different spells. PoB code v2.5 still has Unleash.
+TRAP: the first calculation right after loading a build can be stale — always measure twice / discard the first reading.
