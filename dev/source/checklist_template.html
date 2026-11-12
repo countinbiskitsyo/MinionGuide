@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MinionGuide — Minion Army Infernalist v2.13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e7e3dd; --surface:#f7f5f1; --surface2:#efebe4; --ink:#211a1d; --muted:#66595c; --line:#d3cbc0;
+  --wine:#5c1028; --wine2:#7d1a2c; --gold:#b8862b; --goldtext:#7a5612;
+  --s1:#9b2226; --s2:#23507a; --s3:#a26a12; --s4:#12706a; --s5:#2f6b2f; --s6:#5a2d82; --s7:#1e3f6e;
+  --str:#c0392b; --int:#2f6fd6; --dex:#2e9e4f; --lin:#b8862b; --skill:#138d90; --spirit:#8e44ad; --aura:#1f8f5f;
+  --chipOn:#fff; --focus:#2f6fd6; --barbg:#d8d0c4;
+  color-scheme: light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#b0a39f; --line:#3a2f35;
+  --wine:#3a0a1a; --wine2:#5a1424; --gold:#d6a94a; --goldtext:#e4c27a;
+  --s1:#d0545a; --s2:#5b8fc4; --s3:#d49a3a; --s4:#3fb0a8; --s5:#6fae6f; --s6:#a77fd6; --s7:#6b8fd0;
+  --str:#e0604f; --int:#5c95f0; --dex:#4cc06e; --lin:#d6a94a; --skill:#2fb8bb; --spirit:#b277d6; --aura:#3cbf86;
+  --chipOn:#120e10; --focus:#8fb6ff; --barbg:#33292e; color-scheme: dark; }}
+:root[data-theme="dark"]{
+  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#b0a39f; --line:#3a2f35;
+  --wine:#3a0a1a; --wine2:#5a1424; --gold:#d6a94a; --goldtext:#e4c27a;
+  --s1:#d0545a; --s2:#5b8fc4; --s3:#d49a3a; --s4:#3fb0a8; --s5:#6fae6f; --s6:#a77fd6; --s7:#6b8fd0;
+  --str:#e0604f; --int:#5c95f0; --dex:#4cc06e; --lin:#d6a94a; --skill:#2fb8bb; --spirit:#b277d6; --aura:#3cbf86;
+  --chipOn:#120e10; --focus:#8fb6ff; --barbg:#33292e; color-scheme: dark; }
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Crimson Pro",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--wine)}
+a{color:inherit}
+.wrap{max-width:1560px;margin:0 auto;padding:0 14px 40px}
+header.hero{background:radial-gradient(120% 140% at 0% 0%, var(--wine2), var(--wine) 60%, #1a0710);color:#f4e9d8;padding:22px 18px 18px;border-radius:0 0 14px 14px;margin:0 -14px 0}
+.hero h1{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:clamp(22px,5vw,32px);line-height:1.15;margin:0 0 6px;color:#f3d891;letter-spacing:.02em}
+.hero p{margin:0;color:#e9cfcf;font-style:italic;font-size:15px}
+.hero .ver{display:inline-block;margin-top:10px;font-size:13px;color:#f4e9d8;border:1px solid #c9a24a88;border-radius:20px;padding:1px 10px}
+.total{margin-top:14px}
+.total .label{display:flex;justify-content:space-between;font-size:15px;color:#f4e9d8}
+.bar{height:8px;border-radius:6px;background:#ffffff26;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#c9a24a,#f3d891);transition:width .35s ease}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin:0 -14px;padding:8px 14px;display:flex;gap:8px;align-items:center}
+.navscroll{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1}
+.navscroll::-webkit-scrollbar{display:none}
+.navscroll a{flex:none;text-decoration:none;font-family:Cinzel,Georgia,serif;font-size:13px;font-weight:700;padding:5px 10px;border-radius:16px;border:1.5px solid var(--c);color:var(--c);white-space:nowrap}
+.tog{flex:none;font:inherit;font-size:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:4px 10px;cursor:pointer}
+.tog[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.status{font-size:13px;color:var(--muted);margin:8px 2px 0;min-height:18px}
+section.sec{margin-top:18px;background:var(--surface);border-radius:12px;border-left:6px solid var(--c);padding:12px 14px 14px;box-shadow:0 1px 0 var(--line)}
+.sec h2{font-family:Cinzel,Georgia,serif;font-size:19px;margin:0;color:var(--c);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sec h2 .n{font-size:22px}
+.sec .sub{color:var(--muted);font-size:14px;margin:2px 0 8px}
+.prog{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin:4px 0 10px}
+.prog .bar{flex:1;background:var(--barbg);height:7px;margin:0}
+.prog .bar i{background:var(--c)}
+.row{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.row .meta{font-size:14px;color:var(--muted)}
+.row .detail{grid-column:2;font-size:15.5px}
+.row .detail i{color:var(--muted)}
+.tick{width:30px;height:30px;border-radius:50%;border:2px solid var(--c);background:transparent;cursor:pointer;display:grid;place-items:center;padding:0;margin-top:1px}
+.tick svg{width:16px;height:16px;opacity:0;transition:opacity .15s}
+.tick[aria-checked="true"]{background:var(--c)}
+.tick[aria-checked="true"] svg{opacity:1}
+.tick svg path{stroke:var(--chipOn);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.chip{--k:var(--int);display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:15.5px;font-weight:600;line-height:1.2;padding:4px 10px 4px 6px;margin:2px 0;border-radius:999px;border:1.5px solid var(--k);background:transparent;color:var(--ink);cursor:pointer;vertical-align:middle}
+.chip .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--k);flex:none;transform:rotate(45deg);border-radius:3px}
+.chip[aria-checked="true"]{background:var(--k);color:var(--chipOn);box-shadow:0 0 0 3px color-mix(in srgb,var(--k) 25%,transparent)}
+.chip[aria-checked="true"] .dot{background:var(--chipOn);border-color:var(--chipOn)}
+.chip.str{--k:var(--str)} .chip.int{--k:var(--int)} .chip.dex{--k:var(--dex)} .chip.lin{--k:var(--lin)}
+.chip.sk{--k:var(--skill)} .chip.sp{--k:var(--spirit)} .chip.au{--k:var(--aura)}
+.chip.big{font-family:Cinzel,Georgia,serif;font-size:15px;font-weight:700}
+.chip .x{font-weight:400;font-size:13px;opacity:.8}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.spirit{font-size:13px;font-weight:700;color:var(--spirit);border:1px solid var(--spirit);border-radius:10px;padding:0 7px;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--muted);margin:2px 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend b{width:11px;height:11px;display:inline-block;transform:rotate(45deg);border-radius:2px}
+.note{font-size:14.5px;background:var(--surface2);border-left:3px solid var(--gold);border-radius:6px;padding:7px 10px;margin:8px 0 0}
+.note.alert{border-left-color:var(--s1)}
+.note.lvl{border-left-color:var(--s5)}
+.gS,.gP,.gA,.gU,.gL{font-weight:600}
+.gS{color:var(--skill)} .gP{color:var(--spirit)} .gA{color:var(--aura)} .gU{color:var(--int)} .gL{color:var(--lin)}
+.pill{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--gold);color:var(--goldtext);border-radius:10px;padding:0 8px;margin-left:4px;white-space:nowrap}
+.aS{color:var(--str);font-weight:700;font-style:normal} .aI{color:var(--int);font-weight:700;font-style:normal}
+details.ref{margin-top:18px;background:var(--surface);border-radius:12px;border-left:6px solid var(--c);padding:0 14px}
+details.ref summary{list-style:none;cursor:pointer;padding:12px 0;font-family:Cinzel,Georgia,serif;font-weight:700;font-size:19px;color:var(--c);display:flex;justify-content:space-between;gap:10px}
+details.ref summary::-webkit-details-marker{display:none}
+details.ref summary::after{content:"Show";font-family:"Crimson Pro",Georgia,serif;font-weight:600;font-size:14px;color:var(--muted);align-self:center}
+details.ref[open] summary::after{content:"Hide"}
+.refbody{padding-bottom:14px;font-size:15.5px}
+.tw{overflow-x:auto}
+.refbody table{border-collapse:collapse;width:100%;min-width:480px}
+.refbody td,.refbody th{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+.refbody th{font-family:Cinzel,Georgia,serif;font-size:13px;color:var(--muted)}
+.refbody ol{margin:4px 0 4px 20px;padding:0}
+.refbody .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.refbody .two{grid-template-columns:1fr}}
+.hide-done .row.done{display:none}
+.hide-done .chip[aria-checked="true"]{display:none}
+.foot{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+.danger{font:inherit;font-size:14px;background:transparent;color:var(--s1);border:1px solid var(--s1);border-radius:16px;padding:4px 12px;cursor:pointer}
+.danger.arm{background:var(--s1);color:#fff}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);max-width:min(440px,92vw);padding:16px 18px}
+dialog::backdrop{background:#0008}
+dialog h3{font-family:Cinzel,Georgia,serif;margin:0 0 6px;color:var(--wine2)}
+dialog label{font-weight:600;font-size:15px;display:block;margin-top:8px}
+dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);margin-top:4px}
+.drow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.dmsg{font-size:15px;margin:0 0 4px} .dnote{font-size:13px;color:var(--muted);margin:10px 0 0}
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:10px}
+main>section.sec,main>details.ref{margin-top:0;align-self:start;min-width:0}
+@media (min-width:1150px){ main{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} main>.full{grid-column:1/-1} main>*{order:var(--o,99)} }
+.pob textarea{width:100%;font-family:Consolas,"Courier New",monospace;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:8px;word-break:break-all}
+.gt .legend{font-size:14px;color:var(--muted)}
+.gt .slot{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:10px 0}
+.gt .sh{background:var(--s3);color:#fff;font-family:Cinzel,Georgia,serif;font-weight:700;padding:4px 10px}
+.gt table{min-width:620px;table-layout:auto}
+.gt .pri{display:inline-block;border-radius:8px;padding:0 6px;font-size:12px;font-weight:700;white-space:nowrap}
+.gt .num{white-space:nowrap} .gt .why{font-style:italic;color:var(--muted)}
+.gt .note{margin:0;border-radius:0}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="hero">
+    <h1>Minion Army Witch — Infernalist</h1>
+    <p>Patch 0.5.5 guide and checklist. Tick each gem, support, ascendancy point and tree phase as you get it.</p>
+    <span class="ver">v2.13 · 2026-11-12 · PoB code v2.4</span>
+    <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
+  </header>
+  <nav class="top" aria-label="Sections">
+    <div class="navscroll" id="nav"></div>
+    <button class="tog" id="hideBtn" aria-pressed="false">Hide collected</button>
+    <button class="tog" id="syncBtn">Sync</button>
+  </nav>
+  <div class="status" id="status" role="status">Saved on this device only.</div>
+  <main id="main"></main>
+  <div class="foot">
+    <p>Measured in Path of Building 0.23.1 · not affiliated with GGG</p>
+    <button class="danger" id="resetBtn">Clear all ticks</button>
+  </div>
+</div>
+<dialog id="syncDlg" aria-labelledby="dlgTitle">
+  <h3 id="dlgTitle">Sync settings</h3>
+  <p class="dmsg" id="dlgMsg"></p>
+  <label for="tokIn">GitHub token</label>
+  <input id="tokIn" type="password" autocomplete="off" spellcheck="false" placeholder="ghp_…">
+  <div class="drow"><button class="tog" id="tokSave">Save token and connect</button><button class="tog" id="syncNow">Sync now</button></div>
+  <div class="drow"><button class="danger" id="tokForget">Remove token from this device</button><button class="tog" id="dlgClose">Close</button></div>
+  <p class="dnote">The token is stored only in this browser. Your ticks are kept in a secret Gist on your GitHub account.</p>
+</dialog>
+<script id="guide-data" type="application/json">__DATA__</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('guide-data').textContent);
+const ATTR={"Bleed III":"str","Brutality II":"str","Brutality III":"str","Heavy Swing":"str","Heft":"str","Infernal Legion III":"str","Meat Shield II":"str","Prolonged Duration II":"str",
+ "Cold Attunement":"int","Concentrated Area":"int","Danse Macabre":"int","Elemental Army":"int","Elemental Focus":"int","Feeding Frenzy I":"int","Focused Curse":"int","Heightened Curse":"int","Hulking Minions":"int","Loyalty":"int","Minion Mastery":"int","Muster":"int","Ritualistic Curse":"int","Sacrificial Offering":"int",
+ "Rakiata's Flow":"lin"};
+const LS='poe2-minion-checklist-v1';
+let checks={}; let updatedAt=0;
+try{const s=JSON.parse(localStorage.getItem(LS)||'null'); if(s&&s.checks){checks=s.checks; updatedAt=s.updatedAt||0;}}catch(e){}
+const main=document.getElementById('main'), nav=document.getElementById('nav'), statusEl=document.getElementById('status');
+const TICK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function chipHTML(key,name,cls,extra){return `<button type="button" class="chip ${cls}" role="checkbox" aria-checked="false" data-key="${esc(key)}"><span class="dot"></span>${esc(name)}${extra||''}</button>`;}
+function chipify(html,prefix){
+  return html.replace(/<span class="(g[SPAUL])">([^<]+)<\/span>/g,(m,c,name)=>{
+    let cls; if(c==='gS')cls='sk big'; else if(c==='gP')cls='sp big'; else if(c==='gA')cls='au big'; else if(c==='gL')cls='lin'; else cls=ATTR[name]||'int';
+    return chipHTML(prefix+':'+name,name,cls);
+  });
+}
+const SECS=[];
+function lay(el,o){ if(o&&o.full) el.classList.add('full'); if(o&&o.order) el.style.setProperty('--o',o.order); }
+function section(num,colorVar,title,sub,bodyFn,o){
+  const id='s'+num; SECS.push({id,num,colorVar,title:(o&&o.nav)||title});
+  const el=document.createElement('section'); el.className='sec'; el.id=id; el.style.setProperty('--c','var('+colorVar+')'); lay(el,o);
+  el.innerHTML=`<h2><span class="n">${num}</span>${esc(title)}</h2>${sub?`<div class="sub">${sub}</div>`:''}<div class="prog"><span class="pt"></span><div class="bar"><i></i></div></div>`;
+  const body=document.createElement('div'); body.innerHTML=bodyFn(); el.appendChild(body); main.appendChild(el);
+}
+function ref(num,colorVar,title,html,o){
+  const id='s'+(o&&o.id||num); SECS.push({id,num,colorVar,title:(o&&o.nav)||title,ref:true});
+  const el=document.createElement('details'); el.className='ref'; el.id=id; el.style.setProperty('--c','var('+colorVar+')'); lay(el,o);
+  el.innerHTML=`<summary><span>${num} ${esc(title)}</span></summary><div class="refbody">${html.replace(/<table/g,'<div class="tw"><table').replace(/<\/table>/g,'</table></div>')}</div>`;
+  main.appendChild(el);
+}
+const notes=a=>a.join('');
+const strip=h=>h.replace(/<[^>]+>/g,'').trim();
+// ① Ascendancy
+section('①','--s1','Ascendancy','Order is set by the path. Each node costs 1 point; the small node before it is the other.',()=>D.asc.map((r,i)=>{
+  const name=strip(r[1].split('<br')[0]); const via=(r[1].match(/<i>(.*?)<\/i>/)||[,''])[1];
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(name)}" data-key="asc:${esc(name)}">${TICK}</button><div class="head"><b>${esc(name)}</b><span class="meta">${r[0]} pts total ${via?'· '+via:''}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.ascNotes),{order:1});
+// ② Gems
+section('②','--s2','Gem loadout','Every skill gem and support is a checkbox. Colours match the gem: <b style="color:var(--str)">Str</b>, <b style="color:var(--int)">Int</b>, <b style="color:var(--dex)">Dex</b>, <b style="color:var(--lin)">Lineage</b>.',()=>{
+  const leg=`<div class="legend"><span><b style="background:var(--skill)"></b>Skill gem</span><span><b style="background:var(--spirit)"></b>Reserves Spirit</span><span><b style="background:var(--aura)"></b>Spirit gem</span><span><b style="background:var(--str)"></b>Str support</span><span><b style="background:var(--int)"></b>Int support</span><span><b style="background:var(--lin)"></b>Lineage (1 only)</span></div>`;
+  return leg+D.gems.map((r,i)=>{
+    const p='gem'+i;
+    let skill=chipify(r[0],p+':skill');
+    const sp=strip(r[1]);
+    return `<div class="row" data-row style="grid-template-columns:1fr"><div class="head">${skill}${sp&&sp!=='0'?`<span class="spirit">${esc(sp)} Spirit</span>`:''}</div><div class="detail" style="grid-column:1">${chipify(r[2],p)}</div></div>`;
+  }).join('')+notes(D.gemNotes).replace(/class="(g[SPAUL])"/g,'class="$1"');
+},{order:3,full:true,nav:'Gems'});
+// ③ ④ ⑤ references
+ref('③','--s3','Gear — what can roll where',D.gear,{order:5});
+ref('④','--s4','Rotation & troubleshooting',D.rot,{order:6});
+ref('⑤','--s5','Stat priority & checkpoints',D.stat,{order:7});
+ref('◆','--s2','Path of Building code',`<div class="pob"><p>In Path of Building (PoE2): <b>Import/Export Build</b> → paste into the import box → <b>Import</b>. Includes the final tree, 4 levelling checkpoints (tree dropdown) and the full gem loadout.</p><p><button type="button" class="tog" id="copyPob">Copy PoB code</button> <span class="meta" id="pobMsg"></span></p><textarea id="pobText" readonly rows="4" aria-label="Path of Building code">${esc(D.pob||'')}</textarea></div>`,{order:8,id:'pob',nav:'PoB code'});
+ref('◆','--s3','Gear targets — every slot',`<div class="gt">${D.gearTargets||''}</div>`,{order:9,full:true,id:'targets',nav:'Targets'});
+// ⑥ Levelling spectres
+section('⑥','--s6','Levelling — spectres by act','Tick each spectre once you have bound it.',()=>D.lev.map((r,i)=>{
+  const k='lev:'+strip(r[0]);
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(strip(r[0])+' spectre')}" data-key="${esc(k)}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">${r[2]}</span></div><div class="detail">${r[1]}</div></div>`;}).join('')+notes(D.levNotes),{order:2});
+// ⑦ Tree
+section('⑦','--s7','Passive tree — 25 phases','Allocate top to bottom. Tick a phase once all its points are in.',()=>D.tree.map((r,i)=>{
+  const k='tree:'+(i+1);
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="Phase ${i+1}, points ${esc(strip(r[1]))}" data-key="${k}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">points ${r[1]}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.treeNotes),{order:4,full:true,nav:'Tree'});
+nav.innerHTML=SECS.map(s=>`<a href="#${s.id}" style="--c:var(${s.colorVar})">${s.num==='◆'?'':s.num+' '}${esc(s.title.split(' ')[0])}</a>`).join('');
+const boxes=[...document.querySelectorAll('[role=checkbox][data-key]')];
+function paint(){
+  let tot=0,done=0;
+  boxes.forEach(b=>{const on=!!checks[b.dataset.key]; b.setAttribute('aria-checked',on?'true':'false');});
+  document.querySelectorAll('section.sec').forEach(sec=>{
+    const bs=[...sec.querySelectorAll('[role=checkbox][data-key]')]; const d=bs.filter(b=>checks[b.dataset.key]).length;
+    tot+=bs.length; done+=d;
+    sec.querySelector('.pt').textContent=`${d} of ${bs.length}`; sec.querySelector('.prog .bar i').style.width=(bs.length?100*d/bs.length:0)+'%';
+    sec.querySelectorAll('[data-row]').forEach(row=>{const rb=[...row.querySelectorAll('[role=checkbox][data-key]')]; row.classList.toggle('done',rb.length>0&&rb.every(b=>checks[b.dataset.key]));});
+  });
+  document.getElementById('totText').textContent=`Collected ${done} of ${tot}`;
+  document.getElementById('totPct').textContent=(tot?Math.round(100*done/tot):0)+'%';
+  document.getElementById('totBar').style.width=(tot?100*done/tot:0)+'%';
+}
+function saveLocal(){try{localStorage.setItem(LS,JSON.stringify({checks,updatedAt}));}catch(e){}}
+function setStatus(s){statusEl.textContent=s;}
+function changed(){ updatedAt=Date.now(); saveLocal(); paint(); scheduleSave(); }
+main.addEventListener('click',async e=>{ if(e.target.id==='copyPob'){ const ta=document.getElementById('pobText'), m=document.getElementById('pobMsg'); try{ await navigator.clipboard.writeText(ta.value); m.textContent='Copied — paste it into Path of Building.'; }catch(err){ ta.focus(); ta.select(); m.textContent='Selected — press Ctrl+C (or long-press → Copy).'; } } });
+main.addEventListener('click',e=>{const b=e.target.closest('[role=checkbox][data-key]'); if(!b) return; const k=b.dataset.key; if(checks[k]) delete checks[k]; else checks[k]=true; changed();});
+const hideBtn=document.getElementById('hideBtn');
+hideBtn.addEventListener('click',()=>{const on=hideBtn.getAttribute('aria-pressed')!=='true'; hideBtn.setAttribute('aria-pressed',on); document.body.classList.toggle('hide-done',on); hideBtn.textContent=on?'Show all':'Hide collected';});
+const resetBtn=document.getElementById('resetBtn'); let armed=null;
+resetBtn.addEventListener('click',()=>{ if(!armed){resetBtn.classList.add('arm'); resetBtn.textContent='Tap again to clear every tick'; armed=setTimeout(()=>{armed=null;resetBtn.classList.remove('arm');resetBtn.textContent='Clear all ticks';},4000); return;}
+  clearTimeout(armed); armed=null; resetBtn.classList.remove('arm'); resetBtn.textContent='Clear all ticks'; checks={}; changed(); });
+paint();
+// ---------- GitHub Gist sync ----------
+const API='https://api.github.com', FILE='poe2-minion-checklist.json', TK='poe2-gh-token', GK='poe2-gh-gist';
+let token=null, gistId=null; try{token=localStorage.getItem(TK); gistId=localStorage.getItem(GK);}catch(e){}
+const H=()=>({'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'});
+async function gh(path,opts){ const r=await fetch(API+path,Object.assign({cache:'no-store',headers:H()},opts||{})); if(!r.ok){const e=new Error('GitHub '+r.status); e.status=r.status; throw e;} return r.status===204?null:r.json(); }
+const body=()=>JSON.stringify({checks,updatedAt,app:'poe2-minion-checklist',version:1},null,1);
+async function findOrCreate(){
+  if(gistId){ try{ return await gh('/gists/'+gistId); }catch(e){ if(e.status!==404) throw e; gistId=null; } }
+  for(let page=1;page<=5;page++){ const list=await gh('/gists?per_page=100&page='+page); const hit=list.find(g=>g.files&&g.files[FILE]); if(hit){ gistId=hit.id; break; } if(list.length<100) break; }
+  if(!gistId){ const g=await gh('/gists',{method:'POST',headers:Object.assign(H(),{'Content-Type':'application/json'}),body:JSON.stringify({description:'PoE2 minion checklist ticks (used by the minion-guide page)',public:false,files:{[FILE]:{content:body()}}})}); gistId=g.id; }
+  try{localStorage.setItem(GK,gistId);}catch(e){}
+  return await gh('/gists/'+gistId);
+}
+async function readRemote(g){ const f=g.files&&g.files[FILE]; if(!f) return null; let c=f.content; if(f.truncated){ c=await (await fetch(f.raw_url,{cache:'no-store'})).text(); } try{return JSON.parse(c);}catch(e){return null;} }
+let busy=false, pending=false, saveTimer=null, connected=false;
+async function pull(){
+  if(!token||busy) return;
+  busy=true;
+  try{
+    const g=await findOrCreate(); const d=await readRemote(g); connected=true;
+    if(d&&d.checks&&(d.updatedAt||0)>updatedAt){ checks=Object.assign({},d.checks); updatedAt=d.updatedAt||0; saveLocal(); paint(); setStatus('Synced with GitHub — ticks loaded.'); }
+    else if(!d||(d.updatedAt||0)<updatedAt){ busy=false; pending=true; return push(); }
+    else setStatus('Synced with GitHub.');
+  }catch(e){ connected=false; setStatus(e.status===401?'GitHub rejected the token — open Sync settings and paste a new one.':'Saved on this device. GitHub not reachable right now — will sync later.'); }
+  busy=false;
+}
+async function push(){
+  if(!token||!gistId||busy){ if(token&&!gistId) return pull(); return; }
+  busy=true; pending=false;
+  try{ await gh('/gists/'+gistId,{method:'PATCH',headers:Object.assign(H(),{'Content-Type':'application/json'}),body:JSON.stringify({files:{[FILE]:{content:body()}}})}); connected=true; setStatus('Saved to GitHub — synced across your devices.'); }
+  catch(e){ connected=false; pending=true; setStatus(e.status===401?'GitHub rejected the token — open Sync settings and paste a new one.':'Saved on this device. GitHub not reachable — will retry.'); }
+  busy=false; if(pending&&connected) push();
+}
+function scheduleSave(){ if(!token) return; setStatus('Saving…'); clearTimeout(saveTimer); saveTimer=setTimeout(()=>{pending=true; push();},1200); }
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'&&token&&!pending) pull(); });
+window.addEventListener('online',()=>{ if(token) (pending?push():pull()); });
+// settings dialog
+const dlg=document.getElementById('syncDlg'), tokIn=document.getElementById('tokIn'), dlgMsg=document.getElementById('dlgMsg');
+document.getElementById('syncBtn').addEventListener('click',()=>{ tokIn.value=''; dlgMsg.textContent=token?'Connected on this device. Paste a new token only if you want to replace it.':'Not connected. Paste your GitHub token (gist permission only).'; dlg.showModal(); });
+document.getElementById('dlgClose').addEventListener('click',()=>dlg.close());
+document.getElementById('tokSave').addEventListener('click',async()=>{
+  const v=tokIn.value.trim(); if(!v){ dlgMsg.textContent='Paste a token first.'; return; }
+  token=v; gistId=null; try{localStorage.setItem(TK,token); localStorage.removeItem(GK);}catch(e){}
+  dlgMsg.textContent='Connecting…'; await pull(); dlgMsg.textContent=connected?'Connected. Your ticks now sync through GitHub.':statusEl.textContent; if(connected) setTimeout(()=>dlg.close(),900);
+});
+document.getElementById('syncNow').addEventListener('click',async()=>{ if(!token){dlgMsg.textContent='Not connected yet.';return;} dlgMsg.textContent='Syncing…'; await pull(); dlgMsg.textContent=statusEl.textContent; });
+document.getElementById('tokForget').addEventListener('click',()=>{ token=null; gistId=null; connected=false; try{localStorage.removeItem(TK); localStorage.removeItem(GK);}catch(e){} dlgMsg.textContent='Token removed from this device. Your ticks stay on GitHub and on this device.'; setStatus('Saved on this device only.'); });
+if(token) pull(); else setStatus('Saved on this device only. Tap “Sync” to connect GitHub.');
+})();
+</script>
+</body>
+</html>

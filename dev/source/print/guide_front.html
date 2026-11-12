@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+  @page { size: Letter; margin: 0.25in; }
+  * { box-sizing: border-box; }
+  body { font-family:'Georgia','Times New Roman',serif; color:#1c1414; font-size:9.4pt; line-height:1.26; margin:0; }
+  h1,h2 { font-family:'Trebuchet MS','Helvetica Neue',sans-serif; margin:0; }
+  .banner { background:linear-gradient(135deg,#2b0f1e 0%,#4a1030 45%,#6e1414 100%); color:#f4e9d8; padding:8px 18px; border-radius:7px; margin-bottom:6px; box-shadow:0 2px 5px rgba(0,0,0,.4); overflow:hidden; }
+  .banner h1 { font-size:16pt; color:#f7d98a; letter-spacing:.4px; text-shadow:0 1px 2px rgba(0,0,0,.6); }
+  .banner .sub { font-size:8.4pt; color:#e7c9c9; font-style:italic; margin-top:1px; }
+  .banner .tags { margin-top:3px; font-size:7.2pt; }
+  .banner .tags span { display:inline-block; background:rgba(255,255,255,.12); border:1px solid rgba(247,217,138,.5); border-radius:10px; padding:2px 8px; margin-right:5px; }
+  .qr { float:right; background:#fff; padding:3px 3px 1px; border-radius:4px; margin-left:12px; text-align:center; }
+  .qr img { width:.72in; height:.72in; display:block; } .qr div { font-size:5pt; color:#333; }
+  .section { break-inside:avoid; margin-bottom:5px; border:1px solid #d8cfc2; border-radius:6px; overflow:hidden; }
+  .section-head { padding:3px 10px; font-size:10pt; font-weight:bold; color:#fff; }
+  .section-body { padding:4px 9px 5px; background:#fffdf9; }
+  .t-red .section-head{background:linear-gradient(90deg,#7a1a1a,#a13030)} .t-red{border-color:#a13030}
+  .t-grn .section-head{background:linear-gradient(90deg,#1e5c2e,#2f8245)} .t-grn{border-color:#2f8245}
+  .t-blu .section-head{background:linear-gradient(90deg,#1a3a5c,#2a5a82)} .t-blu{border-color:#2a5a82}
+  .t-gld .section-head{background:linear-gradient(90deg,#8a5a10,#b3821e)} .t-gld{border-color:#b3821e}
+  .t-pur .section-head{background:linear-gradient(90deg,#4a1a5c,#6b2a82)} .t-pur{border-color:#6b2a82}
+  .t-tea .section-head{background:linear-gradient(90deg,#0f5c56,#1c8378)} .t-tea{border-color:#1c8378}
+  table { width:100%; border-collapse:collapse; font-size:8.5pt; table-layout:fixed; }
+  th,td { text-align:left; padding:1.8px 5px; border-bottom:1px solid #e7ded1; vertical-align:top; word-wrap:break-word; }
+  th { background:#f1e9dc; font-family:'Trebuchet MS',sans-serif; font-size:7.9pt; }
+  tr:nth-child(even) td { background:#faf6ef; }
+  ul,ol { margin:2px 0 2px 14px; padding:0; } li { margin-bottom:1px; }
+  .note { font-size:7.8pt; font-style:italic; color:#6b5a4a; background:#f4ede0; border-left:3px solid #b3821e; padding:3px 7px; margin-top:3px; border-radius:0 3px 3px 0; }
+  .alert { background:#fdeaea; border-left-color:#a13030; color:#7a1a1a; }
+  .lvl { background:#eaf3ea; border-left-color:#2f8245; color:#1e5c2e; }
+  .pill { display:inline-block; background:#eee0c9; border:1px solid #c9a45c; border-radius:9px; padding:0 6px; font-size:7.6pt; font-weight:bold; color:#5a3d10; }
+  .gS{color:#1a3a5c;font-weight:bold} .gP{color:#6b2a82;font-weight:bold} .gA{color:#0f5c56;font-weight:bold}
+  .gU{color:#7a4a10;font-style:italic} .gL{color:#8a5a10;font-weight:bold;font-style:italic}
+  .colL{float:left;width:48.6%} .colR{float:right;width:48.6%} .clearfix::after{content:"";display:table;clear:both}
+  .two{font-size:0} .two>div{display:inline-block;vertical-align:top;width:48%;font-size:9.4pt} .two>div:first-child{margin-right:3.5%}
+.aS{color:#8a1f1f;font-weight:bold;font-style:normal} .aI{color:#1a3a5c;font-weight:bold;font-style:normal}
+.ascw th:nth-child(1){width:5%!important} .ascw th:nth-child(2){width:20%!important}
+.foot{text-align:center;font-size:7pt;color:#8a7c6a;margin-top:4px}
+.b2{padding:6px 14px} .b2 h1{font-size:12pt}
+table.tree td{padding:1.4px 5px}
+</style></head><body><div class="banner">
+  <h1>🕯 MINION ARMY WITCH — INFERNALIST · COMPLETE GUIDE</h1>
+  <div class="sub">Path of Exile 2 · Patch 0.5.5 · Levelling → Endgame · all numbers measured in Path of Building 0.23.1 · import: PoB code v2.4</div>
+  <div class="tags"><span>v2.13 · 2026-11-12</span><span>Witch → Infernalist</span><span>Life / ES Hybrid</span><span>No uniques required</span><span>FRONT · build</span></div>
+</div><div class="clearfix"><div class="colL" style="width:57.0%"><div class="section t-red">
+  <div class="section-head">① ASCENDANCY — ORDER IS SET BY THE PATH</div>
+  <div class="section-body">
+    <table>
+      <tr><th style="width:9%">Pts</th><th style="width:28%">Node</th><th>Effect</th></tr>
+      <tr><td>2</td><td><b>Loyal Hellhound</b><br><i>(via Minion Life)</i></td><td>Free minion. Socket <span class="gU">Loyalty</span> on it → 10% of Hits you take go to the Hound</td></tr>
+      <tr><td>4</td><td><b>Altered Flesh</b><br><i>(via +3% Life)</i></td><td>20% Phys→Chaos, 20% Cold/Light→Fire. <b>Gate to both Beidat nodes.</b> Get Chaos res positive first</td></tr>
+      <tr><td><b>6</b></td><td><b>Beidat's Will</b><br><i>(via +3% Life)</i></td><td>Reserves 25% Life; <b>+1 Spirit per 25 Max Life</b> — biggest army-size jump you get</td></tr>
+      <tr><td>8</td><td><b>Beidat's Hand</b><br><i>(via +3% Life)</i></td><td>Reserves another 25% Life; +1 ES per 8 Max Life</td></tr>
+    </table>
+    <div class="note alert">⚠ <b>Beidat's Will and Beidat's Hand both sit behind Altered Flesh</b> — Will can't come before it. Want Spirit sooner? Take <b>Altered Flesh → Will</b> first (Will at 4 pts) and Hellhound last.</div>
+    <div class="note lvl">▸ <b>Levelling:</b> points come from <b>Trial of the Sekhemas</b> &amp; <b>Trial of Chaos</b>. A trial is usually easier than the boss blocking you — and it fixes what's limiting you.</div>
+  </div>
+</div>
+<div class="section t-blu">
+  <div class="section-head">② GEM LOADOUT — ENDGAME TARGET</div>
+  <div class="section-body">
+    <div style="font-size:6.9pt;margin-bottom:2px;white-space:nowrap;"><span class="gS">Skill gem</span> · <span class="gP">Skill gem (reserves Spirit)</span> · <span class="gA">Spirit gem (auras)</span> · <span class="gU">Support</span> · <span class="gL">Lineage (1 only)</span></div>
+    <table>
+      <tr><th style="width:23%">Skill gem</th><th style="width:9%;font-size:0.72em;white-space:nowrap">Spirit</th><th style="padding-left:8px;">Support gems (5 max per skill)</th></tr>
+      <tr><td><span class="gS">Bind Spectre</span> → <b>Zealous Excavator</b> <i>(Act 4 · skill 1 Orb Explosion)</i></td><td>49</td><td><span class="gU">Concentrated Area</span>, <span class="gU">Feeding Frenzy I</span>, <span class="gU">Bleed III</span>, <span class="gU">Muster</span>, <span class="gU">Heft</span> <i>(24.8k — 2.6× Vaal Guard)</i>. <b>Maps:</b> Nymph Wasp (Ashen Forest, Interlude · skill 3) — 65% dmg, 2.3× speed, 48 sp</td></tr>
+      <tr><td><span class="gP">Skeletal Brute</span></td><td>39</td><td><span class="gU">Feeding Frenzy I</span>, <span class="gU">Bleed III</span>, <span class="gU">Brutality III</span>, <span class="gU">Heavy Swing</span>, <span class="gU">Muster</span></td></tr>
+      <tr><td><span class="gP">Skeletal Frost Mage</span></td><td>32</td><td><span class="gL">Rakiata's Flow</span>, <span class="gU">Feeding Frenzy I</span>, <span class="gU">Cold Attunement</span>, <span class="gU">Elemental Focus</span>, <span class="gU">Muster</span> <i>(Muster over Rapid Casting II: 1.27×)</i></td></tr>
+      <tr><td><span class="gP">Skeletal Sniper</span></td><td>25</td><td><span class="gU">Feeding Frenzy I</span>, <span class="gU">Brutality III</span>, <span class="gU">Bleed III</span>, <span class="gU">Heft</span>, <span class="gU">Muster</span></td></tr>
+      <tr><td><span class="gP">Skeletal Warrior</span> (first 2 free)</td><td>0</td><td><span class="gU">Feeding Frenzy I</span>, <span class="gU">Hulking Minions</span>, <span class="gU">Brutality III</span>, <span class="gU">Heavy Swing</span>, <span class="gU">Bleed III</span> <i>(last 3: 2.26× Warrior dmg)</i></td></tr>
+<tr><td><span class="gS">Summon Infernal Hound</span> <i>(from Loyal Hellhound)</i></td><td>0</td><td><span class="gU">Loyalty</span>, <span class="gU">Heavy Swing</span>, <span class="gU">Brutality II</span>, <span class="gU">Heft</span>, <span class="gU">Bleed III</span> <i>(Str ×4: 1.96× Hound dmg)</i></td></tr>
+      <tr><td><span class="gS">Detonate Dead</span></td><td>0</td><td>+37% on top of the army. <span class="gU">Brutality III</span>, <span class="gU">Bleed III</span>, <span class="gU">Heft</span> <i>(1.80× DD)</i></td></tr>
+      <tr><td><span class="gS">Pain Offering</span></td><td>0</td><td>+36% army dmg. <span class="gU">Sacrificial Offering</span> or <span class="gU">Danse Macabre</span> 1.06×, <span class="gU">Minion Mastery</span> 1.01× <i>(all Int — no Str support helps)</i></td></tr>
+      <tr><td><span class="gS">Vulnerability</span></td><td>0</td><td>+7% army dmg. <span class="gS">Despair</span> if enemies resist phys. <span class="gU">Prolonged Duration II</span> <i>(Str)</i> · <span class="gU">Heightened Curse</span>, <span class="gU">Ritualistic Curse</span>, <span class="gU">Focused Curse</span> <i>(Int) — curse utility, PoB can't score</i></td></tr>
+      <tr><td><span class="gS">Unearth</span> <i>(spam this)</i></td><td>0</td><td><b>Consumes</b> corpses → Bone Constructs. <span class="gU">Brutality III</span> 1.21×, <span class="gU">Heft</span> 1.18×, <span class="gU">Bleed III</span> 1.16×, <span class="gU">Heavy Swing</span> 1.15× <i>(Str)</i> · <span class="gU">Muster</span> 1.33× <i>(Int)</i></td></tr>
+      <tr><td>Spare Spirit <i>(20)</i></td><td>16 / ?</td><td><span class="gP">Skeletal Cleric</span> (16 sp) heals minions: <span class="gU">Meat Shield II</span> 1.67×, <span class="gU">Infernal Legion III</span> 1.06× <i>(Str)</i> · <span class="gU">Elemental Army</span> 1.36×, <span class="gU">Hulking Minions</span> 1.19× <i>(Int) — Cleric survival</i>. Or <span class="gA">Discipline</span> (+328 ES, +18% EHP) if it fits — cost unknown</td></tr>
+    </table>
+    <div class="note">▸ <b>Reserve order:</b> <span class="gP">Warrior</span> (free) → <span class="gS">Spectre</span> 49 → <span class="gP">Brute</span> 39 → <span class="gP">Frost Mage</span> 32 → <span class="gP">Sniper</span> 25 = <b>145 of 165</b> → <b>20 spare</b> gearless. <b>Never reserve</b> Heralds / Banners / Grim Feast / Wind Dancer — 0 DPS <i>and</i> 0 EHP.</div>
+    <div class="note alert">⚠ <b>Each socketed support costs 5 of its attribute</b> (copies count) — PoB does NOT warn you. This loadout: <b>Str 18</b> incl. Hound (90 of 142); +7 Str utility picks (Unearth 4, Cleric 2, Vuln 1) = 125 · <b>Int 14</b> incl. <span class="gU">Loyalty</span> (70 of 72) · <b>Dex 1</b> (5 of 7). Each Int utility pick needs 1 attribute node switched Str→Int (≈1.2% EHP). Utility multipliers are each support measured alone. Skill gems need <b>38 Int</b> at lvl 20; <span class="gA">Discipline</span> needs 30 Str. <b>Only 1 Lineage gem:</b> <span class="gL">Rakiata's Flow</span> — so no <span class="gL">Uul-Netol's Embrace</span> or <span class="gL">Doedre's Undoing</span>. <b>Drop:</b> <span class="gU">Minion Pact</span>, <span class="gU">Meat Shield</span> <i>(except on Cleric)</i>, <span class="gU">Fiery Death</span>*, <span class="gU">Uhtred's</span> gems, <span class="gS">Raise Zombie</span>, <span class="gU">Multishot</span>/<span class="gU">Chain</span> (halve single-target dmg), <span class="gS">Eternal March</span> (needs Runic Ward — none here). <b>Other skeletons, DPS per Spirit:</b> Brute 178 · Sniper 178 · Frost Mage 154 · Reaver 134 · Arsonist 117 · Storm Mage 76 — none upgrade.</div>
+    <div class="note">* <b>Fiery Death reads huge in PoB and does almost nothing in a boss fight.</b> It only explodes enemies <i>you ignite</i> — your minions are physical/cold, so it never triggers. Same trap: <span class="gU">Minion Instability</span>.</div>
+  </div>
+</div>
+</div><div class="colR" style="width:40.2%"><div class="section t-gld">
+  <div class="section-head">③ GEAR — WHAT CAN ROLL WHERE (from game data)</div>
+  <div class="section-body">
+    <table>
+      <tr><th style="width:21%">Slot</th><th>Target stats (P = prefix, S = suffix)</th></tr>
+      <tr><td><b>Sceptre</b></td><td><b>P: Spirit % (61–65)</b> · <b>S: +4 minion levels</b> · S: minion Life %, all-res, Int/Str<br><i>Rattling / Lupine / Ochre bases also GRANT Skeletal Warrior. Every sceptre = +100 Spirit.</i><br><b>Socket:</b> <b>Rabbit Idol</b> (15% Spirit: +25) &gt; <b>Primate Idol</b> (+8% army dmg, minions in Presence) &gt; Rune of Vitality (+80 Life)</td></tr>
+      <tr><td><b>Body Armour</b></td><td><b>P: +Spirit (57–61)</b> · P: +ES, +Life · S: chaos/fire/cold/light res, attributes</td></tr>
+      <tr><td><b>Amulet</b></td><td><b>P: +Spirit (47–50), ES% (45–50)</b> · <b>S: +3 minion levels</b> · P: +ES, +Life · S: all-res, chaos res, all attributes</td></tr>
+      <tr><td><b>Helmet</b></td><td><b>S: +2 minion levels</b> · P: +ES, +Life · S: chaos/fire/cold/light res, Int</td></tr>
+      <tr><td><b>Boots</b></td><td><b>P: Movement Speed (35%)</b> · P: +ES, +Life · S: chaos/fire/cold/light res</td></tr>
+      <tr><td><b>Gloves</b></td><td>P: +ES, +Life · S: chaos/fire/cold/light res, attributes <i>(no minion mods roll here)</i></td></tr>
+      <tr><td><b>Belt</b></td><td>P: +Life (150–174) · S: chaos/fire/cold/light res, Str <i>(no ES, no minion mods)</i></td></tr>
+      <tr><td><b>Ring ×2</b></td><td>P: +Life · <b>S: all-res (15–16)</b>, chaos res, all attributes, Mana regen</td></tr>
+      <tr><td><b>Shield</b></td><td>P: +Life (175–189) · S: all-res <i>(very few mods roll — use a high-ES base)</i></td></tr>
+      <tr><td><b>Jewel ×3</b></td><td><b>Sapphire</b> (Int): P: <b>Minion dmg % (5–15) — only source</b>, ES% (10–20) · S: minion atk/cast speed (2–4), minion crit dmg · <b>Ruby</b> (Str): minion Life %, minion phys DR <i>(Emerald: nothing useful)</i></td></tr>
+    </table>
+    <div class="note alert">⚠ <b>Exclusive — nothing else can roll these:</b> Spirit% = sceptre · +Spirit = body/amulet · Movement Speed = boots · ES% = amulet · minion damage% = jewels only.</div>
+    <div class="note">▸ <b>Buy order on a budget:</b> ① Sceptre (Spirit% + minion levels) ② Amulet (+minion levels, +Spirit) ③ Body (+Spirit) ④ chaos res spread across helmet/gloves/belt/rings ⑤ boots last. Buy <b>one strong affix</b> per item — dual-stat rares cost far more than the sum of their parts.</div>
+    <div class="note lvl">▸ <b>While levelling:</b> the roll ranges are <b>endgame ceilings</b> — low item-level gear rolls the same stats lower, so take them anyway. Until your 40s: <b>Spirit &amp; minion levels → Life (and Str) → resistances</b>. ES only climbs to the top after the tree's ES block (~pt 49) and Beidat's Hand (~Lv 70). +Spirit stops mattering once your army fits.</div>
+  </div>
+</div>
+<div class="section t-tea">
+  <div class="section-head">④ ROTATION &amp; TROUBLESHOOTING</div>
+  <div class="section-body">
+    <div class="two">
+      <div><b>Mapping</b>
+        <ol><li><span class="gS">Unearth</span></li><li><span class="gS">Pain Offering</span></li><li><span class="gS">Detonate Dead</span></li><li><span class="gS">Vulnerability</span></li><li>Walk behind the army</li></ol>
+      </div>
+      <div><b>Bossing</b>
+        <ol><li><span class="gS">Unearth</span> → <span class="gS">Pain Offering</span></li><li><span class="gS">Despair</span></li><li>Brute Command <i>(Intimidate +10%)</i></li><li><span class="gS">Detonate Dead</span></li><li>Frost Mage Command <b>last</b></li></ol>
+      </div>
+    </div>
+    <div class="note alert">⚠ <b>Corpse economy:</b> <span class="gS">Unearth</span> and <span class="gS">Detonate Dead</span> both <b>consume</b> corpses and compete (<span class="gS">Pain Offering</span> does not). Corpses come from <b>your own minions dying &amp; reviving</b> — so both are weakest at the START of a boss fight. <b><span class="gA">Sacrifice</span></b> (Spirit gem) lets living minions count as corpses — the fix for single-target.</div>
+    <div class="note"><b>Stuck on a boss?</b> ① minions dying → add <span class="gP">Skeletal Cleric</span> or more bodies ② you dying → resistances, then Life; keep your distance ③ boss not dying → raise <b>active</b> gem levels, then Brute Command, then a better spectre ④ still stuck → go get Ascendancy points.</div>
+  </div>
+</div>
+</div></div><div class="foot">PoE2 0.5.5 · Witch → Infernalist · Complete Guide v2.13 · 2026-11-12 · measured in Path of Building 0.23.1 · not affiliated with GGG</div></body></html>

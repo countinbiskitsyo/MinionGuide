@@ -15,7 +15,9 @@ Tick off every skill gem, support gem, ascendancy point, spectre and passive-tre
 - **Spectres by act** — the best spectre to bind in each act, with where to find it.
 - **Passive tree in 25 phases** — all 123 points, allocated top to bottom while levelling.
 - **Progress bars** for every section, plus a "Hide collected" button that leaves only what you still need.
-- **Reference panels** for gear targets, rotation and stat priority.
+- **Gear targets for every slot** — every useful stat, prefix or suffix, best roll and priority, plus jewels and sceptre sockets.
+- **Copy PoB code** — one tap copies the Path of Building code (final tree, 4 levelling checkpoints, full gem loadout).
+- **Reference panels** for rotation, troubleshooting and stat priority.
 
 ## How syncing works
 
@@ -27,7 +29,17 @@ Ticks are saved on the device instantly. To sync between devices, tap **Sync** o
 
 ## Updating
 
-A new version is a new `index.html`: **Add file → Upload files**, drop it in, **Commit changes**. About a minute later every device shows the new version, and your ticks carry over.
+Each update is a small zip holding only the files that changed, laid out like this repository. Unzip it, drag its contents into **Add file → Upload files**, then **Commit changes**. About a minute later every device shows the new version, and your ticks carry over.
+
+## Printable versions
+
+The page is the guide. Printable PDFs (a 2-page cheatsheet and a 2-page gear sheet, made for double-sided lamination) are produced on request from the files in `dev/source/print/`.
+
+## Repository layout
+
+- `index.html` — the guide and checklist (this is the website)
+- `README.md` — this page
+- `dev/` — build files, the Path of Building code and project notes
 
 ## About the numbers
 
