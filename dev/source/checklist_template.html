@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.14</title>
+<title>MinionGuide — Minion Army Infernalist v2.15</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -11,102 +11,127 @@
 :root{
   --bg:#e7e3dd; --surface:#f7f5f1; --surface2:#efebe4; --ink:#211a1d; --muted:#66595c; --line:#d3cbc0;
   --wine:#5c1028; --wine2:#7d1a2c; --gold:#b8862b; --goldtext:#7a5612;
-  --s1:#8f3b3d; --s2:#3a5f86; --s3:#8f6a2a; --s4:#2f6f69; --s5:#4a6e47; --s6:#634a85; --s7:#3a5079;
+  --c1:#2f6b9a; --c2:#8f3b3d; --c3:#6a4b8c; --c4:#56606b; --c5:#45508f; --c6:#8a6526; --c7:#2c6f6a; --c8:#556b2f;
   --str:#b5524a; --int:#4a72b8; --dex:#3f8a55; --lin:#a8833a; --skill:#2f7f7c; --spirit:#7b5a9e; --aura:#3a8a65;
-  --chipOn:#fff; --focus:#2f6fd6; --barbg:#d8d0c4;
+  --focus:#2f6fd6; --barbg:#d8d0c4; --alert:#a0453f; --good:#4a7a4a;
   color-scheme: light;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#b0a39f; --line:#3a2f35;
+  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#a99c98; --line:#3a2f35;
   --wine:#3a0a1a; --wine2:#5a1424; --gold:#d6a94a; --goldtext:#e4c27a;
-  --s1:#b8706f; --s2:#7d9cc2; --s3:#c09a5e; --s4:#6fa8a2; --s5:#86a882; --s6:#a28dbf; --s7:#8197c4;
+  --c1:#7fa8cf; --c2:#c07776; --c3:#a68fc6; --c4:#9aa5b1; --c5:#8f98d0; --c6:#c8a065; --c7:#6fb0aa; --c8:#9cb173;
   --str:#c9776c; --int:#7f9ed8; --dex:#79b388; --lin:#c9a868; --skill:#6db0ad; --spirit:#a98cc6; --aura:#78b394;
-  --chipOn:#120e10; --focus:#8fb6ff; --barbg:#33292e; color-scheme: dark; }}
+  --focus:#8fb6ff; --barbg:#33292e; --alert:#c9776c; --good:#86a882; color-scheme: dark; }}
 :root[data-theme="dark"]{
-  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#b0a39f; --line:#3a2f35;
+  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#a99c98; --line:#3a2f35;
   --wine:#3a0a1a; --wine2:#5a1424; --gold:#d6a94a; --goldtext:#e4c27a;
-  --s1:#b8706f; --s2:#7d9cc2; --s3:#c09a5e; --s4:#6fa8a2; --s5:#86a882; --s6:#a28dbf; --s7:#8197c4;
+  --c1:#7fa8cf; --c2:#c07776; --c3:#a68fc6; --c4:#9aa5b1; --c5:#8f98d0; --c6:#c8a065; --c7:#6fb0aa; --c8:#9cb173;
   --str:#c9776c; --int:#7f9ed8; --dex:#79b388; --lin:#c9a868; --skill:#6db0ad; --spirit:#a98cc6; --aura:#78b394;
-  --chipOn:#120e10; --focus:#8fb6ff; --barbg:#33292e; color-scheme: dark; }
+  --focus:#8fb6ff; --barbg:#33292e; --alert:#c9776c; --good:#86a882; color-scheme: dark; }
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Crimson Pro",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.45}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--wine)}
-a{color:inherit}
 .wrap{max-width:2400px;margin:0 auto;padding:0 24px 40px}
-header.hero{background:radial-gradient(120% 140% at 0% 0%, var(--wine2), var(--wine) 60%, #1a0710);color:#f4e9d8;padding:22px 18px 18px;border-radius:0 0 14px 14px;margin:0 -24px 0}
-.hero h1{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:clamp(22px,5vw,32px);line-height:1.15;margin:0 0 6px;color:#f3d891;letter-spacing:.02em}
+header.hero{background:radial-gradient(120% 140% at 0% 0%, var(--wine2), var(--wine) 60%, #1a0710);color:#f4e9d8;padding:20px 24px 16px;border-radius:0 0 14px 14px;margin:0 -24px}
+.hero h1{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:clamp(22px,2.4vw,34px);line-height:1.15;margin:0 0 4px;color:#f3d891}
 .hero p{margin:0;color:#e9cfcf;font-style:italic;font-size:15px}
-.hero .ver{display:inline-block;margin-top:10px;font-size:13px;color:#f4e9d8;border:1px solid #c9a24a88;border-radius:20px;padding:1px 10px}
-.total{margin-top:14px}
-.total .label{display:flex;justify-content:space-between;font-size:15px;color:#f4e9d8}
+.hero .ver{display:inline-block;margin-top:8px;font-size:13px;border:1px solid #c9a24a88;border-radius:20px;padding:1px 10px}
+.total{margin-top:12px}
+.total .label{display:flex;justify-content:space-between;font-size:15px}
 .bar{height:8px;border-radius:6px;background:#ffffff26;overflow:hidden;margin-top:5px}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#c9a24a,#f3d891);transition:width .35s ease}
 nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin:0 -24px;padding:8px 24px;display:flex;gap:8px;align-items:center}
 .navscroll{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1}
 .navscroll::-webkit-scrollbar{display:none}
-.navscroll a{flex:none;text-decoration:none;font-family:Cinzel,Georgia,serif;font-size:13px;font-weight:700;padding:5px 10px;border-radius:16px;border:1.5px solid var(--c);color:var(--c);white-space:nowrap}
+.navscroll a{flex:none;text-decoration:none;font-family:Cinzel,Georgia,serif;font-size:13px;font-weight:600;padding:4px 10px;border-radius:16px;border:1px solid color-mix(in srgb,var(--c) 45%,transparent);color:color-mix(in srgb,var(--c) 75%,var(--ink));white-space:nowrap}
 .tog{flex:none;font:inherit;font-size:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:4px 10px;cursor:pointer}
 .tog[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .status{font-size:13px;color:var(--muted);margin:8px 2px 0;min-height:18px}
-section.sec{margin-top:18px;background:var(--surface);border-radius:12px;border-left:6px solid var(--c);padding:12px 14px 14px;box-shadow:0 1px 0 var(--line)}
-.sec h2{font-family:Cinzel,Georgia,serif;font-size:19px;margin:0;color:var(--c);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.sec h2 .n{font-size:22px}
-.sec .sub{color:var(--muted);font-size:14px;margin:2px 0 8px}
-.prog{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin:4px 0 10px}
-.prog .bar{flex:1;background:var(--barbg);height:7px;margin:0}
-.prog .bar i{background:var(--c)}
+/* page grid: 6 columns on desktop so thirds and halves line up evenly */
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:10px}
+@media (min-width:1150px){ main{grid-template-columns:repeat(6,minmax(0,1fr))} .w-full{grid-column:span 6} .w-half{grid-column:span 3} .w-third{grid-column:span 3} .w-third.mid-full{grid-column:span 6} }
+@media (min-width:1800px){ .w-third,.w-third.mid-full{grid-column:span 2} }
+section.sec{background:var(--surface);border-radius:12px;border:1px solid var(--line);border-top:4px solid var(--c);min-width:0;display:flex;flex-direction:column}
+.shead{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 16px;width:100%}
+.shead:focus-visible{outline:3px solid var(--focus);outline-offset:-3px;border-radius:10px}
+.shead h2{font-family:Cinzel,Georgia,serif;font-size:19px;margin:0;color:color-mix(in srgb,var(--c) 80%,var(--ink));flex:1;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.shead .n{font-size:21px}
+.shead .pt{font-family:"Crimson Pro",Georgia,serif;font-size:14px;color:var(--muted);white-space:nowrap}
+.shead .chev{width:18px;height:18px;flex:none;transition:transform .2s;color:var(--muted)}
+section.sec.closed .chev{transform:rotate(-90deg)}
+.sbody{padding:0 16px 16px;flex:1}
+section.sec.closed .sbody{display:none}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 8px}
+.prog{height:6px;background:var(--barbg);border-radius:6px;overflow:hidden;margin:0 0 12px}
+.prog i{display:block;height:100%;width:0;background:var(--c);transition:width .35s ease}
 .row{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line)}
-.row:first-of-type{border-top:0}
+.row:first-child{border-top:0}
 .row .head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
 .row .meta{font-size:14px;color:var(--muted)}
 .row .detail{grid-column:2;font-size:15.5px}
-.row .detail i{color:var(--muted)}
-.tick{width:30px;height:30px;border-radius:50%;border:2px solid var(--c);background:transparent;cursor:pointer;display:grid;place-items:center;padding:0;margin-top:1px}
-.tick svg{width:16px;height:16px;opacity:0;transition:opacity .15s}
-.tick[aria-checked="true"]{background:var(--c)}
+.tick{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--c);background:transparent;cursor:pointer;display:grid;place-items:center;padding:0;margin-top:1px}
+.tick svg{width:15px;height:15px;opacity:0}
+.tick[aria-checked="true"]{background:color-mix(in srgb,var(--c) 70%,transparent)}
 .tick[aria-checked="true"] svg{opacity:1}
-.tick svg path{stroke:var(--chipOn);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.chip{--k:var(--int);display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:15.5px;font-weight:600;line-height:1.2;padding:4px 10px 4px 6px;margin:2px 0;border-radius:999px;border:1.5px solid var(--k);background:transparent;color:var(--ink);cursor:pointer;vertical-align:middle}
-.chip .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--k);flex:none;transform:rotate(45deg);border-radius:3px}
-.chip[aria-checked="true"]{background:var(--k);color:var(--chipOn);box-shadow:0 0 0 3px color-mix(in srgb,var(--k) 25%,transparent)}
-.chip[aria-checked="true"] .dot{background:var(--chipOn);border-color:var(--chipOn)}
+.tick svg path{stroke:var(--surface);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+/* gem chips */
+.chip{--k:var(--int);display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:15px;font-weight:600;line-height:1.2;padding:4px 10px 4px 7px;margin:2px 2px 2px 0;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;vertical-align:middle}
+.chip .dot{width:10px;height:10px;border-radius:2px;transform:rotate(45deg);background:var(--k);flex:none}
+.chip .x{font-weight:400;font-size:13px;color:var(--muted);margin-left:2px}
+.chip:hover{border-color:color-mix(in srgb,var(--k) 55%,var(--line))}
+.chip[aria-checked="true"]{background:color-mix(in srgb,var(--k) 18%,transparent);border-color:color-mix(in srgb,var(--k) 50%,transparent)}
+.chip[aria-checked="true"]::after{content:"✓";font-size:13px;color:var(--k)}
 .chip.str{--k:var(--str)} .chip.int{--k:var(--int)} .chip.dex{--k:var(--dex)} .chip.lin{--k:var(--lin)}
-.chip.sk{--k:var(--skill)} .chip.sp{--k:var(--spirit)} .chip.au{--k:var(--aura)}
-.chip.big{font-family:Cinzel,Georgia,serif;font-size:15px;font-weight:700}
-.chip .x{font-weight:400;font-size:13px;opacity:.8}
-button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.spirit{font-size:13px;font-weight:700;color:var(--spirit);border:1px solid var(--spirit);border-radius:10px;padding:0 7px;white-space:nowrap}
-.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--muted);margin:2px 0 8px}
-.legend span{display:inline-flex;align-items:center;gap:5px}
-.legend b{width:11px;height:11px;display:inline-block;transform:rotate(45deg);border-radius:2px}
-.note{font-size:14.5px;background:var(--surface2);border-left:3px solid var(--gold);border-radius:6px;padding:7px 10px;margin:8px 0 0}
-.note.alert{border-left-color:var(--s1)}
-.note.lvl{border-left-color:var(--s5)}
+.chip.skill{--k:var(--skill)} .chip.spirit{--k:var(--spirit)} .chip.aura{--k:var(--aura)}
+.chip.main{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:15.5px;padding:6px 14px 6px 10px;border:2px solid var(--k);background:color-mix(in srgb,var(--k) 12%,transparent)}
+.chip.main .dot{width:12px;height:12px}
+.chip.main[aria-checked="true"]{background:color-mix(in srgb,var(--k) 32%,transparent);border-color:var(--k)}
+.or{font-size:14px;color:var(--muted);font-style:italic;margin:0 2px}
+button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.spirit{font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:0 8px;white-space:nowrap}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:12px}
+.gcard{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface2)}
+.ghead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.gsub{font-size:15px;color:var(--muted);font-style:italic}
+.gsup{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px}
+.galt{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14.5px;color:var(--muted)}
+.galt .lbl{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+.gnote{margin-top:auto;font-size:14px;color:var(--muted);font-style:italic;border-top:1px dashed var(--line);padding-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin:0 0 12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend b{width:10px;height:10px;display:inline-block;transform:rotate(45deg);border-radius:2px}
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:10px;margin-top:12px}
+.note{font-size:14.5px;background:var(--surface2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0;padding:8px 11px;margin:0}
+.note.alert{border-left-color:var(--alert)}
+.note.lvl{border-left-color:var(--good)}
 .gS,.gP,.gA,.gU,.gL{font-weight:600}
 .gS{color:var(--skill)} .gP{color:var(--spirit)} .gA{color:var(--aura)} .gU{color:var(--int)} .gL{color:var(--lin)}
 .pill{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--gold);color:var(--goldtext);border-radius:10px;padding:0 8px;margin-left:4px;white-space:nowrap}
 .aS{color:var(--str);font-weight:700;font-style:normal} .aI{color:var(--int);font-weight:700;font-style:normal}
-details.ref{margin-top:18px;background:var(--surface);border-radius:12px;border-left:6px solid var(--c);padding:0 14px}
-details.ref summary{list-style:none;cursor:pointer;padding:12px 0;font-family:Cinzel,Georgia,serif;font-weight:700;font-size:19px;color:var(--c);display:flex;justify-content:space-between;gap:10px}
-details.ref summary::-webkit-details-marker{display:none}
-details.ref summary::after{content:"Show";font-family:"Crimson Pro",Georgia,serif;font-weight:600;font-size:14px;color:var(--muted);align-self:center}
-details.ref[open] summary::after{content:"Hide"}
-.refbody{padding-bottom:14px;font-size:15.5px}
+.tgrid{column-gap:28px}
+@media (min-width:1500px){ .tgrid{column-count:2} }
+.tgrid .row{break-inside:avoid}
+.ref{font-size:15.5px}
 .tw{overflow-x:auto}
-.refbody table{border-collapse:collapse;width:100%;min-width:480px}
-.refbody td,.refbody th{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
-.refbody th{font-family:Cinzel,Georgia,serif;font-size:13px;color:var(--muted)}
-.refbody ol{margin:4px 0 4px 20px;padding:0}
-.refbody .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:560px){.refbody .two{grid-template-columns:1fr}}
-.hide-done .row.done{display:none}
-.hide-done .chip[aria-checked="true"]{display:none}
+.ref table{border-collapse:collapse;width:100%}
+.ref td,.ref th{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+.ref th{font-family:Cinzel,Georgia,serif;font-size:13px;color:var(--muted)}
+.ref ol{margin:4px 0 4px 20px;padding:0}
+.ref .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gt .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(620px,1fr));gap:12px;margin-top:12px}
+.gt .slot{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:0}
+.gt .sh{background:color-mix(in srgb,var(--c6) 85%,#000);color:#fff;font-family:Cinzel,Georgia,serif;font-weight:700;padding:4px 10px}
+.gt .pri{display:inline-block;border-radius:8px;padding:0 6px;font-size:12px;font-weight:700;white-space:nowrap}
+.gt .num{white-space:nowrap} .gt .why{font-style:italic;color:var(--muted)}
+.gt .slot .note{border:0;border-top:1px solid var(--line)}
+.pob textarea{width:100%;font-family:Consolas,"Courier New",monospace;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:8px;word-break:break-all;margin-top:8px}
+.hide-done .row.done,.hide-done .gcard.done{display:none}
+.hide-done .chip[aria-checked="true"]:not(.main){display:none}
 .foot{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
-.danger{font:inherit;font-size:14px;background:transparent;color:var(--s1);border:1px solid var(--s1);border-radius:16px;padding:4px 12px;cursor:pointer}
-.danger.arm{background:var(--s1);color:#fff}
-@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.danger{font:inherit;font-size:14px;background:transparent;color:var(--alert);border:1px solid var(--alert);border-radius:16px;padding:4px 12px;cursor:pointer}
+.danger.arm{background:var(--alert);color:#fff}
 dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);max-width:min(440px,92vw);padding:16px 18px}
 dialog::backdrop{background:#0008}
 dialog h3{font-family:Cinzel,Georgia,serif;margin:0 0 6px;color:var(--wine2)}
@@ -114,57 +139,29 @@ dialog label{font-weight:600;font-size:15px;display:block;margin-top:8px}
 dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);margin-top:4px}
 .drow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .dmsg{font-size:15px;margin:0 0 4px} .dnote{font-size:13px;color:var(--muted);margin:10px 0 0}
-main{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:10px}
-main>section.sec,main>details.ref{margin-top:0;align-self:start;min-width:0}
-@media (min-width:1150px){ main{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} main>.full{grid-column:1/-1} main>*{order:var(--o,99)} }
-.pob textarea{width:100%;font-family:Consolas,"Courier New",monospace;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:8px;word-break:break-all}
-.gt .legend{font-size:14px;color:var(--muted)}
-.gt .slot{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:10px 0}
-.gt .sh{background:var(--s3);color:#fff;font-family:Cinzel,Georgia,serif;font-weight:700;padding:4px 10px}
-.gt table{min-width:620px;table-layout:auto}
-.gt .pri{display:inline-block;border-radius:8px;padding:0 6px;font-size:12px;font-weight:700;white-space:nowrap}
-.gt .num{white-space:nowrap} .gt .why{font-style:italic;color:var(--muted)}
-.gt .note{margin:0;border-radius:0}
-/* v2.14 calmer colours + full-width layout */
-.chip{border:1px solid var(--line);color:var(--ink);background:transparent;font-weight:600}
-.chip .dot{width:10px;height:10px;border:0;border-radius:2px;background:var(--k)}
-.chip:hover{border-color:color-mix(in srgb,var(--k) 55%,var(--line))}
-.chip[aria-checked="true"]{background:color-mix(in srgb,var(--k) 18%,transparent);border-color:color-mix(in srgb,var(--k) 50%,transparent);color:var(--ink);box-shadow:none}
-.chip[aria-checked="true"] .dot{background:var(--k);border:0}
-.chip[aria-checked="true"]::after{content:"✓";font-size:13px;color:var(--k);margin-left:1px}
-.chip.big{font-size:14.5px}
-.spirit{font-weight:600;color:var(--muted);border-color:var(--line)}
-.navscroll a{border-width:1px;font-weight:600;color:color-mix(in srgb,var(--c) 70%,var(--ink));border-color:color-mix(in srgb,var(--c) 40%,transparent)}
-.sec h2,details.ref summary{color:color-mix(in srgb,var(--c) 75%,var(--ink))}
-section.sec,details.ref{border-left-width:4px}
-.tick{border-width:1.5px}
-.gS,.gP,.gA,.gU,.gL{font-weight:600}
-.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(520px,1fr));gap:10px 14px}
-.ggrid>.legend,.ggrid>.note{grid-column:1/-1}
-.ggrid>.row{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--surface2)}
-@media (min-width:1500px){.tgrid{column-count:2;column-gap:28px} .tgrid>.row{break-inside:avoid} .tgrid>.note{column-span:all}}
-@media (min-width:1150px){main{grid-auto-flow:row dense}}
-@media (min-width:1800px){main{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap" id="app">
+<div class="wrap">
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
     <p>Patch 0.5.5 guide and checklist. Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.14 · 2026-11-12 · PoB code v2.4</span>
+    <span class="ver">v2.15 · 2026-11-12 · PoB code v2.4</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
     <div class="navscroll" id="nav"></div>
-    <button class="tog" id="hideBtn" aria-pressed="false">Hide collected</button>
-    <button class="tog" id="syncBtn">Sync</button>
+    <button class="tog" id="openAll" type="button">Expand all</button>
+    <button class="tog" id="closeAll" type="button">Collapse all</button>
+    <button class="tog" id="hideBtn" type="button" aria-pressed="false">Hide collected</button>
+    <button class="tog" id="syncBtn" type="button" title="Back up your ticks to your GitHub account">Sync</button>
   </nav>
   <div class="status" id="status" role="status">Saved on this device only.</div>
   <main id="main"></main>
   <div class="foot">
-    <p>Measured in Path of Building 0.23.1 · not affiliated with GGG</p>
-    <button class="danger" id="resetBtn">Clear all ticks</button>
+    <p>Measured in Path of Building 0.23.1 · fan-made, not affiliated with Grinding Gear Games</p>
+    <button class="danger" id="resetBtn" type="button">Clear all ticks</button>
   </div>
 </div>
 <dialog id="syncDlg" aria-labelledby="dlgTitle">
@@ -180,75 +177,72 @@ section.sec,details.ref{border-left-width:4px}
 <script>
 (function(){
 const D=JSON.parse(document.getElementById('guide-data').textContent);
-const ATTR={"Bleed III":"str","Brutality II":"str","Brutality III":"str","Heavy Swing":"str","Heft":"str","Infernal Legion III":"str","Meat Shield II":"str","Prolonged Duration II":"str",
- "Cold Attunement":"int","Concentrated Area":"int","Danse Macabre":"int","Elemental Army":"int","Elemental Focus":"int","Feeding Frenzy I":"int","Focused Curse":"int","Heightened Curse":"int","Hulking Minions":"int","Loyalty":"int","Minion Mastery":"int","Muster":"int","Ritualistic Curse":"int","Sacrificial Offering":"int",
- "Rakiata's Flow":"lin"};
-const LS='poe2-minion-checklist-v1';
+const LS='poe2-minion-checklist-v1', LSC='mg-sections-v1';
 let checks={}; let updatedAt=0;
 try{const s=JSON.parse(localStorage.getItem(LS)||'null'); if(s&&s.checks){checks=s.checks; updatedAt=s.updatedAt||0;}}catch(e){}
+let closed={}; try{closed=JSON.parse(localStorage.getItem(LSC)||'null')||null;}catch(e){closed=null}
 const main=document.getElementById('main'), nav=document.getElementById('nav'), statusEl=document.getElementById('status');
 const TICK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function chipHTML(key,name,cls,extra){return `<button type="button" class="chip ${cls}" role="checkbox" aria-checked="false" data-key="${esc(key)}"><span class="dot"></span>${esc(name)}${extra||''}</button>`;}
-function chipify(html,prefix){
-  return html.replace(/<span class="(g[SPAUL])">([^<]+)<\/span>/g,(m,c,name)=>{
-    let cls; if(c==='gS')cls='sk big'; else if(c==='gP')cls='sp big'; else if(c==='gA')cls='au big'; else if(c==='gL')cls='lin'; else cls=ATTR[name]||'int';
-    return chipHTML(prefix+':'+name,name,cls);
-  });
-}
-const SECS=[];
-function lay(el,o){ if(o&&o.full) el.classList.add('full'); if(o&&o.order) el.style.setProperty('--o',o.order); }
-function section(num,colorVar,title,sub,bodyFn,o){
-  const id='s'+num; SECS.push({id,num,colorVar,title:(o&&o.nav)||title});
-  const el=document.createElement('section'); el.className='sec'; el.id=id; el.style.setProperty('--c','var('+colorVar+')'); lay(el,o);
-  el.innerHTML=`<h2><span class="n">${num}</span>${esc(title)}</h2>${sub?`<div class="sub">${sub}</div>`:''}<div class="prog"><span class="pt"></span><div class="bar"><i></i></div></div>`;
-  const body=document.createElement('div'); if(o&&o.bodyClass) body.className=o.bodyClass; body.innerHTML=bodyFn(); el.appendChild(body); main.appendChild(el);
-}
-function ref(num,colorVar,title,html,o){
-  const id='s'+(o&&o.id||num); SECS.push({id,num,colorVar,title:(o&&o.nav)||title,ref:true});
-  const el=document.createElement('details'); el.className='ref'; el.id=id; el.style.setProperty('--c','var('+colorVar+')'); lay(el,o);
-  el.innerHTML=`<summary><span>${num} ${esc(title)}</span></summary><div class="refbody">${html.replace(/<table/g,'<div class="tw"><table').replace(/<\/table>/g,'</table></div>')}</div>`;
+const CHEV='<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip=h=>h.replace(/<[^>]+>/g,'').trim();
+const NUM=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+const SECS=[]; const DEFAULT_CLOSED={gear:true,rotation:true,stat:true};
+function chip(key,name,kind,extra,main){return `<button type="button" class="chip ${kind}${main?' main':''}" role="checkbox" aria-checked="false" data-key="${esc(key)}"><span class="dot"></span>${esc(name)}${extra?`<span class="x">${esc(extra)}</span>`:''}</button>`;}
+function section(id,cvar,title,width,html,opts){
+  opts=opts||{}; const num=NUM[SECS.length]; SECS.push({id,num,cvar,nav:opts.nav||title});
+  const el=document.createElement('section'); el.className='sec '+width; el.id=id; el.style.setProperty('--c','var('+cvar+')');
+  const isClosed=closed?!!closed[id]:!!DEFAULT_CLOSED[id]; if(isClosed) el.classList.add('closed');
+  el.innerHTML=`<button type="button" class="shead" aria-expanded="${!isClosed}" aria-controls="${id}-b"><h2><span class="n">${num}</span>${esc(title)}</h2><span class="pt"></span>${CHEV}</button><div class="sbody" id="${id}-b">${opts.sub?`<p class="sub">${opts.sub}</p>`:''}${opts.check?'<div class="prog"><i></i></div>':''}${html}</div>`;
   main.appendChild(el);
 }
-const notes=a=>a.join('');
-const strip=h=>h.replace(/<[^>]+>/g,'').trim();
-// ① Ascendancy
-section('①','--s1','Ascendancy','Order is set by the path. Each node costs 1 point; the small node before it is the other.',()=>D.asc.map((r,i)=>{
+const notes=a=>a&&a.length?`<div class="notes">${a.join('')}</div>`:'';
+// ① Gem loadout
+section('gems','--c1','Gem loadout','w-full',(()=>{
+  const leg=`<div class="legend"><span><b style="background:var(--skill)"></b>Skill gem</span><span><b style="background:var(--spirit)"></b>Reserves Spirit</span><span><b style="background:var(--aura)"></b>Spirit gem</span><span><b style="background:var(--str)"></b>Str support</span><span><b style="background:var(--int)"></b>Int support</span><span><b style="background:var(--lin)"></b>Lineage (1 per build)</span></div>`;
+  const cards=D.gems.map(g=>{
+    const r=g.key.match(/^gem(\d+):/)[1];
+    const sup=g.sup.map(s=>(s[3]==='or'?'<span class="or">or</span>':'')+chip(`gem${r}:${s[0]}`,s[0],s[1],s[2])).join('');
+    const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true)}<span>${esc(g.alt.text)}</span></div>`:'';
+    return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true)}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
+  }).join('');
+  return leg+`<div class="ggrid">${cards}</div>`+notes(D.gemNotes);
+})(),{check:true,nav:'Gems',sub:'Every skill gem and support is a checkbox. Diamond colour = gem type. Multipliers in a chip are measured gains.'});
+// ② Ascendancy
+section('asc','--c2','Ascendancy','w-third',D.asc.map(r=>{
   const name=strip(r[1].split('<br')[0]); const via=(r[1].match(/<i>(.*?)<\/i>/)||[,''])[1];
-  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(name)}" data-key="asc:${esc(name)}">${TICK}</button><div class="head"><b>${esc(name)}</b><span class="meta">${r[0]} pts total ${via?'· '+via:''}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.ascNotes),{order:1});
-// ② Gems
-section('②','--s2','Gem loadout','Every skill gem and support is a checkbox. Colours match the gem: <b style="color:var(--str)">Str</b>, <b style="color:var(--int)">Int</b>, <b style="color:var(--dex)">Dex</b>, <b style="color:var(--lin)">Lineage</b>.',()=>{
-  const leg=`<div class="legend"><span><b style="background:var(--skill)"></b>Skill gem</span><span><b style="background:var(--spirit)"></b>Reserves Spirit</span><span><b style="background:var(--aura)"></b>Spirit gem</span><span><b style="background:var(--str)"></b>Str support</span><span><b style="background:var(--int)"></b>Int support</span><span><b style="background:var(--lin)"></b>Lineage (1 only)</span></div>`;
-  return leg+D.gems.map((r,i)=>{
-    const p='gem'+i;
-    let skill=chipify(r[0],p+':skill');
-    const sp=strip(r[1]);
-    return `<div class="row" data-row style="grid-template-columns:1fr"><div class="head">${skill}${sp&&sp!=='0'?`<span class="spirit">${esc(sp)} Spirit</span>`:''}</div><div class="detail" style="grid-column:1">${chipify(r[2],p)}</div></div>`;
-  }).join('')+notes(D.gemNotes).replace(/class="(g[SPAUL])"/g,'class="$1"');
-},{order:4,full:true,nav:'Gems',bodyClass:'ggrid'});
-// ③ ④ ⑤ references
-ref('③','--s3','Gear — what can roll where',D.gear,{order:6});
-ref('④','--s4','Rotation & troubleshooting',D.rot,{order:7});
-ref('⑤','--s5','Stat priority & checkpoints',D.stat,{order:8});
-ref('◆','--s2','Path of Building code',`<div class="pob"><p>In Path of Building (PoE2): <b>Import/Export Build</b> → paste into the import box → <b>Import</b>. Includes the final tree, 4 levelling checkpoints (tree dropdown) and the full gem loadout.</p><p><button type="button" class="tog" id="copyPob">Copy PoB code</button> <span class="meta" id="pobMsg"></span></p><textarea id="pobText" readonly rows="4" aria-label="Path of Building code">${esc(D.pob||'')}</textarea></div>`,{order:3,id:'pob',nav:'PoB code'});
-ref('◆','--s3','Gear targets — every slot',`<div class="gt">${D.gearTargets||''}</div>`,{order:9,full:true,id:'targets',nav:'Targets'});
-// ⑥ Levelling spectres
-section('⑥','--s6','Levelling — spectres by act','Tick each spectre once you have bound it.',()=>D.lev.map((r,i)=>{
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(name)}" data-key="asc:${esc(name)}">${TICK}</button><div class="head"><b>${esc(name)}</b><span class="meta">${r[0]} pts total ${via?'· '+via:''}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.ascNotes),{check:true,sub:'Order is set by the path. Each node costs 1 point.'});
+// ③ Spectres
+section('spectres','--c3','Spectres by act','w-third',D.lev.map(r=>{
   const k='lev:'+strip(r[0]);
-  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(strip(r[0])+' spectre')}" data-key="${esc(k)}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">${r[2]}</span></div><div class="detail">${r[1]}</div></div>`;}).join('')+notes(D.levNotes),{order:2});
-// ⑦ Tree
-section('⑦','--s7','Passive tree — 25 phases','Allocate top to bottom. Tick a phase once all its points are in.',()=>D.tree.map((r,i)=>{
-  const k='tree:'+(i+1);
-  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="Phase ${i+1}, points ${esc(strip(r[1]))}" data-key="${k}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">points ${r[1]}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.treeNotes),{order:5,full:true,nav:'Tree',bodyClass:'tgrid'});
-nav.innerHTML=SECS.map(s=>`<a href="#${s.id}" style="--c:var(${s.colorVar})">${s.num==='◆'?'':s.num+' '}${esc(s.title.split(' ')[0])}</a>`).join('');
+  return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(strip(r[0])+' spectre')}" data-key="${esc(k)}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">${r[2]}</span></div><div class="detail">${r[1]}</div></div>`;}).join('')+notes(D.levNotes.filter(n=>!/PoB code/.test(n))),{check:true,nav:'Spectres',sub:'Tick each spectre once you have bound it.'});
+// ④ Path of Building
+section('pob','--c4','Path of Building','w-third mid-full',`<div class="ref pob"><p>In Path of Building (PoE2): <b>Import/Export Build</b> → paste into the import box → <b>Import</b>.</p><p>Includes the final tree, <b>4 levelling checkpoints</b> (≈ Lv 22 / 43 / 60 / 77, in the tree dropdown) and the full gem loadout. Supports on the Infernal Hound can't be stored in PoB — socket them in game.</p><p><button type="button" class="tog" id="copyPob">Copy PoB code</button> <span class="meta" id="pobMsg"></span></p><textarea id="pobText" readonly rows="5" aria-label="Path of Building code">${esc(D.pob||'')}</textarea></div>`,{nav:'PoB'});
+// ⑤ Tree
+section('tree','--c5','Passive tree — 25 phases','w-full',`<div class="tgrid">${D.tree.map((r,i)=>`<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="Phase ${i+1}, points ${esc(strip(r[1]))}" data-key="tree:${i+1}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">points ${r[1]}</span></div><div class="detail">${r[2]}</div></div>`).join('')}</div>`+notes(D.treeNotes),{check:true,nav:'Tree',sub:'Allocate top to bottom. Tick a phase once all its points are in.'});
+// ⑥ Gear targets (merged)
+section('gear','--c6','Gear targets — every slot','w-full',`<div class="ref gt">${D.gearNotes}${D.gearTargets}</div>`,{nav:'Gear'});
+// ⑦ ⑧
+section('rotation','--c7','Rotation & troubleshooting','w-half',`<div class="ref">${D.rot}</div>`,{nav:'Rotation'});
+section('stat','--c8','Stat priority & checkpoints','w-half',`<div class="ref">${D.stat}</div>`,{nav:'Stats'});
+document.querySelectorAll('.ref table').forEach(t=>{const w=document.createElement('div'); w.className='tw'; t.parentNode.insertBefore(w,t); w.appendChild(t);});
+nav.innerHTML=SECS.map(s=>`<a href="#${s.id}" style="--c:var(${s.cvar})">${s.num} ${esc(s.nav)}</a>`).join('');
+// collapse
+function saveClosed(){ const m={}; document.querySelectorAll('section.sec').forEach(s=>{ if(s.classList.contains('closed')) m[s.id]=true; }); closed=m; try{localStorage.setItem(LSC,JSON.stringify(m));}catch(e){} }
+function setOpen(sec,open){ sec.classList.toggle('closed',!open); sec.querySelector('.shead').setAttribute('aria-expanded',open?'true':'false'); }
+main.addEventListener('click',e=>{ const h=e.target.closest('.shead'); if(!h) return; const s=h.parentElement; setOpen(s,s.classList.contains('closed')); saveClosed(); });
+nav.addEventListener('click',e=>{ const a=e.target.closest('a'); if(!a) return; const s=document.getElementById(a.getAttribute('href').slice(1)); if(s&&s.classList.contains('closed')){ setOpen(s,true); saveClosed(); } });
+document.getElementById('openAll').addEventListener('click',()=>{document.querySelectorAll('section.sec').forEach(s=>setOpen(s,true)); saveClosed();});
+document.getElementById('closeAll').addEventListener('click',()=>{document.querySelectorAll('section.sec').forEach(s=>setOpen(s,false)); saveClosed();});
+// checklist
 const boxes=[...document.querySelectorAll('[role=checkbox][data-key]')];
 function paint(){
   let tot=0,done=0;
-  boxes.forEach(b=>{const on=!!checks[b.dataset.key]; b.setAttribute('aria-checked',on?'true':'false');});
+  boxes.forEach(b=>b.setAttribute('aria-checked',checks[b.dataset.key]?'true':'false'));
   document.querySelectorAll('section.sec').forEach(sec=>{
-    const bs=[...sec.querySelectorAll('[role=checkbox][data-key]')]; const d=bs.filter(b=>checks[b.dataset.key]).length;
-    tot+=bs.length; done+=d;
-    sec.querySelector('.pt').textContent=`${d} of ${bs.length}`; sec.querySelector('.prog .bar i').style.width=(bs.length?100*d/bs.length:0)+'%';
+    const bs=[...sec.querySelectorAll('[role=checkbox][data-key]')]; if(!bs.length){ sec.querySelector('.pt').textContent='reference'; return; }
+    const d=bs.filter(b=>checks[b.dataset.key]).length; tot+=bs.length; done+=d;
+    sec.querySelector('.pt').textContent=`${d} of ${bs.length}`; const p=sec.querySelector('.prog i'); if(p) p.style.width=(100*d/bs.length)+'%';
     sec.querySelectorAll('[data-row]').forEach(row=>{const rb=[...row.querySelectorAll('[role=checkbox][data-key]')]; row.classList.toggle('done',rb.length>0&&rb.every(b=>checks[b.dataset.key]));});
   });
   document.getElementById('totText').textContent=`Collected ${done} of ${tot}`;
@@ -258,12 +252,12 @@ function paint(){
 function saveLocal(){try{localStorage.setItem(LS,JSON.stringify({checks,updatedAt}));}catch(e){}}
 function setStatus(s){statusEl.textContent=s;}
 function changed(){ updatedAt=Date.now(); saveLocal(); paint(); scheduleSave(); }
-main.addEventListener('click',async e=>{ if(e.target.id==='copyPob'){ const ta=document.getElementById('pobText'), m=document.getElementById('pobMsg'); try{ await navigator.clipboard.writeText(ta.value); m.textContent='Copied — paste it into Path of Building.'; }catch(err){ ta.focus(); ta.select(); m.textContent='Selected — press Ctrl+C (or long-press → Copy).'; } } });
+main.addEventListener('click',async e=>{ if(e.target.id==='copyPob'){ const ta=document.getElementById('pobText'), m=document.getElementById('pobMsg'); try{ await navigator.clipboard.writeText(ta.value); m.textContent='Copied — paste it into Path of Building.'; }catch(err){ ta.focus(); ta.select(); m.textContent='Selected — press Ctrl+C.'; } } });
 main.addEventListener('click',e=>{const b=e.target.closest('[role=checkbox][data-key]'); if(!b) return; const k=b.dataset.key; if(checks[k]) delete checks[k]; else checks[k]=true; changed();});
 const hideBtn=document.getElementById('hideBtn');
 hideBtn.addEventListener('click',()=>{const on=hideBtn.getAttribute('aria-pressed')!=='true'; hideBtn.setAttribute('aria-pressed',on); document.body.classList.toggle('hide-done',on); hideBtn.textContent=on?'Show all':'Hide collected';});
 const resetBtn=document.getElementById('resetBtn'); let armed=null;
-resetBtn.addEventListener('click',()=>{ if(!armed){resetBtn.classList.add('arm'); resetBtn.textContent='Tap again to clear every tick'; armed=setTimeout(()=>{armed=null;resetBtn.classList.remove('arm');resetBtn.textContent='Clear all ticks';},4000); return;}
+resetBtn.addEventListener('click',()=>{ if(!armed){resetBtn.classList.add('arm'); resetBtn.textContent='Click again to clear every tick'; armed=setTimeout(()=>{armed=null;resetBtn.classList.remove('arm');resetBtn.textContent='Clear all ticks';},4000); return;}
   clearTimeout(armed); armed=null; resetBtn.classList.remove('arm'); resetBtn.textContent='Clear all ticks'; checks={}; changed(); });
 paint();
 // ---------- GitHub Gist sync ----------

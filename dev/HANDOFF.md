@@ -312,3 +312,19 @@ User found the colours "too bold and overwhelming". Changes (CSS block at the en
   Tree (full; 2 text columns ≥1500 px) → Gear, Rotation, Stat → Gear targets (full).
 - The user does NOT use the page on a phone — optimise for a ~2560 px desktop.
 Checkbox keys unchanged (96, identical). WeasyPrint cannot preview CSS grid faithfully — don't use it to judge the layout.
+
+## v2.15 (2026-11-12) — page overhaul: numbered collapsible sections, gem cards, uniform grid
+Template rewritten (dev/source/checklist_template.html); build reads dev/source/gems.json (structured gem loadout:
+key, name, kind skill|spirit|aura, spirit, sub, sup [[name, attr, multiplier?, "or"?]], alt {key,name,kind,text}, note).
+Gem checkbox keys unchanged — verified identical set of 96 keys. NEVER change keys.
+Sections (display order = numbering): ① Gems (full) · ② Ascendancy · ③ Spectres · ④ Path of Building (thirds) ·
+⑤ Passive tree (full, 2 text columns ≥1500 px) · ⑥ Gear targets (full; MERGED the old "Gear — what can roll where" table
+into it: its Exclusive + Buy-order notes on top, then the 10 slot blocks in a grid) · ⑦ Rotation · ⑧ Stat priority (halves).
+Layout: 6-column grid ≥1150 px (thirds = span 2 at ≥1800, span 3 below; PoB spans full at 1150–1800); boxes stretch to equal row height.
+Every section collapsible (header button, chevron); state saved in localStorage 'mg-sections-v1' (default: ⑥⑦⑧ collapsed).
+Nav: numbered pills + Expand all / Collapse all / Hide collected / Sync. Clicking a nav pill opens a collapsed section.
+Each section has its own muted colour (--c1..--c8). Skill gems = bold Cinzel chips with a 2 px border in the gem colour;
+supports = quiet chips with the multiplier inside; commentary on its own faint line under each gem card.
+The duplicate "PoB code has 5 tree checkpoints" note was removed from Spectres (now in ④).
+NOTE: the print PDFs (dev/source/print) still use the old cheatsheet numbering (① Ascendancy … ⑦ Tree) — fine for print,
+but renumber if the user wants them to match the page.
