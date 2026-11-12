@@ -301,3 +301,14 @@ Page v2.13: wide layout (max 1560 px; ≥1150 px = 2-column grid: Ascendancy+Spe
 half-width, Gear targets full); new panels "Path of Building code" (Copy button, clipboard + select fallback) and "Gear targets".
 Checkbox keys unchanged from v2.12 (verified: identical 96 keys). Token/sync setup: not yet done by the user as of v2.13.
 Retired: README.txt, versioned zips with PDFs, UPLOAD_TO_GITHUB folder, Google Sheets, Claude-hosted page.
+
+## v2.14 (2026-11-12) — calmer colours, full width
+User kept font option A (Cinzel + Crimson Pro) after seeing 4 samples (B Barlow, C Cinzel+Source Sans 3, D Alegreya SC+Sans).
+User found the colours "too bold and overwhelming". Changes (CSS block at the end of checklist_template.html's <style>):
+- Muted palettes (light + dark). Chips: 1px neutral border, neutral text, small coloured diamond = attribute; ticked = 18% tint + ✓.
+- Nav pills, section titles, Spirit badges and the tick circles toned down.
+- Width: .wrap max 2400 px. Grid: ≥1150 px 2 columns (dense), ≥1800 px 3 columns.
+  Order: Ascendancy, Spectres, PoB code (top row) → Gems (full; groups in an auto-fill grid, min 520 px each) →
+  Tree (full; 2 text columns ≥1500 px) → Gear, Rotation, Stat → Gear targets (full).
+- The user does NOT use the page on a phone — optimise for a ~2560 px desktop.
+Checkbox keys unchanged (96, identical). WeasyPrint cannot preview CSS grid faithfully — don't use it to judge the layout.
