@@ -328,3 +328,9 @@ supports = quiet chips with the multiplier inside; commentary on its own faint l
 The duplicate "PoB code has 5 tree checkpoints" note was removed from Spectres (now in ④).
 NOTE: the print PDFs (dev/source/print) still use the old cheatsheet numbering (① Ascendancy … ⑦ Tree) — fine for print,
 but renumber if the user wants them to match the page.
+
+## v2.16 (2026-11-12) — PoB moved to a top-bar panel; 7 sections
+PoB section removed; top bar "PoB code" button toggles #pobPanel (instructions + Copy button + code), state in localStorage 'mg-pob-open'.
+Sections now: ① Gems (full) · ② Ascendancy · ③ Spectres (halves) · ④ Passive tree (full) · ⑤ Gear targets (full) · ⑥ Rotation · ⑦ Stat priority (halves).
+All note groups use grid auto-fit (min 380 px) so they stretch across the full section width. README.md rewritten to match.
+User feedback so far: likes the look; font A (Cinzel + Crimson Pro) confirmed; wants uniform, full-width, calm colours; desktop only.

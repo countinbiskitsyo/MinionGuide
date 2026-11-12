@@ -1,49 +1,51 @@
 # MinionGuide
 
-**An interactive checklist guide for a Path of Exile 2 minion army build — Witch → Infernalist.**
+**An interactive guide and checklist for a Path of Exile 2 minion army build — Witch → Infernalist.**
 
-Tick off every skill gem, support gem, ascendancy point, spectre and passive-tree phase as you get them. Your ticks sync between your phone and PC.
+Tick off every skill gem, support gem, ascendancy point, spectre and passive-tree phase as you get them. Your progress is remembered between visits.
 
 ▶️ **Use it here: [https://countinbiskitsyo.github.io/MinionGuide/](https://countinbiskitsyo.github.io/MinionGuide/)**
 
 ---
 
-## What it does
+## What's in the guide
 
-- **Gem loadout checklist** — every skill gem and support, colour-coded like in-game gems: red Str, blue Int, green Dex, gold Lineage.
-- **Ascendancy order** — all four Infernalist nodes in the order the path allows.
-- **Spectres by act** — the best spectre to bind in each act, with where to find it.
-- **Passive tree in 25 phases** — all 123 points, allocated top to bottom while levelling.
-- **Progress bars** for every section, plus a "Hide collected" button that leaves only what you still need.
-- **Gear targets for every slot** — every useful stat, prefix or suffix, best roll and priority, plus jewels and sceptre sockets.
-- **Copy PoB code** — one tap copies the Path of Building code (final tree, 4 levelling checkpoints, full gem loadout).
-- **Reference panels** for rotation, troubleshooting and stat priority.
+The page has seven numbered sections. Each one can be collapsed, and the page remembers which ones you left open.
 
-## How syncing works
+1. **Gem loadout** — every skill gem with its five supports, as tick-off chips. Diamond colour shows the gem type (red Str, blue Int, gold Lineage); measured gains sit inside each chip.
+2. **Ascendancy** — the four Infernalist nodes in the order the path allows.
+3. **Spectres by act** — the best spectre to bind in each act and where to find it.
+4. **Passive tree** — all 123 points in 25 phases, allocated top to bottom.
+5. **Gear targets** — every useful stat per slot: prefix or suffix, best roll and priority, plus jewels and sceptre sockets.
+6. **Rotation & troubleshooting** — what to press when mapping and bossing.
+7. **Stat priority & checkpoints** — measured stat values and the expected Life / ES / Spirit at each tree checkpoint.
 
-Ticks are saved on the device instantly. To sync between devices, tap **Sync** on the page and paste a GitHub token that has only the `gist` permission. The page stores your ticks in a secret Gist on your own GitHub account, and every device using that token sees the same ticks.
+The top bar also has:
 
-- The token is stored only in your browser — it never goes into this repository.
-- No signal? Ticks stay on the device and sync next time.
-- To stop syncing on a device: **Sync → Remove token from this device**.
+- **PoB code** — opens the Path of Building code with a one-click Copy button (final tree, 4 levelling checkpoints, full gem loadout).
+- **Expand all / Collapse all**, **Hide collected**, and **Sync**.
+
+## Syncing (optional)
+
+Ticks are saved in your browser automatically. **Sync** also backs them up to your own GitHub account, so they survive clearing your browser and work on other devices: tap **Sync** and paste a GitHub token that has only the `gist` permission. Your ticks are kept in a secret Gist on your account; the token stays in your browser and never goes into this repository.
 
 ## Updating
 
-Each update is a small zip holding only the files that changed, laid out like this repository. Unzip it, drag its contents into **Add file → Upload files**, then **Commit changes**. About a minute later every device shows the new version, and your ticks carry over.
+Each update is a small zip holding only the files that changed, laid out like this repository. Unzip it, drag the contents of the folder inside into **Add file → Upload files**, then **Commit changes**. About a minute later the site shows the new version, and your ticks carry over.
 
 ## Printable versions
 
-The page is the guide. Printable PDFs (a 2-page cheatsheet and a 2-page gear sheet, made for double-sided lamination) are produced on request from the files in `dev/source/print/`.
-
-## Repository layout
-
-- `index.html` — the guide and checklist (this is the website)
-- `README.md` — this page
-- `dev/` — build files, the Path of Building code and project notes
+Printable PDFs (a 2-page cheatsheet and a 2-page gear sheet, made for double-sided lamination) are produced on request from the files in `dev/source/print/`.
 
 ## About the numbers
 
 Every recommendation is measured in Path of Building (PoE2) 0.23.1 for patch 0.5.5, on a gearless level-100 character. A full rebuild is planned for Path of Exile 2 1.0 (December 11, 2026).
+
+## Repository layout
+
+- `index.html` — the guide (this is the website)
+- `README.md` — this page
+- `dev/` — build files, the Path of Building code and project notes
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.15</title>
+<title>MinionGuide — Minion Army Infernalist v2.16</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -102,7 +102,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin:0 0 12px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend b{width:10px;height:10px;display:inline-block;transform:rotate(45deg);border-radius:2px}
-.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:10px;margin-top:12px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:10px;margin-top:12px}
 .note{font-size:14.5px;background:var(--surface2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0;padding:8px 11px;margin:0}
 .note.alert{border-left-color:var(--alert)}
 .note.lvl{border-left-color:var(--good)}
@@ -126,7 +126,11 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .gt .pri{display:inline-block;border-radius:8px;padding:0 6px;font-size:12px;font-weight:700;white-space:nowrap}
 .gt .num{white-space:nowrap} .gt .why{font-style:italic;color:var(--muted)}
 .gt .slot .note{border:0;border-top:1px solid var(--line)}
-.pob textarea{width:100%;font-family:Consolas,"Courier New",monospace;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:8px;word-break:break-all;margin-top:8px}
+.pobpanel{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c4);border-radius:12px;padding:10px 16px 12px;margin-top:8px}
+.pobtop{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.pobtop b{font-family:Cinzel,Georgia,serif;color:color-mix(in srgb,var(--c4) 80%,var(--ink))}
+.pobtop .meta{font-size:14px;color:var(--muted);flex:1;min-width:300px}
+#pobText,.pob textarea{width:100%;margin-top:8px!important;font-family:Consolas,"Courier New",monospace;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:8px;word-break:break-all;margin-top:8px}
 .hide-done .row.done,.hide-done .gcard.done{display:none}
 .hide-done .chip[aria-checked="true"]:not(.main){display:none}
 .foot{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
@@ -147,17 +151,22 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
     <p>Patch 0.5.5 guide and checklist. Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.15 · 2026-11-12 · PoB code v2.4</span>
+    <span class="ver">v2.16 · 2026-11-12 · PoB code v2.4</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
     <div class="navscroll" id="nav"></div>
+    <button class="tog" id="pobBtn" type="button" aria-expanded="false" aria-controls="pobPanel">PoB code</button>
     <button class="tog" id="openAll" type="button">Expand all</button>
     <button class="tog" id="closeAll" type="button">Collapse all</button>
     <button class="tog" id="hideBtn" type="button" aria-pressed="false">Hide collected</button>
     <button class="tog" id="syncBtn" type="button" title="Back up your ticks to your GitHub account">Sync</button>
   </nav>
   <div class="status" id="status" role="status">Saved on this device only.</div>
+  <div class="pobpanel" id="pobPanel" hidden>
+    <div class="pobtop"><b>Path of Building code</b><span class="meta">Import/Export Build → paste into the import box → Import. Final tree, 4 levelling checkpoints (≈ Lv 22 / 43 / 60 / 77, tree dropdown) and the full gem loadout. Hound supports can't be stored in PoB — socket them in game.</span><button type="button" class="tog" id="copyPob">Copy PoB code</button><span class="meta" id="pobMsg"></span></div>
+    <textarea id="pobText" readonly rows="3" aria-label="Path of Building code"></textarea>
+  </div>
   <main id="main"></main>
   <div class="foot">
     <p>Measured in Path of Building 0.23.1 · fan-made, not affiliated with Grinding Gear Games</p>
@@ -209,15 +218,13 @@ section('gems','--c1','Gem loadout','w-full',(()=>{
   return leg+`<div class="ggrid">${cards}</div>`+notes(D.gemNotes);
 })(),{check:true,nav:'Gems',sub:'Every skill gem and support is a checkbox. Diamond colour = gem type. Multipliers in a chip are measured gains.'});
 // ② Ascendancy
-section('asc','--c2','Ascendancy','w-third',D.asc.map(r=>{
+section('asc','--c2','Ascendancy','w-half',D.asc.map(r=>{
   const name=strip(r[1].split('<br')[0]); const via=(r[1].match(/<i>(.*?)<\/i>/)||[,''])[1];
   return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(name)}" data-key="asc:${esc(name)}">${TICK}</button><div class="head"><b>${esc(name)}</b><span class="meta">${r[0]} pts total ${via?'· '+via:''}</span></div><div class="detail">${r[2]}</div></div>`;}).join('')+notes(D.ascNotes),{check:true,sub:'Order is set by the path. Each node costs 1 point.'});
 // ③ Spectres
-section('spectres','--c3','Spectres by act','w-third',D.lev.map(r=>{
+section('spectres','--c3','Spectres by act','w-half',D.lev.map(r=>{
   const k='lev:'+strip(r[0]);
   return `<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="${esc(strip(r[0])+' spectre')}" data-key="${esc(k)}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">${r[2]}</span></div><div class="detail">${r[1]}</div></div>`;}).join('')+notes(D.levNotes.filter(n=>!/PoB code/.test(n))),{check:true,nav:'Spectres',sub:'Tick each spectre once you have bound it.'});
-// ④ Path of Building
-section('pob','--c4','Path of Building','w-third mid-full',`<div class="ref pob"><p>In Path of Building (PoE2): <b>Import/Export Build</b> → paste into the import box → <b>Import</b>.</p><p>Includes the final tree, <b>4 levelling checkpoints</b> (≈ Lv 22 / 43 / 60 / 77, in the tree dropdown) and the full gem loadout. Supports on the Infernal Hound can't be stored in PoB — socket them in game.</p><p><button type="button" class="tog" id="copyPob">Copy PoB code</button> <span class="meta" id="pobMsg"></span></p><textarea id="pobText" readonly rows="5" aria-label="Path of Building code">${esc(D.pob||'')}</textarea></div>`,{nav:'PoB'});
 // ⑤ Tree
 section('tree','--c5','Passive tree — 25 phases','w-full',`<div class="tgrid">${D.tree.map((r,i)=>`<div class="row" data-row><button type="button" class="tick" role="checkbox" aria-checked="false" aria-label="Phase ${i+1}, points ${esc(strip(r[1]))}" data-key="tree:${i+1}">${TICK}</button><div class="head"><b>${r[0]}</b><span class="meta">points ${r[1]}</span></div><div class="detail">${r[2]}</div></div>`).join('')}</div>`+notes(D.treeNotes),{check:true,nav:'Tree',sub:'Allocate top to bottom. Tick a phase once all its points are in.'});
 // ⑥ Gear targets (merged)
@@ -227,6 +234,12 @@ section('rotation','--c7','Rotation & troubleshooting','w-half',`<div class="ref
 section('stat','--c8','Stat priority & checkpoints','w-half',`<div class="ref">${D.stat}</div>`,{nav:'Stats'});
 document.querySelectorAll('.ref table').forEach(t=>{const w=document.createElement('div'); w.className='tw'; t.parentNode.insertBefore(w,t); w.appendChild(t);});
 nav.innerHTML=SECS.map(s=>`<a href="#${s.id}" style="--c:var(${s.cvar})">${s.num} ${esc(s.nav)}</a>`).join('');
+// PoB panel (top bar button) — remembers open/closed
+const pobPanel=document.getElementById('pobPanel'), pobBtn=document.getElementById('pobBtn');
+document.getElementById('pobText').value=D.pob||'';
+function setPob(open){ pobPanel.hidden=!open; pobBtn.setAttribute('aria-expanded',open?'true':'false'); pobBtn.setAttribute('aria-pressed',open?'true':'false'); }
+let pobOpen=false; try{pobOpen=localStorage.getItem('mg-pob-open')==='1';}catch(e){} setPob(pobOpen);
+pobBtn.addEventListener('click',()=>{ pobOpen=pobPanel.hidden; setPob(pobOpen); try{localStorage.setItem('mg-pob-open',pobOpen?'1':'0');}catch(e){} });
 // collapse
 function saveClosed(){ const m={}; document.querySelectorAll('section.sec').forEach(s=>{ if(s.classList.contains('closed')) m[s.id]=true; }); closed=m; try{localStorage.setItem(LSC,JSON.stringify(m));}catch(e){} }
 function setOpen(sec,open){ sec.classList.toggle('closed',!open); sec.querySelector('.shead').setAttribute('aria-expanded',open?'true':'false'); }
@@ -252,7 +265,7 @@ function paint(){
 function saveLocal(){try{localStorage.setItem(LS,JSON.stringify({checks,updatedAt}));}catch(e){}}
 function setStatus(s){statusEl.textContent=s;}
 function changed(){ updatedAt=Date.now(); saveLocal(); paint(); scheduleSave(); }
-main.addEventListener('click',async e=>{ if(e.target.id==='copyPob'){ const ta=document.getElementById('pobText'), m=document.getElementById('pobMsg'); try{ await navigator.clipboard.writeText(ta.value); m.textContent='Copied — paste it into Path of Building.'; }catch(err){ ta.focus(); ta.select(); m.textContent='Selected — press Ctrl+C.'; } } });
+document.addEventListener('click',async e=>{ if(e.target.id==='copyPob'){ const ta=document.getElementById('pobText'), m=document.getElementById('pobMsg'); try{ await navigator.clipboard.writeText(ta.value); m.textContent='Copied — paste it into Path of Building.'; }catch(err){ ta.focus(); ta.select(); m.textContent='Selected — press Ctrl+C.'; } } });
 main.addEventListener('click',e=>{const b=e.target.closest('[role=checkbox][data-key]'); if(!b) return; const k=b.dataset.key; if(checks[k]) delete checks[k]; else checks[k]=true; changed();});
 const hideBtn=document.getElementById('hideBtn');
 hideBtn.addEventListener('click',()=>{const on=hideBtn.getAttribute('aria-pressed')!=='true'; hideBtn.setAttribute('aria-pressed',on); document.body.classList.toggle('hide-done',on); hideBtn.textContent=on?'Show all':'Hide collected';});
