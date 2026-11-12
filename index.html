@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MinionGuide — Minion Army Infernalist v2.16</title>
+<title>MinionGuide — Minion Army Infernalist v2.17</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -98,6 +98,9 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .gsup{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px}
 .galt{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14.5px;color:var(--muted)}
 .galt .lbl{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+.keycard{border:1px solid color-mix(in srgb,var(--gold) 60%,var(--line));border-top:3px solid var(--gold);background:color-mix(in srgb,var(--gold) 7%,var(--surface2))}
+.keycard .ktitle{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:16px;color:var(--goldtext)}
+.keycard .kbody{font-size:15px;line-height:1.5}
 .gnote{margin-top:auto;font-size:14px;color:var(--muted);font-style:italic;border-top:1px dashed var(--line);padding-top:6px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin:0 0 12px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
@@ -151,7 +154,7 @@ dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radi
   <header class="hero">
     <h1>Minion Army Witch — Infernalist</h1>
     <p>Patch 0.5.5 guide and checklist. Tick each gem, support, ascendancy point and tree phase as you get it.</p>
-    <span class="ver">v2.16 · 2026-11-12 · PoB code v2.4</span>
+    <span class="ver">v2.17 · 2026-11-12 · PoB code v2.4</span>
     <div class="total"><div class="label"><span id="totText">Collected 0 of 0</span><span id="totPct">0%</span></div><div class="bar"><i id="totBar"></i></div></div>
   </header>
   <nav class="top" aria-label="Sections">
@@ -215,7 +218,9 @@ section('gems','--c1','Gem loadout','w-full',(()=>{
     const alt=g.alt?`<div class="galt"><span class="lbl">Alternative</span>${chip(g.alt.key,g.alt.name,g.alt.kind,null,true)}<span>${esc(g.alt.text)}</span></div>`:'';
     return `<div class="gcard" data-row><div class="ghead">${chip(g.key,g.name,g.kind,null,true)}${g.sub?`<span class="gsub">${esc(g.sub)}</span>`:''}${g.spirit&&g.spirit!=='0'?`<span class="spirit">${esc(g.spirit)} Spirit</span>`:''}</div><div class="gsup">${sup}</div>${alt}${g.note?`<div class="gnote">${esc(g.note)}</div>`:''}</div>`;
   }).join('');
-  return leg+`<div class="ggrid">${cards}</div>`+notes(D.gemNotes);
+  const spiritNote=(D.gemNotes||[]).find(n=>/Reserve order/.test(n))||'';
+  const keyCard=`<div class="gcard keycard"><div class="ghead"><span class="ktitle">Spirit budget</span><span class="spirit">145 of 165</span></div><div class="kbody">${spiritNote.replace(/^<div class="note[^"]*">/,'').replace(/<\/div>$/,'')}</div><div class="gnote">More Spirit: a Rabbit Idol in your sceptre adds about +25. Extra copies of your best minion cost Spirit per copy.</div></div>`;
+  return leg+`<div class="ggrid">${cards}${keyCard}</div>`+notes((D.gemNotes||[]).filter(n=>!/Reserve order/.test(n)));
 })(),{check:true,nav:'Gems',sub:'Every skill gem and support is a checkbox. Diamond colour = gem type. Multipliers in a chip are measured gains.'});
 // ② Ascendancy
 section('asc','--c2','Ascendancy','w-half',D.asc.map(r=>{

@@ -334,3 +334,9 @@ PoB section removed; top bar "PoB code" button toggles #pobPanel (instructions +
 Sections now: ① Gems (full) · ② Ascendancy · ③ Spectres (halves) · ④ Passive tree (full) · ⑤ Gear targets (full) · ⑥ Rotation · ⑦ Stat priority (halves).
 All note groups use grid auto-fit (min 380 px) so they stretch across the full section width. README.md rewritten to match.
 User feedback so far: likes the look; font A (Cinzel + Crimson Pro) confirmed; wants uniform, full-width, calm colours; desktop only.
+
+## v2.17 (2026-11-12) — Spirit budget card fills the 12th gem-grid slot
+The "Reserve order" gem note now renders as a gold-accented card (.keycard) inside the gem grid (11 gems + 1 card = 12,
+divisible by 2/3/4/6 columns, so no empty slot at any width). Remaining gem notes (support costs, Fiery Death) sit below as halves.
+Card footer: Rabbit Idol ≈ +25 Spirit; extra copies of the best minion cost Spirit per copy. If the gem count changes in 1.0,
+keep the total grid items a multiple of 12 (or add/remove info cards) so rows stay full.
