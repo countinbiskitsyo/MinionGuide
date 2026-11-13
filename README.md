@@ -16,8 +16,8 @@ The page has seven numbered sections. Each one can be collapsed, and the page re
 2. **Ascendancy** — the four Infernalist nodes in the order the path allows.
 3. **Spectres by act** — the best spectre to bind in each act and where to find it.
 4. **Passive tree** — all 123 points in 25 phases, allocated top to bottom.
-5. **Gear targets** — every useful stat per slot: prefix or suffix, best roll and priority, plus jewels and sceptre sockets.
-6. **Rotation & troubleshooting** — what to press when mapping and bossing.
+5. **Gear targets** — every useful stat per slot: prefix or suffix, best roll and priority, plus jewels, sceptre sockets and which 3 charms to equip.
+6. **How to play** — what to press when mapping and bossing, how to stay alive, and key bindings.
 7. **Stat priority & checkpoints** — measured stat values and the expected Life / ES / Spirit at each tree checkpoint.
 
 **Hover over any gem or support** to see what it does in game and why it's in that slot (with the measured gain). Ticking a support also ticks its skill gem.

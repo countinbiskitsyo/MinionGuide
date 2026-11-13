@@ -451,3 +451,11 @@ Key letters are a suggestion — the user's actual bindings weren't identified f
 User bound: E Unearth (hold), W Pain Offering, R Detonate Dead, Q Shattering Roar (Brute command), Right-click Vulnerability.
 Mapping = 3 buttons (E, W, R); Q + right-click only on rares and map bosses. Bossing = all 5, with an explicit order and a
 "drop Vulnerability first, then Roar" rule. Brute and Vulnerability card notes updated to match.
+
+## v2.29 (2026-11-12) — Charm ×3 block in ⑤ Gear targets (page only)
+From PoB Bases/flask.lua (charm bases: trigger, 3 s immunity / 4 s res) and ModCharm.lua (prefixes: Recover Life when Used up to
+285–350 "Evergreen", Also grants Guard up to 355–500 "Sunburst", increased Duration up to 36–40% "Experimenter's"; suffixes:
+increased Charges 63–70%, reduced Charges per use 15–17%). Uniques (Dawn of the Hunt): Beira's Anguish (Dousing; ignited ground
+= 500% max Life fire, charge on kill) and Arakaali's Gift (Antidote; recovers 15–20% of the other flask's amount).
+Recommendation: Thawing, Stone, Silver; swap Beira's in for Silver on fire/ignite maps; prefer Guard > Life > Duration prefix.
+The PRINT gear sheet (dev/source/print/gear_targets.html) does NOT have the charm block yet — add it before the next print run.
