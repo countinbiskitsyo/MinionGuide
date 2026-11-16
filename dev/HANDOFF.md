@@ -277,6 +277,15 @@ UPLOAD_TO_GITHUB now holds index.html + README.md (MirrorFilter-style: title, ta
 About box: user to tick "Use your GitHub Pages website" (gear next to About). Token setup not yet done as of this version.
 Dates: version dates now follow the real date (v2.12 = 2026-11-12).
 
+## 1.0 REBUILD — USER REQUIREMENT: corpse-free spam skill (2026-11-12)
+The user wants their main spam skill in 1.0 to SUMMON MINIONS WITHOUT CONSUMING CORPSES. Reason: in 0.5.5, Unearth (spam on E),
+Detonate Dead and other corpse skills compete for corpses, so when a corpse skill is needed there are none (worst on bosses).
+They loved PoE1's Summon Raging Spirits (many fast temporary minions from a spam cast); PoE2's Raging Spirits works differently
+and is not what they mean. During the rebuild: survey every minion-summoning skill in the 1.0 data for "no corpse cost",
+measure them (DPS, minions per cast, mana per second vs regeneration, how it plays), and design the rotation around one.
+If the spam skill no longer uses corpses, Detonate Dead (or another corpse skill) can have every corpse.
+Also still open: class/ascendancy (not assumed Witch), multiple copies of the best minion, Beidat's Will status.
+
 ## v2.13 (2026-11-12) — RESTRUCTURE: the GitHub repository is now the single home of everything
 Repo: https://github.com/countinbiskitsyo/MinionGuide (public). Live: https://countinbiskitsyo.github.io/MinionGuide/
 START OF EVERY SESSION: `git clone https://github.com/countinbiskitsyo/MinionGuide` (github.com is reachable from bash),
@@ -459,3 +468,6 @@ increased Charges 63–70%, reduced Charges per use 15–17%). Uniques (Dawn of 
 = 500% max Life fire, charge on kill) and Arakaali's Gift (Antidote; recovers 15–20% of the other flask's amount).
 Recommendation: Thawing, Stone, Silver; swap Beira's in for Silver on fire/ignite maps; prefer Guard > Life > Duration prefix.
 The PRINT gear sheet (dev/source/print/gear_targets.html) does NOT have the charm block yet — add it before the next print run.
+
+
+## v2.30 (2026-11-12) — 'Planned for 1.0' note added to ⑥ How to play (corpse-free spam skill requirement; see the 1.0 REBUILD section above).
