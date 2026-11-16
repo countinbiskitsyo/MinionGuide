@@ -284,6 +284,10 @@ They loved PoE1's Summon Raging Spirits (many fast temporary minions from a spam
 and is not what they mean. During the rebuild: survey every minion-summoning skill in the 1.0 data for "no corpse cost",
 measure them (DPS, minions per cast, mana per second vs regeneration, how it plays), and design the rotation around one.
 If the spam skill no longer uses corpses, Detonate Dead (or another corpse skill) can have every corpse.
+IDEA 2 (user, 2026-11-12): they also loved PoE1's BALL LIGHTNING as a spammable skill. Evaluate a spam SPELL (Ball Lightning
+or a 1.0 equivalent) linked to a mechanic that summons or empowers minions whenever it is cast ("summon/trigger minions on cast") —
+research what 1.0 actually offers (meta gems, supports, ascendancy nodes, uniques); don't assume it exists. Compare both ideas
+(corpse-free minion spam vs spell + minion-on-cast) on: army size, survivability, damage, mana per second vs regeneration, button count.
 Also still open: class/ascendancy (not assumed Witch), multiple copies of the best minion, Beidat's Will status.
 
 ## v2.13 (2026-11-12) — RESTRUCTURE: the GitHub repository is now the single home of everything
@@ -471,3 +475,11 @@ The PRINT gear sheet (dev/source/print/gear_targets.html) does NOT have the char
 
 
 ## v2.30 (2026-11-12) — 'Planned for 1.0' note added to ⑥ How to play (corpse-free spam skill requirement; see the 1.0 REBUILD section above).
+
+## v2.31 (2026-11-12) — 'Planned for 1.0' note now lists both ideas (corpse-free minion spam; Ball-Lightning-style spell + minions on cast).
+
+## v2.32 (2026-11-12) — "Spam skills (E)" note in ⑥ How to play
+Survey of all cuttable non-persistent spells in PoB 0.23.1 data: Unearth is the ONLY spam spell that creates minions (uses corpses).
+Player-spell DPS on this build (gem 20, no supports): Bonestorm 1,106 (channel), Firestorm 737, Ember Fusillade 647 (2.5 casts/s,
+84 mana/s), Comet 550, Essence Drain 523, Ball Lightning 300, Flame Wall 265, Frostbolt 250, Fireball 248, Arc 199, Spark 175;
+Unearth 1,911 bare / ~5,800 supported. Army ≈ 83,000 → damage spells add < 1%. User keeps Space for dodge-roll; spam stays on E.
