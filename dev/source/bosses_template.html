@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MinionGuide — Boss guide v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+__STYLE__
+.atk{display:grid;grid-template-columns:minmax(180px,26%) 1fr;gap:4px 14px;padding:9px 0;border-top:1px solid var(--line)}
+.atk:first-of-type{border-top:0}
+.atk b.n{font-family:Cinzel,Georgia,serif;font-size:15.5px}
+.atk .tag{display:inline-block;font-size:12px;font-weight:700;border-radius:8px;padding:0 7px;margin-top:3px}
+.tag.kill{background:color-mix(in srgb,var(--alert) 22%,transparent);color:var(--alert)}
+.tag.tank{background:color-mix(in srgb,var(--good) 22%,transparent);color:var(--good)}
+.tag.phys{background:color-mix(in srgb,var(--muted) 22%,transparent);color:var(--muted)}
+.ref ul{margin:4px 0 4px 20px;padding:0}
+a.back{text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>Boss guide</h1>
+    <p>Companion to the Minion Army guide — fight-by-fight tactics, written for this build (minions do the damage, you stay alive).</p>
+    <span class="ver">Boss guide v1.0 · 2026-11-12 · patch 0.5.5</span>
+  </header>
+  <nav class="top" aria-label="Sections">
+    <a class="tog back" href="index.html">← Minion guide</a>
+    <div class="navscroll" id="nav"></div>
+    <button class="tog" id="openAll" type="button">Expand all</button>
+    <button class="tog" id="closeAll" type="button">Collapse all</button>
+  </nav>
+  <main id="main">
+
+  <section class="sec w-full" id="arb-over" style="--c:var(--c2)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">①</span>Arbiter of Ash — overview</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <ul>
+      <li><b>Where:</b> the Burning Monolith, inside the Precursor Fortress. Your <b>first</b> kill is the quest version (fragments from the two Enigma Chambers), and it gives <b>unlimited revivals</b> — use it to practise. Repeat kills need three Crisis Fragments from Citadels.</li>
+      <li><b>Health:</b> about 5 million. At about <b>55%</b> he turns immune, takes his sword and starts phase 2 — and <b>heals back to full</b>, so phase 1 is only the first half.</li>
+      <li><b>Damage:</b> mostly fire, plus physical sword hits. When he <b>flashes red with a sound</b>, that attack must be dodged — no amount of resistance helps.</li>
+      <li><b>Your job:</b> survive. Your minions do the damage whether or not you're attacking.</li>
+    </ul>
+  </div></section>
+
+  <section class="sec w-half" id="arb-prep" style="--c:var(--c6)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">②</span>Before you go</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <p><b>Raise your maximum fire resistance.</b> Your fire resistance is already 80% before the cap, so every +1% maximum counts straight away:</p>
+    <div class="tw"><table>
+      <tr><th>Source</th><th>Gain</th><th>Note</th></tr>
+      <tr><td>Shield suffix ("of the Solar Storm")</td><td>+1–3%</td><td>Best source. Competes with the all-resistance suffix.</td></tr>
+      <tr><td>Ruby jewel suffix ("of the Phoenix")</td><td>+1% each</td><td>Up to 3 (your jewel sockets). Swap in for this fight; Sapphires stay best for everyday damage.</td></tr>
+      <tr><td>Soul Core of Puhuarte, in gloves</td><td>+1%</td><td></td></tr>
+      <tr><td>Thane Myrk's Rune of Summer, in weapon</td><td>+2%</td><td>Only as a "Bonded" bonus — treat it as a maybe.</td></tr>
+    </table></div>
+    <p>Together: about <b>82%</b> instead of 75% — roughly 28% less fire damage taken. Guides recommend 80–85%. (The tree notable Unnatural Resilience is 22 points away — not worth it.)</p>
+    <ul>
+      <li><b>Charms:</b> Thawing, Stone, and <b>Beira's Anguish instead of Silver</b> — dying to ignite between dodges is a common way to lose this fight.</li>
+      <li><b>Minions:</b> run the <b>Skeletal Reaver instead of the Frost Mage</b>. Chilling this boss can make his beam and Flame Seed combo unavoidable (a reported bug), and the Frost Mage chills.</li>
+      <li><b>Health:</b> guides suggest 3,500–4,000+ effective health for the hits you can't avoid; you have about 7,000 (Energy Shield + unreserved Life).</li>
+    </ul>
+  </div></section>
+
+  <section class="sec w-half" id="arb-buttons" style="--c:var(--c7)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">③</span>Your buttons in this fight</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <ol>
+      <li><b>Dodge-roll comes first.</b> When a mechanic starts, stop everything else.</li>
+      <li><b>W</b> — Pain Offering: keep it up. It's the one button worth pressing between mechanics.</li>
+      <li><b>Q</b> (Shattering Roar) and <b>right-click</b> (Vulnerability): only in safe windows — for example while he channels his Fire Beam.</li>
+      <li><b>R</b> — Detonate Dead when corpses pile up; then <b>E</b> (Unearth).</li>
+      <li>Right after the phase-2 transition: refresh <b>W</b>, <b>Q</b> and <b>right-click</b>.</li>
+    </ol>
+    <div class="note">▸ <b>What resistance can and can't fix.</b> <b>Can't:</b> red-flash attacks, standing outside a Flame Seed ring, Hallways (fire winds) — all one-shots — and the physical part of sword hits. <b>Can:</b> fire projectiles, beams, burning ground, ignite, and the phase-2 Baiting Flame Seeds damage (guides measured about 3,500 at 85% maximum fire resistance — survivable for you).</div>
+  </div></section>
+
+  <section class="sec w-full" id="arb-p1" style="--c:var(--c3)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">④</span>Phase 1 — attacks and what to do</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <div class="atk"><div><b class="n">Fire Beam</b><br><span class="tag tank">fire — reducible</span></div><div>He channels a straight beam. Walk sideways out of its line. While he channels, it's a safe moment for Q and right-click.</div></div>
+    <div class="atk"><div><b class="n">Fire projectiles</b><br><span class="tag tank">fire — reducible</span></div><div>Slow single fireballs. Sidestep them.</div></div>
+    <div class="atk"><div><b class="n">Bullet Hell orbs</b><br><span class="tag tank">fire — reducible</span></div><div>Two fire orbs spray small projectiles across the arena — several at once hurt badly. Move past or behind the orbs: the projectiles keep flying towards where you were.</div></div>
+    <div class="atk"><div><b class="n">Flame Seed</b><br><span class="tag kill">one-shot</span></div><div>A seed falls into a marked ring. <b>Walk into the ring</b> before it lands — everything outside explodes. He keeps attacking meanwhile, so stay calm and get inside.</div></div>
+    <div class="atk"><div><b class="n">Cascading Flame Seeds</b><br><span class="tag kill">one-shot</span></div><div>He dashes around dropping several rings that explode one after another. Go from ring to ring, moving right after each blast.</div></div>
+    <div class="atk"><div><b class="n">Hallways / Flaming Gales — the fire winds</b><br><span class="tag kill">one-shot</span></div><div>
+      He rises and fire blasts cover almost the whole arena, leaving one narrow safe lane. More resistance won't save you — only the lane does.
+      <ol>
+        <li><b>Listen for his voice line</b> — it now plays as Hallways begins. Treat it as "stop everything".</li>
+        <li><b>Look for the faint blue tint</b> — that marks the safe lane between the blasts.</li>
+        <li><b>Commit — don't hover at the edge.</b> Hesitating on the border is the classic death.</li>
+        <li><b>Stand at mid-range</b>, not at the arena's edge — near the middle, any lane is a short run away.</li>
+        <li><b>Keep your dodge-roll ready</b> — walk for routine dodging; the roll is your fastest way to a far lane.</li>
+        <li><b>Stand away from your army</b> — dozens of skeletons and explosions hide a faint tint.</li>
+        <li><b>Practise just this</b> on the quest version: unlimited revivals, ignore his health.</li>
+      </ol>
+    </div></div>
+  </div></section>
+
+  <section class="sec w-full" id="arb-p2" style="--c:var(--c5)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">⑤</span>Phase 2 — attacks and what to do</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <div class="atk"><div><b class="n">The transition</b></div><div>At about 55% he becomes immune, goes to the centre and takes his sword — and heals to full. Don't waste buttons into the immunity; reposition to mid-range and refresh W, Q and right-click.</div></div>
+    <div class="atk"><div><b class="n">Sword slashes and combos</b><br><span class="tag phys">physical — not reduced by fire res</span></div><div>Keep moving around him and out of the sword's reach. Fire resistance does nothing for the physical part.</div></div>
+    <div class="atk"><div><b class="n">Sword Beam</b></div><div>He points the sword and fires a long beam. Get out of the line the sword points along first, then stay in a clear area.</div></div>
+    <div class="atk"><div><b class="n">Baiting Flame Seeds — the hardest attack</b><br><span class="tag tank">reducible with ~85% max fire res</span></div><div>He drops two rings right in front of him, fires his Sword Beam over the first and slams the second. <b>Stay just outside the first ring until the beam fires, then step in.</b> For the second, stand to the side of the ring so the slam's line misses you. With high maximum fire resistance and your Energy Shield you can survive it even when the timing beats you.</div></div>
+    <div class="atk"><div><b class="n">Chill and Blackflame Seeds</b></div><div>A white and a black orb appear. When he uses one (chilled or burning ground across the arena), <b>step on the other</b> to cancel it.</div></div>
+    <div class="atk"><div><b class="n">Pulsing Orb — ring of fire projectiles</b><br><span class="tag tank">fire — reducible</span></div><div>A ring of projectiles spreads outward; if one hits you <b>or a minion</b>, the whole ring explodes. <b>Move away from your army</b> and pass through a visible gap.</div></div>
+    <div class="atk"><div><b class="n">Diving Slam</b></div><div>He dives at a ring's safe spot. Wait for the dive to land, step into the safe area, then dodge away from the follow-up slash.</div></div>
+  </div></section>
+
+  </main>
+  <div class="foot"><p>Compiled from public 0.5.5 boss guides (Mobalytics, PoE Vault, PoE2 Hub, Gamers.Wiki, ExpCarry, Timesaver) and this build's own numbers · fan-made, not affiliated with Grinding Gear Games</p></div>
+</div>
+<script>
+(function(){
+const LS='mg-boss-sections-v1'; let closed={}; try{closed=JSON.parse(localStorage.getItem(LS)||'{}')||{};}catch(e){}
+const secs=[...document.querySelectorAll('section.sec')];
+function setOpen(s,o){ s.classList.toggle('closed',!o); s.querySelector('.shead').setAttribute('aria-expanded',o?'true':'false'); }
+function save(){ const m={}; secs.forEach(s=>{ if(s.classList.contains('closed')) m[s.id]=true; }); try{localStorage.setItem(LS,JSON.stringify(m));}catch(e){} }
+secs.forEach(s=>{ if(closed[s.id]) setOpen(s,false); s.querySelector('.shead').addEventListener('click',()=>{ setOpen(s,s.classList.contains('closed')); save(); }); });
+document.getElementById('nav').innerHTML=secs.map(s=>`<a href="#${s.id}" style="--c:${s.style.getPropertyValue('--c')}">${s.querySelector('.n').textContent} ${s.querySelector('h2').textContent.replace(/^[①-⑨]/,'').split(' — ')[0]}</a>`).join('');
+document.getElementById('nav').addEventListener('click',e=>{ const a=e.target.closest('a'); if(!a) return; const s=document.getElementById(a.getAttribute('href').slice(1)); if(s&&s.classList.contains('closed')){ setOpen(s,true); save(); } });
+document.getElementById('openAll').addEventListener('click',()=>{ secs.forEach(s=>setOpen(s,true)); save(); });
+document.getElementById('closeAll').addEventListener('click',()=>{ secs.forEach(s=>setOpen(s,false)); save(); });
+})();
+</script>
+</body>
+</html>

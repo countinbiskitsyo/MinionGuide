@@ -17,3 +17,9 @@ d['desc']=json.loads(rd('gem_descriptions.json'))             # in-game gem desc
 out=t.replace('__DATA__',json.dumps(d,ensure_ascii=False).replace('</','<\\/'))
 open(os.path.join(H,'..','..','index.html'),'w',encoding='utf-8').write(out)
 print('index.html written',len(out))
+
+# Boss guide page: same look — copy the main template's <style> block into bosses_template.html
+st=t[t.find('<style>')+7:t.find('</style>')]
+bt=rd('bosses_template.html').replace('__STYLE__',st)
+open(os.path.join(H,'..','..','bosses.html'),'w',encoding='utf-8').write(bt)
+print('bosses.html written',len(bt))

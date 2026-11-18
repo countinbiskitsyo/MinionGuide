@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MinionGuide — Boss guide v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#e7e3dd; --surface:#f7f5f1; --surface2:#efebe4; --ink:#211a1d; --muted:#66595c; --line:#d3cbc0;
+  --wine:#5c1028; --wine2:#7d1a2c; --gold:#b8862b; --goldtext:#7a5612;
+  --c1:#2f6b9a; --c2:#8f3b3d; --c3:#6a4b8c; --c4:#56606b; --c5:#45508f; --c6:#8a6526; --c7:#2c6f6a; --c8:#556b2f;
+  --str:#b5524a; --int:#4a72b8; --dex:#3f8a55; --lin:#a8833a; --skill:#2f7f7c; --spirit:#7b5a9e; --aura:#3a8a65;
+  --focus:#2f6fd6; --barbg:#d8d0c4; --alert:#a0453f; --good:#4a7a4a;
+  color-scheme: light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#a99c98; --line:#3a2f35;
+  --wine:#3a0a1a; --wine2:#5a1424; --gold:#d6a94a; --goldtext:#e4c27a;
+  --c1:#7fa8cf; --c2:#c07776; --c3:#a68fc6; --c4:#9aa5b1; --c5:#8f98d0; --c6:#c8a065; --c7:#6fb0aa; --c8:#9cb173;
+  --str:#c9776c; --int:#7f9ed8; --dex:#79b388; --lin:#c9a868; --skill:#6db0ad; --spirit:#a98cc6; --aura:#78b394;
+  --focus:#8fb6ff; --barbg:#33292e; --alert:#c9776c; --good:#86a882; color-scheme: dark; }}
+:root[data-theme="dark"]{
+  --bg:#141013; --surface:#1e181c; --surface2:#261f24; --ink:#ece4dc; --muted:#a99c98; --line:#3a2f35;
+  --wine:#3a0a1a; --wine2:#5a1424; --gold:#d6a94a; --goldtext:#e4c27a;
+  --c1:#7fa8cf; --c2:#c07776; --c3:#a68fc6; --c4:#9aa5b1; --c5:#8f98d0; --c6:#c8a065; --c7:#6fb0aa; --c8:#9cb173;
+  --str:#c9776c; --int:#7f9ed8; --dex:#79b388; --lin:#c9a868; --skill:#6db0ad; --spirit:#a98cc6; --aura:#78b394;
+  --focus:#8fb6ff; --barbg:#33292e; --alert:#c9776c; --good:#86a882; color-scheme: dark; }
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Crimson Pro",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--wine)}
+.wrap{max-width:2400px;margin:0 auto;padding:0 24px 40px}
+header.hero{background:radial-gradient(120% 140% at 0% 0%, var(--wine2), var(--wine) 60%, #1a0710);color:#f4e9d8;padding:20px 24px 16px;border-radius:0 0 14px 14px;margin:0 -24px}
+.hero h1{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:clamp(22px,2.4vw,34px);line-height:1.15;margin:0 0 4px;color:#f3d891}
+.hero p{margin:0;color:#e9cfcf;font-style:italic;font-size:15px}
+.hero .ver{display:inline-block;margin-top:8px;font-size:13px;border:1px solid #c9a24a88;border-radius:20px;padding:1px 10px}
+.total{margin-top:12px}
+.total .label{display:flex;justify-content:space-between;font-size:15px}
+.bar{height:8px;border-radius:6px;background:#ffffff26;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#c9a24a,#f3d891);transition:width .35s ease}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin:0 -24px;padding:8px 24px;display:flex;gap:8px;align-items:center}
+.navscroll{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1}
+.navscroll::-webkit-scrollbar{display:none}
+.navscroll a{flex:none;text-decoration:none;font-family:Cinzel,Georgia,serif;font-size:13px;font-weight:600;padding:4px 10px;border-radius:16px;border:1px solid color-mix(in srgb,var(--c) 45%,transparent);color:color-mix(in srgb,var(--c) 75%,var(--ink));white-space:nowrap}
+.tog{flex:none;font:inherit;font-size:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:4px 10px;cursor:pointer}
+.tog[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.status{font-size:13px;color:var(--muted);margin:8px 2px 0;min-height:18px}
+/* page grid: 6 columns on desktop so thirds and halves line up evenly */
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:10px}
+@media (min-width:1150px){ main{grid-template-columns:repeat(6,minmax(0,1fr))} .w-full{grid-column:span 6} .w-half{grid-column:span 3} .w-third{grid-column:span 3} .w-third.mid-full{grid-column:span 6} }
+@media (min-width:1800px){ .w-third,.w-third.mid-full{grid-column:span 2} }
+section.sec{background:var(--surface);border-radius:12px;border:1px solid var(--line);border-top:4px solid var(--c);min-width:0;display:flex;flex-direction:column}
+.shead{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 16px;width:100%}
+.shead:focus-visible{outline:3px solid var(--focus);outline-offset:-3px;border-radius:10px}
+.shead h2{font-family:Cinzel,Georgia,serif;font-size:19px;margin:0;color:color-mix(in srgb,var(--c) 80%,var(--ink));flex:1;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.shead .n{font-size:21px}
+.shead .pt{font-family:"Crimson Pro",Georgia,serif;font-size:14px;color:var(--muted);white-space:nowrap}
+.shead .chev{width:18px;height:18px;flex:none;transition:transform .2s;color:var(--muted)}
+section.sec.closed .chev{transform:rotate(-90deg)}
+.sbody{padding:0 16px 16px;flex:1}
+section.sec.closed .sbody{display:none}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 8px}
+.prog{height:6px;background:var(--barbg);border-radius:6px;overflow:hidden;margin:0 0 12px}
+.prog i{display:block;height:100%;width:0;background:var(--c);transition:width .35s ease}
+.row{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.row .meta{font-size:14px;color:var(--muted)}
+.row .detail{grid-column:2;font-size:15.5px}
+.tick{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--c);background:transparent;cursor:pointer;display:grid;place-items:center;padding:0;margin-top:1px}
+.tick svg{width:15px;height:15px;opacity:0}
+.tick[aria-checked="true"]{background:color-mix(in srgb,var(--c) 70%,transparent)}
+.tick[aria-checked="true"] svg{opacity:1}
+.tick svg path{stroke:var(--surface);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+/* gem chips */
+.chip{--k:var(--int);display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:15px;font-weight:600;line-height:1.2;padding:4px 10px 4px 7px;margin:2px 2px 2px 0;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;vertical-align:middle}
+.chip .dot{width:10px;height:10px;border-radius:2px;transform:rotate(45deg);background:var(--k);flex:none}
+.chip .x{font-weight:400;font-size:13px;color:var(--muted);margin-left:2px}
+.chip:hover{border-color:color-mix(in srgb,var(--k) 55%,var(--line))}
+.chip[aria-checked="true"]{background:color-mix(in srgb,var(--k) 30%,transparent);border-color:var(--k);box-shadow:inset 0 0 0 0.5px var(--k)}
+.chip[aria-checked="true"]::after{content:"✓";font-size:14px;font-weight:700;color:var(--k);margin-left:1px}
+.chip.str{--k:var(--str)} .chip.int{--k:var(--int)} .chip.dex{--k:var(--dex)} .chip.lin{--k:var(--lin)}
+.chip.skill{--k:var(--skill)} .chip.spirit{--k:var(--spirit)} .chip.aura{--k:var(--aura)}
+.chip.main{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:15.5px;padding:6px 14px 6px 10px;border:2px solid var(--k);background:color-mix(in srgb,var(--k) 12%,transparent)}
+.chip.main .dot{width:12px;height:12px}
+.chip.main[aria-checked="true"]{background:color-mix(in srgb,var(--k) 42%,transparent);border-color:var(--k)}
+.or{font-size:14px;color:var(--muted);font-style:italic;margin:0 2px}
+#tip{position:fixed;z-index:30;max-width:400px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--gold) 70%,var(--line));border-radius:8px;padding:10px 13px;box-shadow:0 8px 28px #0007;font-size:14.5px;line-height:1.45;pointer-events:none}
+#tip .tt{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:15px}
+#tip .ta{font-size:12.5px;color:var(--muted);margin:1px 0 6px}
+#tip .td{margin:0 0 6px}
+#tip .tw b{color:var(--goldtext)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.spirit{font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:0 8px;white-space:nowrap}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:12px}
+.gcard{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface2)}
+.ghead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.gsub{font-size:15px;color:var(--muted);font-style:italic}
+.gsup{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px}
+.galt{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14.5px;color:var(--muted)}
+.galt .lbl{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+
+.gnote{margin-top:auto;font-size:14px;color:var(--muted);font-style:italic;border-top:1px dashed var(--line);padding-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin:0 0 12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.glegend b{width:10px;height:10px;display:inline-block;transform:rotate(45deg);border-radius:2px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:10px;margin-top:12px}
+.note{font-size:14.5px;background:var(--surface2);border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--gold) 70%,var(--line));border-radius:0;padding:8px 11px;margin:0}
+.note.alert,.note.lvl,.gt .note,.gt .lvlnote{border-left-color:color-mix(in srgb,var(--gold) 70%,var(--line))}
+.gS,.gP,.gA,.gU,.gL{font-weight:600}
+.gS{color:var(--skill)} .gP{color:var(--spirit)} .gA{color:var(--aura)} .gU{color:var(--int)} .gL{color:var(--lin)}
+.pill{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--gold);color:var(--goldtext);border-radius:10px;padding:0 8px;margin-left:4px;white-space:nowrap}
+.aS{color:var(--str);font-weight:700;font-style:normal} .aI{color:var(--int);font-weight:700;font-style:normal}
+.tgrid{column-gap:28px}
+@media (min-width:1500px){ .tgrid{column-count:2} }
+.tgrid .row{break-inside:avoid}
+.ref{font-size:15.5px}
+.tw{overflow-x:auto}
+.ref table{border-collapse:collapse;width:100%}
+.ref td,.ref th{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+.ref th{font-family:Cinzel,Georgia,serif;font-size:13px;color:var(--muted)}
+.ref ol{margin:4px 0 4px 20px;padding:0}
+.ref .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gt .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(620px,1fr));gap:12px;margin-top:12px}
+.gt .slot{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:0}
+.gt .sh{background:color-mix(in srgb,var(--c6) 85%,#000);color:#fff;font-family:Cinzel,Georgia,serif;font-weight:700;padding:4px 10px}
+.gt .pri{display:inline-block;border-radius:8px;padding:0 6px;font-size:12px;font-weight:700;white-space:nowrap}
+.gt .num{white-space:nowrap} .gt .why{font-style:italic;color:var(--muted)}
+.gt .slot .note{border:0;border-top:1px solid var(--line)}
+.pobpanel{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c4);border-radius:12px;padding:10px 16px 12px;margin-top:8px}
+.pobtop{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.pobtop b{font-family:Cinzel,Georgia,serif;color:color-mix(in srgb,var(--c4) 80%,var(--ink))}
+.pobtop .meta{font-size:14px;color:var(--muted);flex:1;min-width:300px}
+#pobText,.pob textarea{width:100%;margin-top:8px!important;font-family:Consolas,"Courier New",monospace;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:8px;word-break:break-all;margin-top:8px}
+.hide-done .row.done,.hide-done .gcard.done{display:none}
+.hide-done .chip[aria-checked="true"]:not(.main){display:none}
+.foot{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+.danger{font:inherit;font-size:14px;background:transparent;color:var(--alert);border:1px solid var(--alert);border-radius:16px;padding:4px 12px;cursor:pointer}
+.danger.arm{background:var(--alert);color:#fff}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);max-width:min(440px,92vw);padding:16px 18px}
+dialog::backdrop{background:#0008}
+dialog h3{font-family:Cinzel,Georgia,serif;margin:0 0 6px;color:var(--wine2)}
+dialog label{font-weight:600;font-size:15px;display:block;margin-top:8px}
+dialog input{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);margin-top:4px}
+.drow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.dmsg{font-size:15px;margin:0 0 4px} .dnote{font-size:13px;color:var(--muted);margin:10px 0 0}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.atk{display:grid;grid-template-columns:minmax(180px,26%) 1fr;gap:4px 14px;padding:9px 0;border-top:1px solid var(--line)}
+.atk:first-of-type{border-top:0}
+.atk b.n{font-family:Cinzel,Georgia,serif;font-size:15.5px}
+.atk .tag{display:inline-block;font-size:12px;font-weight:700;border-radius:8px;padding:0 7px;margin-top:3px}
+.tag.kill{background:color-mix(in srgb,var(--alert) 22%,transparent);color:var(--alert)}
+.tag.tank{background:color-mix(in srgb,var(--good) 22%,transparent);color:var(--good)}
+.tag.phys{background:color-mix(in srgb,var(--muted) 22%,transparent);color:var(--muted)}
+.ref ul{margin:4px 0 4px 20px;padding:0}
+a.back{text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>Boss guide</h1>
+    <p>Companion to the Minion Army guide — fight-by-fight tactics, written for this build (minions do the damage, you stay alive).</p>
+    <span class="ver">Boss guide v1.0 · 2026-11-12 · patch 0.5.5</span>
+  </header>
+  <nav class="top" aria-label="Sections">
+    <a class="tog back" href="index.html">← Minion guide</a>
+    <div class="navscroll" id="nav"></div>
+    <button class="tog" id="openAll" type="button">Expand all</button>
+    <button class="tog" id="closeAll" type="button">Collapse all</button>
+  </nav>
+  <main id="main">
+
+  <section class="sec w-full" id="arb-over" style="--c:var(--c2)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">①</span>Arbiter of Ash — overview</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <ul>
+      <li><b>Where:</b> the Burning Monolith, inside the Precursor Fortress. Your <b>first</b> kill is the quest version (fragments from the two Enigma Chambers), and it gives <b>unlimited revivals</b> — use it to practise. Repeat kills need three Crisis Fragments from Citadels.</li>
+      <li><b>Health:</b> about 5 million. At about <b>55%</b> he turns immune, takes his sword and starts phase 2 — and <b>heals back to full</b>, so phase 1 is only the first half.</li>
+      <li><b>Damage:</b> mostly fire, plus physical sword hits. When he <b>flashes red with a sound</b>, that attack must be dodged — no amount of resistance helps.</li>
+      <li><b>Your job:</b> survive. Your minions do the damage whether or not you're attacking.</li>
+    </ul>
+  </div></section>
+
+  <section class="sec w-half" id="arb-prep" style="--c:var(--c6)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">②</span>Before you go</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <p><b>Raise your maximum fire resistance.</b> Your fire resistance is already 80% before the cap, so every +1% maximum counts straight away:</p>
+    <div class="tw"><table>
+      <tr><th>Source</th><th>Gain</th><th>Note</th></tr>
+      <tr><td>Shield suffix ("of the Solar Storm")</td><td>+1–3%</td><td>Best source. Competes with the all-resistance suffix.</td></tr>
+      <tr><td>Ruby jewel suffix ("of the Phoenix")</td><td>+1% each</td><td>Up to 3 (your jewel sockets). Swap in for this fight; Sapphires stay best for everyday damage.</td></tr>
+      <tr><td>Soul Core of Puhuarte, in gloves</td><td>+1%</td><td></td></tr>
+      <tr><td>Thane Myrk's Rune of Summer, in weapon</td><td>+2%</td><td>Only as a "Bonded" bonus — treat it as a maybe.</td></tr>
+    </table></div>
+    <p>Together: about <b>82%</b> instead of 75% — roughly 28% less fire damage taken. Guides recommend 80–85%. (The tree notable Unnatural Resilience is 22 points away — not worth it.)</p>
+    <ul>
+      <li><b>Charms:</b> Thawing, Stone, and <b>Beira's Anguish instead of Silver</b> — dying to ignite between dodges is a common way to lose this fight.</li>
+      <li><b>Minions:</b> run the <b>Skeletal Reaver instead of the Frost Mage</b>. Chilling this boss can make his beam and Flame Seed combo unavoidable (a reported bug), and the Frost Mage chills.</li>
+      <li><b>Health:</b> guides suggest 3,500–4,000+ effective health for the hits you can't avoid; you have about 7,000 (Energy Shield + unreserved Life).</li>
+    </ul>
+  </div></section>
+
+  <section class="sec w-half" id="arb-buttons" style="--c:var(--c7)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">③</span>Your buttons in this fight</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <ol>
+      <li><b>Dodge-roll comes first.</b> When a mechanic starts, stop everything else.</li>
+      <li><b>W</b> — Pain Offering: keep it up. It's the one button worth pressing between mechanics.</li>
+      <li><b>Q</b> (Shattering Roar) and <b>right-click</b> (Vulnerability): only in safe windows — for example while he channels his Fire Beam.</li>
+      <li><b>R</b> — Detonate Dead when corpses pile up; then <b>E</b> (Unearth).</li>
+      <li>Right after the phase-2 transition: refresh <b>W</b>, <b>Q</b> and <b>right-click</b>.</li>
+    </ol>
+    <div class="note">▸ <b>What resistance can and can't fix.</b> <b>Can't:</b> red-flash attacks, standing outside a Flame Seed ring, Hallways (fire winds) — all one-shots — and the physical part of sword hits. <b>Can:</b> fire projectiles, beams, burning ground, ignite, and the phase-2 Baiting Flame Seeds damage (guides measured about 3,500 at 85% maximum fire resistance — survivable for you).</div>
+  </div></section>
+
+  <section class="sec w-full" id="arb-p1" style="--c:var(--c3)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">④</span>Phase 1 — attacks and what to do</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <div class="atk"><div><b class="n">Fire Beam</b><br><span class="tag tank">fire — reducible</span></div><div>He channels a straight beam. Walk sideways out of its line. While he channels, it's a safe moment for Q and right-click.</div></div>
+    <div class="atk"><div><b class="n">Fire projectiles</b><br><span class="tag tank">fire — reducible</span></div><div>Slow single fireballs. Sidestep them.</div></div>
+    <div class="atk"><div><b class="n">Bullet Hell orbs</b><br><span class="tag tank">fire — reducible</span></div><div>Two fire orbs spray small projectiles across the arena — several at once hurt badly. Move past or behind the orbs: the projectiles keep flying towards where you were.</div></div>
+    <div class="atk"><div><b class="n">Flame Seed</b><br><span class="tag kill">one-shot</span></div><div>A seed falls into a marked ring. <b>Walk into the ring</b> before it lands — everything outside explodes. He keeps attacking meanwhile, so stay calm and get inside.</div></div>
+    <div class="atk"><div><b class="n">Cascading Flame Seeds</b><br><span class="tag kill">one-shot</span></div><div>He dashes around dropping several rings that explode one after another. Go from ring to ring, moving right after each blast.</div></div>
+    <div class="atk"><div><b class="n">Hallways / Flaming Gales — the fire winds</b><br><span class="tag kill">one-shot</span></div><div>
+      He rises and fire blasts cover almost the whole arena, leaving one narrow safe lane. More resistance won't save you — only the lane does.
+      <ol>
+        <li><b>Listen for his voice line</b> — it now plays as Hallways begins. Treat it as "stop everything".</li>
+        <li><b>Look for the faint blue tint</b> — that marks the safe lane between the blasts.</li>
+        <li><b>Commit — don't hover at the edge.</b> Hesitating on the border is the classic death.</li>
+        <li><b>Stand at mid-range</b>, not at the arena's edge — near the middle, any lane is a short run away.</li>
+        <li><b>Keep your dodge-roll ready</b> — walk for routine dodging; the roll is your fastest way to a far lane.</li>
+        <li><b>Stand away from your army</b> — dozens of skeletons and explosions hide a faint tint.</li>
+        <li><b>Practise just this</b> on the quest version: unlimited revivals, ignore his health.</li>
+      </ol>
+    </div></div>
+  </div></section>
+
+  <section class="sec w-full" id="arb-p2" style="--c:var(--c5)"><button type="button" class="shead" aria-expanded="true"><h2><span class="n">⑤</span>Phase 2 — attacks and what to do</h2><span class="pt">reference</span><svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="sbody ref">
+    <div class="atk"><div><b class="n">The transition</b></div><div>At about 55% he becomes immune, goes to the centre and takes his sword — and heals to full. Don't waste buttons into the immunity; reposition to mid-range and refresh W, Q and right-click.</div></div>
+    <div class="atk"><div><b class="n">Sword slashes and combos</b><br><span class="tag phys">physical — not reduced by fire res</span></div><div>Keep moving around him and out of the sword's reach. Fire resistance does nothing for the physical part.</div></div>
+    <div class="atk"><div><b class="n">Sword Beam</b></div><div>He points the sword and fires a long beam. Get out of the line the sword points along first, then stay in a clear area.</div></div>
+    <div class="atk"><div><b class="n">Baiting Flame Seeds — the hardest attack</b><br><span class="tag tank">reducible with ~85% max fire res</span></div><div>He drops two rings right in front of him, fires his Sword Beam over the first and slams the second. <b>Stay just outside the first ring until the beam fires, then step in.</b> For the second, stand to the side of the ring so the slam's line misses you. With high maximum fire resistance and your Energy Shield you can survive it even when the timing beats you.</div></div>
+    <div class="atk"><div><b class="n">Chill and Blackflame Seeds</b></div><div>A white and a black orb appear. When he uses one (chilled or burning ground across the arena), <b>step on the other</b> to cancel it.</div></div>
+    <div class="atk"><div><b class="n">Pulsing Orb — ring of fire projectiles</b><br><span class="tag tank">fire — reducible</span></div><div>A ring of projectiles spreads outward; if one hits you <b>or a minion</b>, the whole ring explodes. <b>Move away from your army</b> and pass through a visible gap.</div></div>
+    <div class="atk"><div><b class="n">Diving Slam</b></div><div>He dives at a ring's safe spot. Wait for the dive to land, step into the safe area, then dodge away from the follow-up slash.</div></div>
+  </div></section>
+
+  </main>
+  <div class="foot"><p>Compiled from public 0.5.5 boss guides (Mobalytics, PoE Vault, PoE2 Hub, Gamers.Wiki, ExpCarry, Timesaver) and this build's own numbers · fan-made, not affiliated with Grinding Gear Games</p></div>
+</div>
+<script>
+(function(){
+const LS='mg-boss-sections-v1'; let closed={}; try{closed=JSON.parse(localStorage.getItem(LS)||'{}')||{};}catch(e){}
+const secs=[...document.querySelectorAll('section.sec')];
+function setOpen(s,o){ s.classList.toggle('closed',!o); s.querySelector('.shead').setAttribute('aria-expanded',o?'true':'false'); }
+function save(){ const m={}; secs.forEach(s=>{ if(s.classList.contains('closed')) m[s.id]=true; }); try{localStorage.setItem(LS,JSON.stringify(m));}catch(e){} }
+secs.forEach(s=>{ if(closed[s.id]) setOpen(s,false); s.querySelector('.shead').addEventListener('click',()=>{ setOpen(s,s.classList.contains('closed')); save(); }); });
+document.getElementById('nav').innerHTML=secs.map(s=>`<a href="#${s.id}" style="--c:${s.style.getPropertyValue('--c')}">${s.querySelector('.n').textContent} ${s.querySelector('h2').textContent.replace(/^[①-⑨]/,'').split(' — ')[0]}</a>`).join('');
+document.getElementById('nav').addEventListener('click',e=>{ const a=e.target.closest('a'); if(!a) return; const s=document.getElementById(a.getAttribute('href').slice(1)); if(s&&s.classList.contains('closed')){ setOpen(s,true); save(); } });
+document.getElementById('openAll').addEventListener('click',()=>{ secs.forEach(s=>setOpen(s,true)); save(); });
+document.getElementById('closeAll').addEventListener('click',()=>{ secs.forEach(s=>setOpen(s,false)); save(); });
+})();
+</script>
+</body>
+</html>
