@@ -483,3 +483,39 @@ Survey of all cuttable non-persistent spells in PoB 0.23.1 data: Unearth is the 
 Player-spell DPS on this build (gem 20, no supports): Bonestorm 1,106 (channel), Firestorm 737, Ember Fusillade 647 (2.5 casts/s,
 84 mana/s), Comet 550, Essence Drain 523, Ball Lightning 300, Flame Wall 265, Frostbolt 250, Fireball 248, Arc 199, Spark 175;
 Unearth 1,911 bare / ~5,800 supported. Army ≈ 83,000 → damage spells add < 1%. User keeps Space for dodge-roll; spam stays on E.
+
+## v2.33 (2026-11-12) — Arbiter of Ash help (user is dying to mechanics; slower reactions)
+Max fire res sources in PoB 0.23.1 data: shield suffix +1/+2/+3% (Bushfire / Molten Core / Solar Storm); Ruby (strjewel) suffix
+"of the Phoenix" +1%; Soul Core of Puhuarte in gloves +1%; Thane Myrk's Rune of Summer in weapon "Bonded: +2%"; tree notable
+Unnatural Resilience +2% (needs 5 red supports; 22 points away — rejected); Molten Carapace (while Ignited; 13 away — rejected).
+→ new gear block "Maximum fire resistance — for Arbiter of Ash" (to ~82%). Charm note: swap Beira's Anguish in for Silver.
+Reaver alternative text: also swap in for Arbiter (chill → beam/Flame Seed overlap bug, reported by poe2hub citing the official forum).
+How to play: "Arbiter of Ash — survive first" note (before/during plan; W + dodge only during mechanics; Flame Seeds: go inside
+the ring; phase-2 projectile ring: move away from the army; full heal at phase 2). Sources: mobalytics, poe2hub, expcarry,
+timesaver, ezg (search 2026-11-12). Avoid stratlore.com — its Arbiter page describes a different (likely invented) fight.
+
+## v2.34 + Boss guide v1.0 (2026-11-12) — separate Boss guide page
+User wants boss tactics kept OUT of the build guide (build guide = levelling/building reference). New page bosses.html (repo root),
+built by build_index.py from dev/source/bosses_template.html with the main template's <style> injected (__STYLE__), so both pages
+share one look. Links: main top bar "Boss guide →" (a.tog, data-tip); boss page "← Minion guide". Boss page has its own collapse
+memory (localStorage mg-boss-sections-v1), no checkboxes, its own version line ("Boss guide v1.0").
+Chapter 1 = Arbiter of Ash: ① overview ② before you go (max fire res table → ~82%, Beira's for Silver, Reaver for Frost Mage, EHP)
+③ your buttons in this fight + what resistance can/can't fix ④ phase 1 attacks (incl. Hallways/fire winds: 7 tips) ⑤ phase 2 attacks.
+Tags per attack: one-shot / fire-reducible / physical. Content paraphrased from Mobalytics, PoE Vault, PoE2 Hub, Gamers.Wiki,
+ExpCarry, Timesaver (searched 2026-11-12). Main guide: Arbiter note, max-fire-res gear block, and Arbiter lines on the Charm block
+and Reaver alternative replaced by pointers to the Boss guide. User status: dying to Hallways (fire winds), hasn't reached phase 2.
+Future bosses → add chapters (sections) to bosses_template.html; bump "Boss guide vX.Y" separately from the main guide version.
+
+## v2.35 (2026-11-12) — ZIP NAMING RULE (user request)
+Every delivery zip is named MinionBossGuide_v2_##.zip (version with underscores), and the folder inside it has the same name
+(MinionBossGuide_v2_##/). It contains only the changed files, laid out like the repo root. Applies to all future versions,
+including the 1.0 rebuild (continue the numbering, e.g. v3_0 for the first 1.0 release).
+
+## v2.36 (2026-11-12) — ZIP NAMING RULE, CORRECTED (supersedes the v2.35 rule)
+- Build guide changes (index.html, checklist sources, PoB code, README, HANDOFF) → MinionBuildGuide_v2_##.zip, numbered with the
+  build guide's version (template <title> + hero .ver line).
+- Boss guide changes (bosses.html, bosses_template.html) → MinionBossGuide_v1_##.zip, numbered with the Boss guide's own version
+  ("Boss guide vX.Y" in bosses_template.html).
+- If one delivery changes both, deliver TWO zips. The folder inside each zip has the same name as the zip and contains only the
+  changed files, laid out like the repo root. HANDOFF.md/README.md go with the build-guide zip.
+- 1.0 rebuild continues the series (build guide v3_0 …). The v2.35 zip was misnamed MinionBossGuide_v2_35 (build-guide-only content).
