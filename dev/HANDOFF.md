@@ -519,3 +519,9 @@ including the 1.0 rebuild (continue the numbering, e.g. v3_0 for the first 1.0 r
 - If one delivery changes both, deliver TWO zips. The folder inside each zip has the same name as the zip and contains only the
   changed files, laid out like the repo root. HANDOFF.md/README.md go with the build-guide zip.
 - 1.0 rebuild continues the series (build guide v3_0 …). The v2.35 zip was misnamed MinionBossGuide_v2_35 (build-guide-only content).
+
+## v2.37 (2026-11-12) — catch-up release
+User's site was still on v2.32 (v2.33–v2.36 never uploaded). MinionBuildGuide_v2_37 = every build-guide file changed since v2.32:
+index.html, README.md, dev/HANDOFF.md, dev/source/{checklist_template.html, checklist_data.json, gems.json,
+gear_targets_fragment.html, build_index.py}. Pair it with MinionBossGuide_v1_0 (bosses.html, bosses_template.html, build_index.py).
+LESSON: ask which version the site shows before assuming earlier zips were uploaded; offer a catch-up zip when they weren't.

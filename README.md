@@ -22,7 +22,7 @@ The page has seven numbered sections. Each one can be collapsed, and the page re
 
 **Hover over any gem or support** to see what it does in game and why it's in that slot (with the measured gain). Ticking a support also ticks its skill gem.
 
-The top bar also has:
+The top bar also has a **Boss guide →** button — a separate page with fight-by-fight tactics, starting with Arbiter of Ash — and:
 
 - **PoB code** — opens the Path of Building code with a one-click Copy button (final tree, 4 levelling checkpoints, full gem loadout).
 - **Expand all / Collapse all**, **Hide collected**, and **Sync**.
@@ -46,6 +46,7 @@ Every recommendation is measured in Path of Building (PoE2) 0.23.1 for patch 0.5
 ## Repository layout
 
 - `index.html` — the guide (this is the website)
+- `bosses.html` — the Boss guide: fight-by-fight tactics (starting with Arbiter of Ash), linked from the guide's top bar
 - `README.md` — this page
 - `dev/` — build files, the Path of Building code and project notes
 
