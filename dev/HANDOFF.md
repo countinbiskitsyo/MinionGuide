@@ -552,3 +552,7 @@ Chip labels (sup[4]) now exact: "Feeding Frenzy II", "Brutality III", "Bleed III
 "Rapid Casting II" (keys unchanged). Tooltips add the stand-in rule and "Gem tier N: cut from an Uncut Support Gem of level N+".
 "Tiers" note rewritten as "Exact gems". PoB code v2.8: Feeding Frenzy I → II everywhere (6), Brutality II/Meat Shield I → none left.
 NOTE: PoB values FF II = FF I and Brutality III = II (it doesn't model the extras) — never present them as "equal" to the user.
+
+## v2.40 (2026-11-12) — no stand-ins
+User: "I don't want stand-ins. I want the ideal gem." Removed every lower-tier / "until you can cut" suggestion from tooltips and
+notes; each chip and tooltip names only the ideal gem, its effect and its Uncut Support Gem level. Do not reintroduce stand-ins.
