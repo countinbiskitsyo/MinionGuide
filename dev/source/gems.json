@@ -12,23 +12,23 @@
     null,
     null,
     null,
-    "The Orb Explosion is an area hit: a smaller area that deals more damage. Part of the best measured set — no swap beat it."
+    "The Orb Explosion is an area hit: a smaller area that deals more damage. Part of the best measured set — no swap beat it. Gem tier 1: cut it from an Uncut Support Gem of level 1+."
    ],
    [
     "Feeding Frenzy I",
     "int",
     null,
     null,
-    "Feeding Frenzy I/II",
-    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
+    "Feeding Frenzy II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB. Feeding Frenzy II: same +30% more minion damage as I, but your minions take 15% more damage instead of 20%. Feeding Frenzy I is fine until you can cut II. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Bleed III",
     "str",
     "not IV",
     null,
-    "Bleed I–III",
-    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−11%): it can't cause bleeding and only boosts melee hits."
+    "Bleed III",
+    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−11%): it can't cause bleeding and only boosts melee hits. Bleed III: 100% chance to cause bleeding. Bleed I or II are weaker stand-ins. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Muster",
@@ -36,7 +36,7 @@
     null,
     null,
     null,
-    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ],
    [
     "Heft",
@@ -44,7 +44,7 @@
     null,
     null,
     null,
-    "Raises the maximum damage of each physical hit."
+    "Raises the maximum damage of each physical hit. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ]
   ],
   "note": "2.6× the Vaal Guard on the same setup. For mapping: Nymph Wasp (Ashen Forest, Interlude · skill 3) does 65% of the damage at 2.3× the speed, 48 Spirit. ⚠ Not Bleed IV here: it can't cause bleeding and only boosts melee hits — 11% less on this spectre, and your melee minions rely on this Bleed to keep enemies bleeding."
@@ -60,8 +60,8 @@
     "int",
     null,
     null,
-    "Feeding Frenzy I/II",
-    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
+    "Feeding Frenzy II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB. Feeding Frenzy II: same +30% more minion damage as I, but your minions take 15% more damage instead of 20%. Feeding Frenzy I is fine until you can cut II. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Bleed IV",
@@ -69,15 +69,15 @@
     null,
     null,
     null,
-    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. With Bloodlust: 1.12× Brute damage."
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. With Bloodlust: 1.12× Brute damage. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Brutality III",
     "str",
     null,
     null,
-    "Brutality I–III",
-    "More physical damage at the expense of other damage types. I–III: use the highest you have."
+    "Brutality III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bloodlust",
@@ -93,68 +93,69 @@
     null,
     null,
     null,
-    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ]
   ],
   "note": "1.12× Brute damage from Bleed IV + Bloodlust (they replace Bleed III and Heavy Swing). Both need enemies already bleeding — the Spectre, Sniper and Detonate Dead keep Bleed III for that. Its Shattering Roar command (Q) is a boss and rare button: Intimidate = +10% army damage.",
   "tier": "Gem tier 13 — cut it from an Uncut Skill Gem of level 13+."
  },
  {
-  "key": "gem2:skill:Skeletal Frost Mage",
-  "name": "Skeletal Frost Mage",
+  "key": "gem2:Skeletal Reaver",
+  "name": "Skeletal Reaver",
   "kind": "spirit",
-  "spirit": "32",
+  "spirit": "25",
+  "sub": "replaces the Frost Mage until you have Rakiata's Flow",
+  "tier": "Gem tier 9 — cut it from an Uncut Skill Gem of level 9+.",
   "sup": [
-   [
-    "Rakiata's Flow",
-    "lin",
-    null,
-    null,
-    null,
-    "Lineage gem — about 2.5× Frost Mage damage; nothing replaces it. Only one Lineage gem per build. Until you find one, run a Skeletal Reaver instead."
-   ],
    [
     "Feeding Frenzy I",
     "int",
     null,
     null,
-    "Feeding Frenzy I/II",
-    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
-   ],
-   [
-    "Cold Attunement",
-    "int",
-    null,
-    null,
-    null,
-    "The Frost Mage deals cold damage; this adds more of it."
-   ],
-   [
-    "Elemental Focus",
-    "int",
-    null,
-    null,
-    null,
-    "More elemental damage, but no elemental ailments."
+    "Feeding Frenzy II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB. Feeding Frenzy II: same +30% more minion damage as I, but your minions take 15% more damage instead of 20%. Feeding Frenzy I is fine until you can cut II. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Muster",
     "int",
-    "1.27×",
     null,
     null,
-    "Replaced Rapid Casting II: 1.27× Frost Mage damage. More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
+    null,
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
+   ],
+   [
+    "Brutality III",
+    "str",
+    null,
+    null,
+    "Brutality III",
+    "More physical damage at the expense of other damage types. The Reaver is physical melee. Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
+   ],
+   [
+    "Bleed IV",
+    "str",
+    null,
+    null,
+    null,
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. Beats Heavy Swing here by 7%. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
+   ],
+   [
+    "Bloodlust",
+    "str",
+    null,
+    null,
+    null,
+    "Melee: more damage against bleeding enemies. Stacks with Bleed IV."
    ]
   ],
-  "note": "Rakiata's Flow is worth about 2.5× Frost Mage damage; nothing replaces it. Muster replaces Rapid Casting II (1.27×). Skip its Ice Armour command (defence only) unless your minions keep dying.",
   "alt": {
-   "key": "gem2:Skeletal Reaver",
-   "name": "Skeletal Reaver",
+   "key": "gem2:skill:Skeletal Frost Mage",
+   "name": "Skeletal Frost Mage",
    "kind": "spirit",
-   "text": "use instead until you have Rakiata's Flow — 3,642 DPS for 25 Spirit (Frost Mage without it: 1,976 for 32). Supports: Feeding Frenzy, Muster, Brutality III, Heavy Swing, Bloodlust. Also the swap for Arbiter of Ash — see the Boss guide.",
-   "tier": "Gem tier 9 — cut it from an Uncut Skill Gem of level 9+."
+   "tier": "Gem tier 5 — cut it from an Uncut Skill Gem of level 5+.",
+   "text": "only once you have Rakiata's Flow (a rare Lineage gem from Manoki, the Chosen on the Jade Isles map): then 6,249 DPS for 32 Spirit — better per Spirit than the Reaver (195 vs 180) — plus its Ice Armour command. Supports: Rakiata's Flow, Feeding Frenzy, Cold Attunement, Elemental Focus, Muster. Without Rakiata's Flow it does only 2,491."
   },
-  "tier": "Gem tier 5 — cut it from an Uncut Skill Gem of level 5+."
+  "note": "4,490 DPS for 25 Spirit — 2.3× the Frost Mage without Rakiata's Flow (2,491 for 32), and 7 Spirit cheaper per copy. Melee, so Bleed IV and Bloodlust stack on it."
  },
  {
   "key": "gem3:skill:Skeletal Sniper",
@@ -167,24 +168,24 @@
     "int",
     null,
     null,
-    "Feeding Frenzy I/II",
-    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
+    "Feeding Frenzy II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB. Feeding Frenzy II: same +30% more minion damage as I, but your minions take 15% more damage instead of 20%. Feeding Frenzy I is fine until you can cut II. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Brutality III",
     "str",
     null,
     null,
-    "Brutality I–III",
-    "More physical damage at the expense of other damage types. I–III: use the highest you have."
+    "Brutality III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bleed III",
     "str",
     "not IV",
     null,
-    "Bleed I–III",
-    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−18%): it can't cause bleeding and only boosts melee hits."
+    "Bleed III",
+    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−18%): it can't cause bleeding and only boosts melee hits. Bleed III: 100% chance to cause bleeding. Bleed I or II are weaker stand-ins. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Heft",
@@ -192,7 +193,7 @@
     null,
     null,
     null,
-    "Raises the maximum damage of each physical hit."
+    "Raises the maximum damage of each physical hit. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Muster",
@@ -200,7 +201,7 @@
     null,
     null,
     null,
-    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds."
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ]
   ],
   "note": "⚠ Not Bleed IV here: it can't cause bleeding and only boosts melee hits — 18% less on this ranged minion, and your melee minions rely on this Bleed to keep enemies bleeding. Skip its Gas Arrow command — about 1% of your damage.",
@@ -218,8 +219,8 @@
     "int",
     null,
     null,
-    "Feeding Frenzy I/II",
-    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB."
+    "Feeding Frenzy II",
+    "More minion damage (they also take more). In every minion's best measured set. II = I in PoB. Feeding Frenzy II: same +30% more minion damage as I, but your minions take 15% more damage instead of 20%. Feeding Frenzy I is fine until you can cut II. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Muster",
@@ -227,15 +228,15 @@
     null,
     null,
     null,
-    "Replaced Hulking Minions: 1.19× Warrior damage. Muster scales with your 5 minion kinds; Hulking is a flat 20%. The cost: Hulking's +20% Life — see the card note for a way to keep it."
+    "Replaced Hulking Minions: 1.19× Warrior damage. Muster scales with your 5 minion kinds; Hulking is a flat 20%. The cost: Hulking's +20% Life — see the card note for a way to keep it. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ],
    [
     "Brutality III",
     "str",
     null,
     null,
-    "Brutality I–III",
-    "More physical damage at the expense of other damage types. I–III: use the highest you have. The cheapest slot to give up for Hulking Minions (−2.4% damage)."
+    "Brutality III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. The cheapest slot to give up for Hulking Minions (−2.4% damage). Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bleed IV",
@@ -243,7 +244,7 @@
     null,
     null,
     null,
-    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust."
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bloodlust",
@@ -269,7 +270,7 @@
     null,
     null,
     null,
-    "Defensive: the Hound takes 10% of the hits aimed at you. Kept even though Muster would add more Hound damage."
+    "Defensive: the Hound takes 10% of the hits aimed at you. Kept even though Muster would add more Hound damage. Gem tier 2: cut it from an Uncut Support Gem of level 2+."
    ],
    [
     "Heavy Swing",
@@ -277,15 +278,15 @@
     null,
     null,
     null,
-    "Melee: more physical damage, slower attacks."
+    "Melee: more physical damage, slower attacks. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Brutality II",
     "str",
     null,
     null,
-    "Brutality I–III",
-    "More physical damage at the expense of other damage types. I–III: use the highest you have."
+    "Brutality III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bleed IV",
@@ -293,7 +294,7 @@
     null,
     null,
     null,
-    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. With Bloodlust: 1.24× Hound damage."
+    "Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. With Bloodlust: 1.24× Hound damage. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bloodlust",
@@ -317,16 +318,16 @@
     "str",
     null,
     null,
-    "Brutality I–III",
-    "More physical damage at the expense of other damage types. I–III: use the highest you have."
+    "Brutality III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bleed III",
     "str",
     "not IV",
     null,
-    "Bleed I–III",
-    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−15%): it can't cause bleeding and only boosts melee hits."
+    "Bleed III",
+    "Causes bleeding: extra damage, and keeps enemies bleeding so your melee minions' Bleed IV and Bloodlust work. Not Bleed IV here (−15%): it can't cause bleeding and only boosts melee hits. Bleed III: 100% chance to cause bleeding. Bleed I or II are weaker stand-ins. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Heft",
@@ -334,7 +335,7 @@
     null,
     null,
     null,
-    "Raises the maximum damage of each physical hit."
+    "Raises the maximum damage of each physical hit. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Concentrated Area",
@@ -342,7 +343,7 @@
     "1.30×",
     null,
     null,
-    "Detonate Dead explodes in an area: smaller area, more damage — 1.30×. Int: needs 1 attribute node switched from Str."
+    "Detonate Dead explodes in an area: smaller area, more damage — 1.30×. Int: needs 1 attribute node switched from Str. Gem tier 1: cut it from an Uncut Support Gem of level 1+."
    ],
    [
     "Rapid Casting III",
@@ -350,7 +351,7 @@
     "1.27–1.36×",
     null,
     null,
-    "Casts faster for each different spell you've cast recently: 1.27× with 3, 1.36× with 4. Beats Rapid Casting II (1.18×). Int."
+    "Casts faster for each different spell you've cast recently: 1.27× with 3, 1.36× with 4. Beats Rapid Casting II (1.18×). Int. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Unleash",
@@ -358,7 +359,7 @@
     "1.20×",
     "or",
     null,
-    "Fallback for slot 5 if you rarely cast 3+ different spells: 1.20×. Int."
+    "Fallback for slot 5 if you rarely cast 3+ different spells: 1.20×. Int. Gem tier 1: cut it from an Uncut Support Gem of level 1+."
    ]
   ],
   "note": "+37% on top of the army. First three: 1.80×. Slots 4–5 are Int (no Str support helps): Concentrated Area 1.30×, then Rapid Casting III — it speeds up per different spell you've cast recently: 1.27× with 3, 1.36× with 4 (Unearth, Pain Offering, Detonate Dead, Vulnerability). If you rarely cast 3+ different spells, use Unleash (1.20×). Rapid Casting II is weaker than both (1.18×). ⚠ Not Bleed IV here: Detonate Dead isn't melee, so Bleed IV loses 15% and stops it causing bleeding.",
@@ -375,7 +376,7 @@
     "1.06×",
     null,
     null,
-    "Pain Offering sacrifices some of your Life per cast for a stronger buff: 1.06× army damage. Stacks with Danse Macabre (1.13× together)."
+    "Pain Offering sacrifices some of your Life per cast for a stronger buff: 1.06× army damage. Stacks with Danse Macabre (1.13× together). Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ],
    [
     "Danse Macabre",
@@ -383,7 +384,7 @@
     "1.06×",
     null,
     null,
-    "Stronger buff, and it also targets one extra skeleton: 1.06×. Stacks with Sacrificial Offering."
+    "Stronger buff, and it also targets one extra skeleton: 1.06×. Stacks with Sacrificial Offering. Gem tier 2: cut it from an Uncut Support Gem of level 2+."
    ],
    [
     "Minion Mastery",
@@ -391,7 +392,7 @@
     "1.01×",
     null,
     null,
-    "+1 level to Pain Offering: 1.01×."
+    "+1 level to Pain Offering: 1.01×. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ]
   ],
   "note": "Use both Offering supports — they stack: 1.13× army damage together, 1.14× with Minion Mastery. Sacrificial Offering costs some of your Life per cast; Danse Macabre also targets one extra skeleton. Nothing else measurably helps, so slots 4–5 are free.",
@@ -407,8 +408,8 @@
     "str",
     null,
     null,
-    "Prolonged Duration I/II",
-    "Longer curse duration. Str — no attribute node needed. PoB can't score curse supports."
+    "Prolonged Duration II",
+    "Longer curse duration. Str — no attribute node needed. PoB can't score curse supports. Use Prolonged Duration I until you can cut II. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ],
    [
     "Heightened Curse",
@@ -416,7 +417,7 @@
     null,
     null,
     null,
-    "A stronger curse. Int. PoB can't score curse supports."
+    "A stronger curse. Int. PoB can't score curse supports. Gem tier 1: cut it from an Uncut Support Gem of level 1+."
    ],
    [
     "Ritualistic Curse",
@@ -424,7 +425,7 @@
     null,
     null,
     null,
-    "A bigger curse area, but slower to apply. Int."
+    "A bigger curse area, but slower to apply. Int. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ],
    [
     "Focused Curse",
@@ -432,7 +433,7 @@
     null,
     null,
     null,
-    "Curses enemies faster after casting. Int."
+    "Curses enemies faster after casting. Int. Gem tier 2: cut it from an Uncut Support Gem of level 2+."
    ]
   ],
   "alt": {
@@ -457,7 +458,7 @@
     "1.22×",
     null,
     null,
-    "Bone Constructs are melee: Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust."
+    "Bone Constructs are melee: Melee only: hits bleeding enemies harder. Can't cause bleeding itself — your Spectre, Sniper and Detonate Dead do that. Stacks with Bloodlust. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Bloodlust",
@@ -472,8 +473,8 @@
     "str",
     "1.21×",
     null,
-    "Brutality I–III",
-    "More physical damage at the expense of other damage types. I–III: use the highest you have."
+    "Brutality III",
+    "More physical damage at the expense of other damage types. I–III: use the highest you have. Brutality III adds a 20% chance for hits to ignore physical damage reduction over II. Brutality I or II are fine stand-ins until you can cut III. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Heft",
@@ -481,7 +482,7 @@
     "1.18×",
     null,
     null,
-    "Raises the maximum damage of each physical hit."
+    "Raises the maximum damage of each physical hit. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ],
    [
     "Muster",
@@ -489,7 +490,7 @@
     "1.33×",
     null,
     null,
-    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Int."
+    "More damage for each different kind of reviving minion you have summoned — you run 5 kinds. Int. Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ]
   ],
   "note": "Your spam button. Consumes corpses → temporary Bone Constructs: 7% of your damage, plus extra bodies that soak hits and pull enemies off you (PoB can't value that). On bosses corpses are scarce — save them for Detonate Dead, then spam Unearth once they pile up. Bleed IV and Bloodlust stack here too.",
@@ -507,16 +508,16 @@
     "str",
     "1.67×",
     null,
-    "Meat Shield I/II",
-    "The Cleric deals no damage, so Meat Shield's damage penalty costs nothing — and it takes much less damage: 1.67× survival."
+    "Meat Shield II",
+    "The Cleric deals no damage, so Meat Shield's damage penalty costs nothing — and it takes much less damage: 1.67× survival. Meat Shield II: 40% less damage taken (I: 35%). Gem tier 3: cut it from an Uncut Support Gem of level 3+."
    ],
    [
     "Rapid Casting II",
     "int",
     "1.11× casts",
     null,
-    "Rapid Casting I–II",
-    "The Cleric casts Heal and Resurrect 11% more often (1.79 → 1.99 casts/s). Rapid Casting III does nothing here — it counts your recent spells, not the Cleric's. Int."
+    "Rapid Casting II",
+    "The Cleric casts Heal and Resurrect 11% more often (1.79 → 1.99 casts/s). Rapid Casting III does nothing here — it counts your recent spells, not the Cleric's. Int. Rapid Casting II: 20% faster casting. Rapid Casting I is a weaker stand-in. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Elemental Army",
@@ -524,7 +525,7 @@
     "1.36×",
     null,
     null,
-    "More elemental resistance for the Cleric: 1.36× survival. Int."
+    "More elemental resistance for the Cleric: 1.36× survival. Int. Gem tier 1: cut it from an Uncut Support Gem of level 1+."
    ],
    [
     "Hulking Minions",
@@ -532,7 +533,7 @@
     "1.19×",
     null,
     null,
-    "More Life and size; doesn't raise the Cleric's Spirit cost: 1.19× survival. Int."
+    "More Life and size; doesn't raise the Cleric's Spirit cost: 1.19× survival. Int. Gem tier 4: cut it from an Uncut Support Gem of level 4+."
    ],
    [
     "Minion Mastery",
@@ -540,7 +541,7 @@
     "1.09×",
     null,
     null,
-    "+1 level for the Cleric: 1.09× survival. Int."
+    "+1 level for the Cleric: 1.09× survival. Int. Gem tier 5: cut it from an Uncut Support Gem of level 5+."
    ]
   ],
   "note": "Meat Shield is right here: it cuts the Cleric's damage (which it doesn't need) and the damage it takes. Infernal Legion is out — it sets the Cleric itself on fire. Rapid Casting makes it heal and resurrect more often. Hulking Minions doesn't raise its Spirit cost. Survival multipliers are the Cleric's own (PoB can't value healing). All five supports verified to fit its socket.",

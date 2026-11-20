@@ -525,3 +525,30 @@ User's site was still on v2.32 (v2.33–v2.36 never uploaded). MinionBuildGuide_
 index.html, README.md, dev/HANDOFF.md, dev/source/{checklist_template.html, checklist_data.json, gems.json,
 gear_targets_fragment.html, build_index.py}. Pair it with MinionBossGuide_v1_0 (bosses.html, bosses_template.html, build_index.py).
 LESSON: ask which version the site shows before assuming earlier zips were uploaded; offer a catch-up zip when they weren't.
+
+## v2.38 + Boss guide v1.1 + PoB code v2.7 (2026-11-12) — Reaver replaces the Frost Mage
+User has no Rakiata's Flow (Lineage; drops only from Manoki, the Chosen — Jade Isles anomaly map, ~1 in 12–15 kills with setup,
+trades for 100–195+ Divines). Re-measured on PoB code v2.6: Frost Mage with Rakiata 6,249 (195/Spirit), without 2,491 (78);
+Reaver 4,390 with Heavy Swing, 4,710 with Bleed IV + Bloodlust when BOTH were enabled (6 minion kinds → bigger Muster);
+in the real v2.7 army (Frost Mage off) the Reaver does 4,492 (180/Spirit).
+Card gem2 is now the Reaver (key gem2:Skeletal Reaver — reuses the old alternative key); the Frost Mage is the Alternative
+(key gem2:skill:Skeletal Frost Mage, kept). Kept ticks: gem2:Feeding Frenzy I, gem2:Muster. Dropped keys: gem2:Rakiata's Flow,
+gem2:Cold Attunement, gem2:Elemental Focus. New: gem2:Brutality III, gem2:Bleed IV, gem2:Bloodlust.
+Budget with the Reaver: Str 21 supports (+7 utility = 28 → 140 of 142 Str), Int 12 (60 of 72 → 2 Int picks free), Dex 0,
+Lineage slot free. Spirit 138/165 (27 spare). Ice Armour references removed from How to play. Levelling "Army by Spirit" updated.
+Boss guide v1.1: the Arbiter minion line now applies only if the user runs Frost Mages.
+PoB code v2.7: Reaver group ON (FF, Muster, Brutality III, Bleed IV, Bloodlust), Frost Mage group OFF, notes updated.
+LESSON: Muster depends on how many minion KINDS are summoned — measure swaps with the replaced minion disabled.
+
+## v2.39 + PoB code v2.8 (2026-11-12) — exact gem names (no tier ranges)
+User wants every chip to name EXACTLY which gem to get. From sup_*.lua constantStats: Feeding Frenzy I = +30% more minion damage,
++20% more taken; II = +30% / +15% taken (strictly better). Brutality II = 30% more phys; III = same + 20% chance to ignore phys
+damage reduction (strictly better). Meat Shield I −35%/−35%, II −40%/−40%. Bleed III = 100% bleed chance. Rapid Casting II = +20%
+cast speed. Support gem tiers (Gems.lua Tier = Uncut Support Gem level): FF I 3 / II 4, Brutality I 1 / II 2 / III 5, Bleed I 1 /
+II 3 / III 5 / IV 5, Meat Shield I 1 / II 3, Prolonged Duration I 1 / II 3, Rapid Casting I 1 / II 4 / III 5, Muster 3, Heft 5,
+Heavy Swing 4, Hulking 4, Minion Mastery 5, Concentrated Area 1, Elemental Army 1, Loyalty 2, Sacrificial Offering 3, Danse Macabre 2,
+Unleash 1, Heightened Curse 1, Ritualistic Curse 3, Focused Curse 2 (Bloodlust shows Tier 0 — data quirk).
+Chip labels (sup[4]) now exact: "Feeding Frenzy II", "Brutality III", "Bleed III", "Meat Shield II", "Prolonged Duration II",
+"Rapid Casting II" (keys unchanged). Tooltips add the stand-in rule and "Gem tier N: cut from an Uncut Support Gem of level N+".
+"Tiers" note rewritten as "Exact gems". PoB code v2.8: Feeding Frenzy I → II everywhere (6), Brutality II/Meat Shield I → none left.
+NOTE: PoB values FF II = FF I and Brutality III = II (it doesn't model the extras) — never present them as "equal" to the user.
