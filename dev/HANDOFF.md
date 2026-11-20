@@ -556,3 +556,8 @@ NOTE: PoB values FF II = FF I and Brutality III = II (it doesn't model the extra
 ## v2.40 (2026-11-12) — no stand-ins
 User: "I don't want stand-ins. I want the ideal gem." Removed every lower-tier / "until you can cut" suggestion from tooltips and
 notes; each chip and tooltip names only the ideal gem, its effect and its Uncut Support Gem level. Do not reintroduce stand-ins.
+
+## v2.41 (2026-11-12) — "Until then" sidenotes restored (user changed their mind; supersedes the v2.40 rule)
+Chips still name only the IDEAL gem. Each tiered support's tooltip ends with an "Until then:" line naming the lower tier to use
+meanwhile (FF II→I, Brutality III→II/I, Bleed III→II/I (never IV), Bleed IV→Bleed III, Meat Shield II→I, Prolonged Duration II→I,
+Rapid Casting II→I, Rapid Casting III→Unleash). The "Exact gems" note mentions it once.
